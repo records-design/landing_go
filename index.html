@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=17">
+  <link rel="stylesheet" href="style.css?v=18">
 </head>
 <body class="is-loading">
 
@@ -58,8 +58,12 @@
     <!-- HERO: el afiche -->
     <section class="hero" aria-label="GO! Vive a tu manera, ¿Y si volvemos?">
       <!-- franjas de fondo + carga: la estrella gira mientras carga y después se arma el logo -->
-      <div class="hero__stripes" aria-hidden="true">
-        <span class="c-mia"></span><span class="c-lupe"></span><span class="c-juanma"></span><span class="c-alvaro"></span>
+      <!-- las caras solo se muestran en mobile; en escritorio quedan solo las franjas -->
+      <div class="hero__stripes">
+        <div class="stripe c-mia"><img src="img/mia.jpg" alt=""><p class="stripe__name">Mia<span>Pili Pascual</span></p></div>
+        <div class="stripe c-lupe"><img src="img/lupe.jpg" alt=""><p class="stripe__name">Lupe<span>Renata Toscano</span></p></div>
+        <div class="stripe c-juanma"><img src="img/juanma.jpg" alt=""><p class="stripe__name">Juanma<span>Santiago Saez</span></p></div>
+        <div class="stripe c-alvaro"><img src="img/alvaro.jpg" alt=""><p class="stripe__name">Alvaro<span>El Purre</span></p></div>
       </div>
       <div class="loader" aria-hidden="true"><svg class="loader__star"><use href="#star"/></svg></div>
 
