@@ -343,19 +343,21 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
 .ticket.c-juanma .ticket__stub { color: var(--ink); }
 
 .ticket--gone .ticket__main > * { opacity: .55; }
+/* franja roja "SOLD OUT", como en las piezas de la campaña (centrada en la parte
+   principal de la entrada, sin tapar el talón) */
 .stamp {
-  position: absolute; left: 50%; top: 50%; z-index: 2;
-  padding: 2px 16px 0; white-space: nowrap;
-  font-family: var(--display); font-size: 70px; line-height: 1; letter-spacing: .06em;
-  color: var(--red); border: 6px solid var(--red); border-radius: 6px;
-  mix-blend-mode: multiply; filter: url(#worn);
-  transform: translate(-58%, -50%) rotate(-14deg);
+  position: absolute; left: 38%; top: 50%; z-index: 2;
+  padding: 8px 46px 4px; white-space: nowrap;
+  font-family: var(--display); font-size: 52px; line-height: 1; letter-spacing: .05em; text-transform: uppercase;
+  color: #fff; background: #e3141b;
+  box-shadow: 0 8px 18px rgba(0,0,0,.3);
+  transform: translate(-50%, -50%) rotate(-14deg);
   opacity: 0;
 }
 .ticket--gone.is-in .stamp { animation: slam .5s var(--bounce) forwards; animation-delay: calc(var(--d, 0ms) + .7s); }
 @keyframes slam {
-  from { transform: translate(-58%, -50%) rotate(-24deg) scale(2.6); opacity: 0; }
-  to   { transform: translate(-58%, -50%) rotate(-14deg) scale(1); opacity: .92; }
+  from { transform: translate(-50%, -50%) rotate(-24deg) scale(2); opacity: 0; }
+  to   { transform: translate(-50%, -50%) rotate(-14deg) scale(1); opacity: 1; }
 }
 
 /* =========================================================
@@ -506,7 +508,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .nav { opacity: 1 !important; }
   .ticket, .pin, .mega { opacity: 1; transform: rotate(var(--r, 0deg)); }
   .pin { transform: translateY(var(--y, 0)) rotate(var(--r, 0deg)); }
-  .stamp { opacity: .92; }
+  .stamp { opacity: 1; }
   .chalk-title { clip-path: none; }
   .doodle path { stroke-dashoffset: 0; }
 }
@@ -579,7 +581,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .ticket__place { font-size: 13px; }
   .ticket__stub { width: 82px; }
   .ticket__buy { font-size: 11px; letter-spacing: .06em; }
-  .stamp { font-size: 54px; border-width: 5px; }
+  .stamp { font-size: 42px; padding: 6px 34px 3px; }
 
   .board { padding: 64px 0 90px; }
   .board__head { margin-bottom: 30px; }

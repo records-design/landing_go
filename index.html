@@ -14,21 +14,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=27">
+  <link rel="stylesheet" href="style.css?v=29">
 </head>
 <body class="is-loading">
 
-  <!-- recursos SVG compartidos: estrella del logo y filtros de tiza / sello gastado -->
+  <!-- recursos SVG compartidos: estrella del logo y filtro de tiza -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="star" viewBox="0 0 100 100">
       <path d="M50 6c4 0 6 22 10 28s30 2 32 6-22 16-24 22 10 30 6 32-22-14-24-14-20 16-24 14 6-26 4-32S6 44 8 40s28 0 32-6S46 6 50 6z"/>
     </symbol>
-    <filter id="worn" x="-5%" y="-5%" width="110%" height="110%">
-      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" seed="4" result="noise"/>
-      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 -2.2 1.75" result="holes"/>
-      <feComposite in="SourceGraphic" in2="holes" operator="in" result="eaten"/>
-      <feDisplacementMap in="eaten" in2="noise" scale="3"/>
-    </filter>
     <filter id="chalk" x="-5%" y="-5%" width="110%" height="110%">
       <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="9" result="noise"/>
       <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 -1.6 1.45" result="dust"/>
@@ -115,7 +109,7 @@
               <span class="ticket__stub-label" data-i18n="ticket.s20">Función 20 hs</span>
               <i class="barcode" aria-hidden="true"></i>
             </div>
-            <span class="stamp" aria-hidden="true" data-i18n="ticket.stamp">Agotado</span>
+            <span class="stamp" aria-hidden="true" data-i18n="ticket.stamp">Sold out</span>
           </div>
 
           <a class="ticket c-mia toss" data-tickets href="#" style="--r:-1.5deg">
