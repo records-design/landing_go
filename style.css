@@ -287,6 +287,7 @@ body:not(.is-ready) .nav { opacity: 0; }
   transition: transform .9s var(--ease), opacity .6s ease;
 }
 .mega.is-in { transform: none; opacity: 1; }
+.funciones .mega { color: var(--lupe); } /* fucsia de la marca */
 
 .tickets { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px 48px; margin-top: 64px; position: relative; }
 .ticket {
