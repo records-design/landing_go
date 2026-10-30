@@ -6,6 +6,9 @@
      tablet   701 – 1199px   → @media (min-width: 701px) and (max-width: 1199px)
      desktop  ≥ 1200px       → estilos base
    Cada componente nuevo debe cubrir los tres tramos.
+   Excepción única: la PORTADA cambia según la orientación (al final del archivo).
+     vertical   → afiche (logo arriba, caras abajo), como el key visual
+     horizontal → como la vía pública: franjas con caras + panel con el logo
    ---------------------------------------------------------
    CONCEPTO: objetos reales del mundo GO!, nada de “tarjetas”.
      afiche (hero) → marquesina del teatro (cuenta regresiva)
@@ -666,4 +669,43 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
     transform: translateY(160%); transition: transform .45s var(--bounce);
   }
   .sticky-cta.is-visible { transform: none; }
+}
+
+/* =========================================================
+   PORTADA HORIZONTAL (≥ 701px y pantalla apaisada)
+   Igual que la pieza de vía pública: las 4 franjas con las caras
+   a la izquierda y un panel teal con el logo a la derecha.
+   Así el texto nunca tapa las caras, sea cual sea el alto.
+   ========================================================= */
+@media (min-width: 701px) and (orientation: landscape) {
+  .hero {
+    min-height: max(100svh, 520px);
+    grid-template-columns: 57% 43%;
+    place-items: center;
+    background: var(--mia);
+  }
+  .hero__stripes { inset: 0 43% 0 0; }
+  .loader { inset: 0 0 0 57%; }
+
+  /* la foto entera, a lo ancho de la franja, apoyada abajo */
+  .stripe img {
+    left: 0; translate: none;
+    width: 100%; height: auto; max-height: 100%;
+    object-fit: cover; object-position: center bottom;
+    -webkit-mask-image: none; mask-image: none;
+  }
+  .stripe__name { bottom: calc(2% + 24px); font-size: clamp(16px, 1.6vw, 26px); letter-spacing: .08em; } /* 24px = borde rasgado */
+  .stripe__name::after { width: 22px; height: 2px; margin: 8px auto; }
+  .stripe__name span { font-size: clamp(10px, .9vw, 15px); letter-spacing: .05em; }
+
+  .hero__content { grid-column: 2; align-self: center; width: 100%; padding: 70px 28px 40px; gap: 6px; }
+  .hero__logo img { width: min(360px, 24vw, 48svh); }
+  .hero__claim { font-size: clamp(18px, 2vw, 32px); }
+  .hero__tag { margin: 8px 0 14px; }
+  .hero__tag b { font-size: clamp(24px, 2.2vw, 34px); }
+  .hero__tag span { font-size: clamp(12px, 1.1vw, 16px); }
+  .ticket-btn--lg { font-size: clamp(22px, 2.2vw, 32px); padding: 13px 30px 10px; }
+  /* la nota a mano va debajo del botón (al costado no entra en el panel) */
+  .hero__hand { position: static; margin-top: 16px; text-align: center; transform: rotate(-4deg); font-size: clamp(18px, 1.6vw, 24px); }
+  .doodle--arrow { display: none; }
 }
