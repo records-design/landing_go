@@ -411,6 +411,23 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
 .polaroid span { font-size: 15px; letter-spacing: .12em; text-transform: uppercase; }
 .polaroid .tape { background: color-mix(in srgb, var(--c) 55%, rgba(250,244,226,.5)); }
 
+/* ficha del personaje: al pasar el mouse (o tocar en mobile) se despliega
+   hacia abajo como una solapa de la polaroid, sin mover el resto de la página */
+.polaroid .polaroid__bio {
+  position: absolute; left: 0; right: 0; top: calc(100% - 2px); z-index: 1;
+  display: block; padding: 12px 18px 18px;
+  background: #fbf7ee; border-top: 1px dashed rgba(15, 20, 18, .18);
+  box-shadow: 0 18px 26px rgba(0,0,0,.35);
+  font-size: 15px; line-height: 1.4; letter-spacing: 0; text-transform: none; text-align: center;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path .45s var(--ease);
+  pointer-events: none;
+}
+.polaroid.is-open, .polaroid:hover { z-index: 6; }
+.polaroid.is-open .polaroid__bio { clip-path: inset(0 -40px -60px -40px); }
+@media (hover: hover) { .polaroid:hover .polaroid__bio { clip-path: inset(0 -40px -60px -40px); } }
+@media (hover: none) { .polaroid { cursor: pointer; } }
+
 /* aparición: se “pegan” sobre el pizarrón */
 .pin {
   opacity: 0; transform: translateY(var(--y)) rotate(calc(var(--r) * -3)) scale(1.25);
@@ -600,6 +617,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .polaroid { padding: 8px 8px 0; }
   .polaroid b { font-size: 24px; }
   .polaroid span { font-size: 11px; letter-spacing: .06em; }
+  .polaroid .polaroid__bio { font-size: 12.5px; padding: 10px 10px 14px; letter-spacing: 0; }
   .polaroid .tape { width: 80px; margin-left: -40px; height: 24px; top: -12px; }
   .pin { --y: 0px !important; }
   .board__d2, .board__d3 { display: none; }
@@ -665,7 +683,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
     -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent);
             mask-image: linear-gradient(to bottom, #000 78%, transparent);
   }
-  .c-lupe img { object-position: 30% top; } /* en su foto la cara está corrida a la izquierda */
+  .stripe.c-lupe img { object-position: 30% top; } /* en su foto la cara está corrida a la izquierda */
   .stripe__name { bottom: 34px; font-size: clamp(16px, 1.6vw, 26px); letter-spacing: .08em; } /* 24px de borde rasgado + aire */
   .stripe__name::after { width: 22px; height: 2px; margin: 8px auto; }
   .stripe__name span { font-size: clamp(10px, .9vw, 15px); letter-spacing: .05em; }

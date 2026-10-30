@@ -37,7 +37,11 @@ const EN = {
   'ticket.t16': '4 pm', 'ticket.t20': '8 pm', 'ticket.place': 'Gran Rex Theatre · Av. Corrientes 857',
   'ticket.s16': '4 pm show', 'ticket.s20': '8 pm show', 'ticket.buy': 'Buy', 'ticket.stamp': 'Sold out',
   'ticket.lastFlag': 'Last tickets!',
-  'cast.title': 'they’re back', 'talent.title': '…and they’re not alone',
+  'cast.title': 'they’re back',
+  'bio.mia': 'She arrives at Saint Mary on a scholarship with a huge talent for music. Her voice changes everything at school… and in GO!',
+  'bio.lupe': 'The queen of Saint Mary: cheer captain and star of GO!. Competitive and used to being the center of attention, but she’d do anything for her friends.',
+  'bio.juanma': 'Saint Mary’s basketball star… until he discovers music is his thing and dares to sing.',
+  'bio.alvaro': 'Lupe’s brother. Loyal and protective, he doesn’t hesitate to stand by Mía when it matters.', 'talent.title': '…and they’re not alone',
   'talent.center': 'Everyone’s back',
   'venue.title': 'Gran Rex<br>Theatre', 'venue.addr': 'Av. Corrientes 857, Buenos Aires, Argentina',
   'cta.buy': 'Get tickets', 'venue.map': 'get directions →',
@@ -204,6 +208,16 @@ function renderDaysLeft() {
 renderDaysLeft();
 setInterval(renderDaysLeft, 60 * 1000);
 document.addEventListener('langchange', renderDaysLeft);
+
+// Polaroids: en pantallas táctiles la ficha se abre y se cierra tocando la foto
+document.querySelectorAll('.polaroid').forEach((card, _, all) => {
+  card.addEventListener('click', () => {
+    if (window.matchMedia('(hover: hover)').matches) return; // con mouse alcanza con pasar por encima
+    const open = !card.classList.contains('is-open');
+    all.forEach((c) => c.classList.remove('is-open'));
+    card.classList.toggle('is-open', open);
+  });
+});
 
 // Ola de talentos: las caras avanzan de izquierda a derecha sobre una línea
 // ondulada de tiza. Al pasar (o tocar) una cara se frena y su nombre aparece abajo.
