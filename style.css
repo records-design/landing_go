@@ -244,12 +244,6 @@ body::after {
 }
 .doodle--arrow { position: relative; display: block; width: 92px; margin: 4px 0 0 -40px; }
 .hero__content .doodle path { transition: none; animation: draw 1.2s cubic-bezier(.6, 0, .3, 1) forwards; }
-.doodle--star  { width: 56px; left: -86px; top: 92px; transform: rotate(-12deg); }
-.doodle--note  { width: 40px; right: -78px; top: 150px; transform: rotate(10deg); }
-.doodle--spark { width: 46px; left: -64px; top: 300px; }
-.doodle--star path  { animation-delay: 2.4s !important; }
-.doodle--note path  { animation-delay: 2.6s !important; }
-.doodle--spark path { animation-delay: 2.8s !important; }
 .doodle--arrow path { animation-delay: 3.1s !important; }
 
 @keyframes draw { to { stroke-dashoffset: 0; } }
@@ -541,8 +535,6 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .stripe__name span { font-size: 14px; }
   .hero__logo img { width: clamp(240px, 34vw, 320px); }
   .hero__hand { font-size: 20px; left: calc(100% + 10px); }
-  .doodle--star { left: -70px; }
-  .doodle--note { right: -60px; }
 
   .tile { width: 124px; }
   .tile strong { font-size: 76px; }
@@ -584,10 +576,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .hero__tag span { font-size: 13px; padding-left: 10px; letter-spacing: .08em; }
   .ticket-btn--lg { font-size: clamp(22px, 7vw, 28px); padding: 13px 26px 10px; }
   .hero__hand { display: none; }
-  .doodle--star { width: 34px; left: 4px; top: 74px; }
-  .doodle--note { width: 28px; right: 10px; top: 96px; }
-  .doodle--spark { display: none; }
-
+  
   .marquee { padding: 56px var(--gutter) 64px; }
   .marquee__board { padding: 44px 12px 42px; box-shadow: 0 0 0 6px #121514, 0 20px 40px rgba(0,0,0,.5); }
   .bulbs { left: 10px; right: 10px; background-size: 20px 16px; }
