@@ -28,14 +28,15 @@ Promise.race([Promise.all([pageLoaded, document.fonts.ready, wait(reduceMotion ?
    Cada texto traducible tiene data-i18n="clave" (o data-i18n-aria para aria-label). */
 const EN = {
   'aria.home': 'GO! Vive a tu manera, home', 'aria.sections': 'Sections', 'aria.lang': 'Language',
-  'aria.soldout': '8 pm show sold out', 'aria.bands': 'Tickets available',
+  'aria.soldout': 'Saturday 12, 4 pm show sold out', 'aria.bands': 'Tickets available',
   'nav.shows': 'Shows', 'nav.cast': 'Cast', 'nav.talent': 'Talent', 'nav.venue': 'Getting there', 'nav.tickets': 'Tickets',
   'hero.claim': 'What if we go back?', 'hero.date': 'Sat Dec 12', 'venue.name': 'Gran Rex Theatre',
   'cta.main': 'Get my ticket',
-  'shows.title': 'Shows', 'shows.hand': 'the 8 pm show<br>is sold out',
+  'shows.title': 'Shows',
   'ticket.show': 'GO! · What if we go back?', 'ticket.day': 'Sat', 'ticket.month': 'Dec',
   'ticket.t16': '4 pm', 'ticket.t20': '8 pm', 'ticket.place': 'Gran Rex Theatre · Av. Corrientes 857',
-  'ticket.new': 'New show', 'ticket.buy': 'Buy', 'ticket.s20': '8 pm show', 'ticket.stamp': 'Sold out',
+  'ticket.s16': '4 pm show', 'ticket.s20': '8 pm show', 'ticket.buy': 'Buy', 'ticket.stamp': 'Sold out',
+  'ticket.lastFlag': 'Last tickets!',
   'ticket.pass': 'Backstage pass', 'ticket.meet': 'Meet the cast at the Gran Rex', 'ticket.info': 'More info',
   'cast.title': 'they’re back', 'talent.title': '…and they’re not alone',
   'talent.center': 'Everyone’s back', 'talent.hint': 'tap each face', 'talent.generic': 'GO! talent',

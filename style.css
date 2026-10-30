@@ -287,12 +287,6 @@ body:not(.is-ready) .nav { opacity: 0; }
   transition: transform .9s var(--ease), opacity .6s ease;
 }
 .mega.is-in { transform: none; opacity: 1; }
-.funciones__hand {
-  position: absolute; right: var(--gutter); top: 30px;
-  font-size: 34px; color: var(--lupe); text-align: center;
-  transform: rotate(8deg);
-}
-.funciones__hand::after { content: "↓"; display: block; font-size: 44px; transform: rotate(-30deg); margin: 4px auto 0; }
 
 .tickets { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px 22px; margin-top: -40px; position: relative; }
 .ticket {
@@ -343,6 +337,18 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
 .ticket.c-juanma .ticket__stub { color: var(--ink); }
 
 .ticket--gone .ticket__main > * { opacity: .55; }
+
+/* "¡Últimas entradas!": cartel rojo pegado arriba de la entrada, como el "Nueva función" de las piezas */
+.ticket__flag {
+  position: absolute; top: -18px; right: 104px; z-index: 4;
+  padding: 7px 16px 4px;
+  font-family: var(--display); font-size: 24px; line-height: 1; letter-spacing: .05em; text-transform: uppercase;
+  color: #fff; background: #e3141b;
+  transform: rotate(4deg);
+  box-shadow: 0 6px 14px rgba(0,0,0,.25);
+}
+.ticket--last .tape { left: 28%; }
+.ticket--last.is-in .ticket__flag { animation: pop .5s var(--bounce) both; animation-delay: calc(var(--d, 0ms) + .7s); }
 /* franja roja "SOLD OUT", como en las piezas de la campaña (centrada en la parte
    principal de la entrada, sin tapar el talón) */
 .stamp {
@@ -350,7 +356,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   padding: 8px 46px 4px; white-space: nowrap;
   font-family: var(--display); font-size: 52px; line-height: 1; letter-spacing: .05em; text-transform: uppercase;
   color: #fff; background: #e3141b;
-  box-shadow: 0 8px 18px rgba(0,0,0,.3);
+  clip-path: polygon(22px 0, 100% 0, calc(100% - 22px) 100%, 0 100%); /* puntas en diagonal, como en las piezas */
   transform: translate(-50%, -50%) rotate(-14deg);
   opacity: 0;
 }
@@ -527,8 +533,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .hero__hand { font-size: 20px; left: calc(100% + 10px); }
 
 
-  .funciones__hand { font-size: 28px; top: 20px; }
-  .tickets { margin-top: -20px; }
+    .tickets { margin-top: -20px; }
 
   .polaroids { grid-template-columns: repeat(2, 1fr); max-width: 620px; margin: 0 auto; gap: 40px 34px; }
   .orbit { --size: min(520px, 66vw); --face: 96px; }
@@ -571,9 +576,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
 
   .funciones { padding: 56px 0 90px; }
   .mega { font-size: clamp(70px, 21vw, 120px); }
-  .funciones__hand { position: static; font-size: 24px; margin: 16px 0 0 auto; width: max-content; }
-  .funciones__hand::after { font-size: 32px; }
-  .tickets { margin-top: 10px; gap: 30px; }
+      .tickets { margin-top: 10px; gap: 30px; }
   .ticket { width: 100%; max-width: 380px; min-height: 196px; }
   .ticket__main { padding: 22px 16px 14px; }
   .ticket__num { font-size: 88px; }
@@ -581,7 +584,9 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .ticket__place { font-size: 13px; }
   .ticket__stub { width: 82px; }
   .ticket__buy { font-size: 11px; letter-spacing: .06em; }
-  .stamp { font-size: 42px; padding: 6px 34px 3px; }
+  .stamp { font-size: 42px; padding: 6px 34px 3px; clip-path: polygon(16px 0, 100% 0, calc(100% - 16px) 100%, 0 100%); }
+  .ticket__flag { font-size: 19px; right: 90px; top: -16px; padding: 6px 12px 3px; }
+  .ticket--last.is-in .ticket__flag, .ticket__flag { animation: none; }
 
   .board { padding: 64px 0 90px; }
   .board__head { margin-bottom: 30px; }
