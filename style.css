@@ -165,7 +165,7 @@ body::after {
 /* =========================================================
    HERO · el afiche
    ========================================================= */
-.hero { position: relative; min-height: 100svh; display: grid; place-items: center; overflow: hidden; isolation: isolate; }
+.hero { position: relative; min-height: max(100svh, 760px); display: grid; place-items: start center; overflow: hidden; isolation: isolate; }
 
 /* franjas: bajan una por una al entrar a la página */
 .hero__stripes { position: absolute; inset: 0; display: flex; z-index: -1; }
@@ -173,8 +173,31 @@ body::after {
 .stripe:nth-child(2) { --n: 1; animation-delay: .08s; }
 .stripe:nth-child(3) { --n: 2; animation-delay: .16s; }
 .stripe:nth-child(4) { --n: 3; animation-delay: .24s; }
-/* caras y nombres: solo en mobile (ver abajo) */
-.stripe img, .stripe__name { display: none; }
+/* caras: la imagen trae cabeza y hombros sobre el mismo color de la franja,
+   así que se muestra desde arriba para que entre la cabeza entera */
+.stripe img {
+  /* la cabeza ocupa del 15% al 80% de la foto: con este ancho máximo
+     (proporcional al alto) siempre entra entera, con el pecho abajo para los nombres */
+  position: absolute; left: 50%; bottom: 0; translate: -50% 0;
+  width: min(100%, 25svh); height: max(58svh, 440px);
+  object-fit: cover; object-position: center 100%;
+  /* los costados se funden con la franja (es el mismo color del fondo de la foto) */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+  opacity: 0;
+}
+.is-ready .stripe img { animation: face-rise 1.6s cubic-bezier(.22, .61, .36, 1) both; animation-delay: calc(1.2s + var(--n, 0) * .15s); }
+@keyframes face-rise { from { opacity: 0; transform: translateY(5%); } to { opacity: 1; transform: none; } }
+.stripe__name {
+  display: flex; flex-direction: column;
+  position: absolute; left: 0; right: 0; bottom: 3.5%;
+  text-align: center; font-size: 28px; letter-spacing: .1em; text-transform: uppercase; line-height: 1.1;
+  text-shadow: 0 2px 14px rgba(0,0,0,.35);
+  opacity: 0;
+}
+.is-ready .stripe__name { animation: fade-up 1s var(--ease) both; animation-delay: calc(1.9s + var(--n, 0) * .15s); }
+.stripe__name::after { content: ""; display: block; width: 28px; height: 3px; background: currentColor; margin: 10px auto; order: 1; }
+.stripe__name span { display: block; font-size: 16px; letter-spacing: .08em; opacity: .9; order: 2; }
 @keyframes stripe-down { from { transform: scaleY(0); } }
 
 /* CARGA: la estrella gira mientras carga; cuando está todo, hace “pop” y se arma el logo */
@@ -192,8 +215,8 @@ body::after {
 .hero__content {
   position: relative;
   display: flex; flex-direction: column; align-items: center; text-align: center;
-  padding: 90px var(--gutter) 60px;
-  gap: 12px;
+  padding: 80px var(--gutter) 0;
+  gap: 8px;
   pointer-events: none;
   translate: 0 calc(var(--sy, 0) * 140px);
   opacity: calc(1 - var(--sy, 0) * 1.6);
@@ -204,7 +227,7 @@ body:not(.is-ready) .nav { opacity: 0; }
 .hero__content a { pointer-events: auto; }
 
 .hero__logo { filter: drop-shadow(0 8px 28px rgba(0,0,0,.22)); }
-.hero__logo img { width: clamp(300px, 34vw, 520px); height: auto; }
+.hero__logo img { width: clamp(240px, 20vw, 330px); height: auto; }
 .is-ready .hero__logo img { animation: brush-in .9s cubic-bezier(.6, 0, .2, 1) both .2s, logo-pop .5s var(--bounce) .95s; }
 @keyframes brush-in {
   from { clip-path: polygon(0 0, 0 0, -25% 100%, -25% 100%); transform: rotate(-5deg) scale(.92); }
@@ -243,7 +266,6 @@ body:not(.is-ready) .nav { opacity: 0; }
 .is-ready .hero__content .doodle path { animation: draw 1.1s cubic-bezier(.6, 0, .3, 1) forwards 2.3s; }
 
 @keyframes draw { to { stroke-dashoffset: 0; } }
-@keyframes face-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes fade-up { from { transform: translateY(16px); opacity: 0; } to { transform: none; opacity: 1; } }
 @keyframes letter { from { transform: translateY(.8em) rotate(12deg); opacity: 0; } to { transform: none; opacity: 1; } }
 @keyframes pop { from { transform: scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
@@ -530,7 +552,9 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .nav__links { gap: 18px; }
   .nav__links a { font-size: 14px; letter-spacing: .1em; }
   .lang { font-size: 12px; }
-  .hero__logo img { width: clamp(300px, 46vw, 440px); }
+  .hero__logo img { width: clamp(240px, 32vw, 320px); }
+  .stripe__name { font-size: 22px; bottom: 8%; }
+  .stripe__name span { font-size: 13px; }
   .hero__hand { font-size: 20px; left: calc(100% + 10px); }
 
   .tile { width: 124px; }
@@ -563,25 +587,12 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .loader__star { width: 72px; height: 72px; }
 
   .hero { min-height: 92svh; }
-  .hero__content { align-self: start; width: 100%; padding: 76px var(--gutter) 0; gap: 8px; }
+  .hero__content { width: 100%; padding: 76px var(--gutter) 0; gap: 8px; }
   .hero__logo img { width: min(70vw, 280px); }
-  /* en mobile vuelven las caras, abajo, con su nombre */
-  .stripe img {
-    display: block; position: absolute; left: 0; bottom: 0;
-    width: 100%; height: 46%; object-fit: cover; object-position: center 58%;
-    opacity: 0;
-  }
-  .is-ready .stripe img { animation: face-in .9s ease both; animation-delay: calc(1.5s + var(--n, 0) * .08s); }
-  .stripe__name {
-    display: flex; flex-direction: column;
-    position: absolute; left: 0; right: 0; bottom: 8%;
-    text-align: center; font-size: 15px; letter-spacing: .06em; text-transform: uppercase; line-height: 1.1;
-    text-shadow: 0 2px 14px rgba(0,0,0,.35);
-    opacity: 0;
-  }
-  .is-ready .stripe__name { animation: fade-up .8s var(--ease) both; animation-delay: calc(1.9s + var(--n, 0) * .08s); }
-  .stripe__name::after { content: ""; display: block; width: 16px; height: 2px; background: currentColor; margin: 6px auto; order: 1; }
-  .stripe__name span { display: block; font-size: 10px; letter-spacing: .03em; opacity: .9; order: 2; }
+  .stripe img { left: 0; translate: none; width: 100%; height: 46%; object-position: center 58%; -webkit-mask-image: none; mask-image: none; }
+  .stripe__name { font-size: 15px; letter-spacing: .06em; bottom: 8%; }
+  .stripe__name::after { width: 16px; height: 2px; margin: 6px auto; }
+  .stripe__name span { font-size: 10px; letter-spacing: .03em; }
   .hero__claim { font-size: clamp(17px, 6vw, 22px); }
   .hero__tag { gap: 10px; padding: 6px 12px 4px; margin: 4px 0 10px; }
   .hero__tag b { font-size: 28px; }
