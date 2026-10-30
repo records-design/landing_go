@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=34">
+  <link rel="stylesheet" href="style.css?v=35">
 </head>
 <body class="is-loading">
 
@@ -147,27 +147,26 @@
           </figure>
         </div>
 
-        <!-- órbita de talentos -->
+        <!-- ola de talentos -->
         <div class="todos" id="todos">
           <p class="chalk-title chalk-title--sm" data-i18n="talent.title">…y no vuelven solos</p>
-          <div class="orbit" data-orbit>
-            <svg class="orbit__path" viewBox="0 0 200 200" aria-hidden="true">
-              <path d="M100 3 C 156 2, 198 44, 197 100 C 196 158, 154 198, 98 197 C 44 196, 3 154, 4 98 C 5 46, 46 4, 100 3"/>
-            </svg>
-            <div class="orbit__center">
-              <p class="orbit__title" data-orbit-title data-i18n="talent.center">Vuelven todos</p>
-              <p class="orbit__sub" data-orbit-sub data-i18n="talent.hint">tocá cada cara</p>
-            </div>
-            <ul class="orbit__ring">
-              <li style="--i:0" class="c-mia"    data-name="Agustina" data-actor="Majo Cardozo"><img src="img/talentos/agustina.jpg" alt="Majo Cardozo como Agustina" loading="lazy"></li>
-              <li style="--i:1" class="c-lupe"   data-name="Martina"  data-actor="Ana Paula"><img src="img/talentos/martina.jpg" alt="Ana Paula como Martina" loading="lazy"></li>
-              <li style="--i:2" class="c-juanma" data-name="Martín"   data-actor="Bauti Lena"><img src="img/talentos/martin.jpg" alt="Bauti Lena como Martín" loading="lazy"></li>
-              <li style="--i:3" class="c-alvaro" data-name="Zoe"      data-actor="Carmela"><img src="img/talentos/zoe.jpg" alt="Carmela como Zoe" loading="lazy"></li>
-              <li style="--i:4" class="c-mia"    data-name="Crash"    data-actor="Crash"><img src="img/talentos/crash.jpg" alt="Crash" loading="lazy"></li>
-              <li style="--i:5" class="c-lupe"   data-name="Sofía"    data-actor="Majo Chicar"><img src="img/talentos/sofia.jpg" alt="Majo Chicar como Sofía" loading="lazy"></li>
-              <li style="--i:6" class="c-juanma" data-name="Tobías"   data-actor="Manuel"><img src="img/talentos/tobias.jpg" alt="Manuel como Tobías" loading="lazy"></li>
-              <li style="--i:7" class="c-alvaro" data-name="Simón"    data-actor="Paulo"><img src="img/talentos/simon.jpg" alt="Paulo como Simón" loading="lazy"></li>
+          <!-- las caras viajan por una línea ondulada de tiza (la posición la calcula script.js) -->
+          <div class="wave" data-orbit>
+            <svg class="wave__line" aria-hidden="true"><path d=""/></svg>
+            <ul class="wave__faces">
+              <li class="c-mia"    data-name="Agustina"><img src="img/talentos/agustina.jpg" alt="Agustina" loading="lazy"></li>
+              <li class="c-lupe"   data-name="Martina"><img src="img/talentos/martina.jpg" alt="Martina" loading="lazy"></li>
+              <li class="c-juanma" data-name="Martín"><img src="img/talentos/martin.jpg" alt="Martín" loading="lazy"></li>
+              <li class="c-alvaro" data-name="Zoe"><img src="img/talentos/zoe.jpg" alt="Zoe" loading="lazy"></li>
+              <li class="c-mia"    data-name="Crash"><img src="img/talentos/crash.jpg" alt="Crash" loading="lazy"></li>
+              <li class="c-lupe"   data-name="Sofía"><img src="img/talentos/sofia.jpg" alt="Sofía" loading="lazy"></li>
+              <li class="c-juanma" data-name="Tobías"><img src="img/talentos/tobias.jpg" alt="Tobías" loading="lazy"></li>
+              <li class="c-alvaro" data-name="Simón"><img src="img/talentos/simon.jpg" alt="Simón" loading="lazy"></li>
             </ul>
+          </div>
+          <div class="wave__caption">
+            <p class="orbit__title" data-orbit-title data-i18n="talent.center">Vuelven todos</p>
+            <p class="orbit__sub" data-orbit-sub data-i18n="talent.hint">tocá cada cara</p>
           </div>
         </div>
 
@@ -219,6 +218,6 @@
   <!-- CTA fija en mobile -->
   <a class="sticky-cta ticket-btn" data-tickets href="#"><span data-i18n="cta.main">Quiero mi entrada</span></a>
 
-  <script src="script.js?v=22"></script>
+  <script src="script.js?v=25"></script>
 </body>
 </html>

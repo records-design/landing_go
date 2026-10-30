@@ -38,12 +38,11 @@ const EN = {
   'ticket.s16': '4 pm show', 'ticket.s20': '8 pm show', 'ticket.buy': 'Buy', 'ticket.stamp': 'Sold out',
   'ticket.lastFlag': 'Last tickets!',
   'cast.title': 'they’re back', 'talent.title': '…and they’re not alone',
-  'talent.center': 'Everyone’s back', 'talent.hint': 'tap each face', 'talent.generic': 'GO! talent',
+  'talent.center': 'Everyone’s back', 'talent.hint': 'tap each face',
   'venue.title': 'Gran Rex<br>Theatre', 'venue.addr': 'Av. Corrientes 857, Buenos Aires, Argentina',
   'cta.buy': 'Get tickets', 'venue.map': 'get directions →',
   'footer.legal': 'GO! Vive a tu manera is a Netflix original series. © 2026 Onceloops Media.',
 };
-const ES_EXTRA = { 'talent.generic': 'Talento GO!' };
 const BANDS = {
   es: { 'band--a': ['¡Entradas disponibles!', '12 de diciembre', 'Teatro Gran Rex'], 'band--b': ['Vive a tu manera', '¿Y si volvemos?', 'GO!'] },
   en: { 'band--a': ['Tickets available!', 'December 12', 'Gran Rex Theatre'], 'band--b': ['Live your way', 'What if we go back?', 'GO!'] },
@@ -64,7 +63,7 @@ let lang = 'es';
 const t = (key) => {
   if (lang === 'en') return EN[key];
   const el = document.querySelector(`[data-i18n="${key}"]`);
-  return ES_EXTRA[key] ?? (el ? original.get(el) : key);
+  return el ? original.get(el) : key;
 };
 
 // "¿Y si volvemos?" letra por letra (la primera vez espera la intro; al cambiar de idioma, no)
@@ -206,14 +205,60 @@ renderDaysLeft();
 setInterval(renderDaysLeft, 60 * 1000);
 document.addEventListener('langchange', renderDaysLeft);
 
-// Órbita de talentos: al pasar (o tocar) una cara, su nombre va al centro.
+// Ola de talentos: las caras avanzan de izquierda a derecha sobre una línea
+// ondulada de tiza. Al pasar (o tocar) una cara se frena y su nombre aparece abajo.
 // Versiones más claras de cada color para que se lean sobre el fondo oscuro.
 const orbitTitleColors = { 'c-mia': '#2fb3c4', 'c-lupe': '#e0609b', 'c-juanma': '#E8C42D', 'c-alvaro': '#a58bd6' };
-const orbit = document.querySelector('[data-orbit]');
-if (orbit) {
-  const title = orbit.querySelector('[data-orbit-title]');
-  const sub = orbit.querySelector('[data-orbit-sub]');
-  const faces = orbit.querySelectorAll('.orbit__ring li');
+const wave = document.querySelector('[data-orbit]');
+if (wave) {
+  const title = document.querySelector('[data-orbit-title]');
+  const sub = document.querySelector('[data-orbit-sub]');
+  const faces = [...wave.querySelectorAll('.wave__faces li')];
+  const line = wave.querySelector('.wave__line');
+  const SPEED = 45; // px por segundo
+
+  // medidas de la ola (se recalculan si cambia el tamaño de la pantalla)
+  let W, H, face, spacing, track, amp, lambda;
+  const waveY = (x) => amp * Math.sin((2 * Math.PI * x) / lambda);
+  function measure() {
+    W = wave.clientWidth;
+    H = wave.clientHeight;
+    face = faces[0].offsetWidth;
+    spacing = Math.max(face * 1.8, (W + face * 2) / faces.length);
+    track = spacing * faces.length;
+    amp = Math.max(0, (H - face) / 2 - 16);
+    lambda = Math.max(W / 1.6, 380);
+    line.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    let d = '';
+    for (let x = -20; x <= W + 20; x += 8) d += `${d ? 'L' : 'M'}${x} ${(H / 2 + waveY(x)).toFixed(1)}`;
+    line.querySelector('path').setAttribute('d', d);
+  }
+
+  let offset = 0;
+  function place() {
+    faces.forEach((li, i) => {
+      const x = ((offset + i * spacing) % track + track) % track - face; // centro de la cara
+      li.style.transform = `translate3d(${(x - face / 2).toFixed(1)}px, ${waveY(x).toFixed(1)}px, 0)`;
+    });
+  }
+
+  // animación: se frena con el mouse encima, con una cara tocada o fuera de pantalla
+  let hovering = false, paused = false, visible = false, last = 0;
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000 || 0);
+    last = now;
+    if (!hovering && !paused) { offset += SPEED * dt; place(); }
+    if (visible) requestAnimationFrame(frame);
+  }
+  new IntersectionObserver(([e]) => {
+    const was = visible;
+    visible = e.isIntersecting;
+    if (visible && !was && !reduceMotion) { last = performance.now(); requestAnimationFrame(frame); }
+  }).observe(wave);
+  measure();
+  place();
+  window.addEventListener('resize', () => { measure(); place(); });
+
   const swap = (el, text) => {
     if (el.textContent === text) return;
     el.textContent = text;
@@ -225,7 +270,7 @@ if (orbit) {
     faces.forEach((f) => f.classList.toggle('is-active', f === li));
     if (li) {
       swap(title, li.dataset.name);
-      swap(sub, li.dataset.actor === li.dataset.name ? t('talent.generic') : li.dataset.actor);
+      swap(sub, '');
       title.style.color = orbitTitleColors[li.className.match(/c-\w+/)[0]];
     } else {
       swap(title, t('talent.center'));
@@ -237,7 +282,7 @@ if (orbit) {
     li.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') show(li); });
     li.addEventListener('click', () => {
       const active = li.classList.contains('is-active');
-      orbit.classList.toggle('is-paused', !active);
+      paused = !active;
       show(active ? null : li);
       if (!active && !reduceMotion) {
         const r = li.getBoundingClientRect();
@@ -245,11 +290,14 @@ if (orbit) {
       }
     });
   });
-  document.addEventListener('langchange', () => {
-    orbit.classList.remove('is-paused');
-    show(null);
+  wave.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hovering = true; });
+  wave.addEventListener('pointerleave', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    hovering = false;
+    if (!paused) show(null);
   });
-  orbit.addEventListener('pointerleave', (e) => {
-    if (e.pointerType === 'mouse' && !orbit.classList.contains('is-paused')) show(null);
+  document.addEventListener('langchange', () => {
+    paused = false;
+    show(null);
   });
 }
