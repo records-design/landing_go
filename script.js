@@ -220,12 +220,9 @@ document.querySelectorAll('.polaroid').forEach((card, _, all) => {
 });
 
 // Ola de talentos: las caras avanzan de izquierda a derecha sobre una línea
-// ondulada de tiza. Al pasar (o tocar) una cara se frena y su nombre aparece abajo.
-// Versiones más claras de cada color para que se lean sobre el fondo oscuro.
-const orbitTitleColors = { 'c-mia': '#2fb3c4', 'c-lupe': '#e0609b', 'c-juanma': '#E8C42D', 'c-alvaro': '#a58bd6' };
+// ondulada de tiza. Al pasar (o tocar) una cara se frena y su nombre aparece debajo de ella.
 const wave = document.querySelector('[data-orbit]');
 if (wave) {
-  const title = document.querySelector('[data-orbit-title]');
   const faces = [...wave.querySelectorAll('.wave__faces li')];
   const line = wave.querySelector('.wave__line');
   const SPEED = 45; // px por segundo
@@ -239,7 +236,7 @@ if (wave) {
     face = faces[0].offsetWidth;
     spacing = Math.max(face * 1.8, (W + face * 2) / faces.length);
     track = spacing * faces.length;
-    amp = Math.max(0, (H - face) / 2 - 16);
+    amp = Math.max(0, (H - face) / 2 - 16 - 22); // 22px abajo para el nombre
     lambda = Math.max(W / 1.6, 380);
     line.setAttribute('viewBox', `0 0 ${W} ${H}`);
     let d = '';
@@ -272,22 +269,8 @@ if (wave) {
   place();
   window.addEventListener('resize', () => { measure(); place(); });
 
-  const swap = (el, text) => {
-    if (el.textContent === text) return;
-    el.textContent = text;
-    el.classList.remove('swap');
-    void el.offsetWidth;
-    el.classList.add('swap');
-  };
   const show = (li) => {
     faces.forEach((f) => f.classList.toggle('is-active', f === li));
-    if (li) {
-      swap(title, li.dataset.name);
-      title.style.color = orbitTitleColors[li.className.match(/c-\w+/)[0]];
-    } else {
-      swap(title, t('talent.center'));
-      title.style.color = '';
-    }
   };
   faces.forEach((li) => {
     li.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') show(li); });
