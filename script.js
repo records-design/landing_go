@@ -2,7 +2,6 @@
 const TICKETS_URL = 'https://www.tuentrada.com/';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const canHover = window.matchMedia('(hover: hover) and (min-width: 701px)').matches;
 const STAR = '<svg aria-hidden="true"><use href="#star"/></svg>';
 
 document.querySelectorAll('[data-tickets]').forEach((a) => {
@@ -11,12 +10,18 @@ document.querySelectorAll('[data-tickets]').forEach((a) => {
   a.rel = 'noopener';
 });
 
-// Telón: se saca del DOM cuando terminó de subir
-const curtain = document.querySelector('.curtain');
-setTimeout(() => {
-  document.body.classList.remove('is-loading');
-  curtain?.remove();
-}, reduceMotion ? 0 : 1800);
+// Carga: la estrella gira hasta que la página está lista (imágenes y fuentes),
+// con un mínimo para que se vea girar y un máximo por si algo tarda de más.
+const pageLoaded = new Promise((resolve) => {
+  if (document.readyState === 'complete') resolve();
+  else window.addEventListener('load', resolve, { once: true });
+});
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+Promise.race([Promise.all([pageLoaded, document.fonts.ready, wait(reduceMotion ? 0 : 1300)]), wait(5000)])
+  .then(() => {
+    document.body.classList.remove('is-loading');
+    document.body.classList.add('is-ready');
+  });
 
 /* ---------- Idioma (ES / EN) ----------
    El español está escrito en el HTML; acá va solo el inglés.
@@ -148,15 +153,8 @@ document.querySelectorAll('.chalk-title').forEach((el) => {
   io.observe(el.parentElement);
 });
 
-// Hero: parallax con el mouse y con el scroll
+// Hero: el contenido se desvanece al bajar
 if (!reduceMotion) {
-  if (canHover) {
-    hero.addEventListener('pointermove', (e) => {
-      const r = hero.getBoundingClientRect();
-      hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width - 0.5).toFixed(3));
-      hero.style.setProperty('--my', ((e.clientY - r.top) / r.height - 0.5).toFixed(3));
-    });
-  }
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (ticking) return;
@@ -190,13 +188,6 @@ function burst(x, y, count = 9) {
 }
 if (!reduceMotion) {
   document.querySelectorAll('.ticket-btn, a.ticket').forEach((btn) => {
-    let last = 0;
-    btn.addEventListener('pointerenter', (e) => {
-      if (e.pointerType !== 'mouse' || Date.now() - last < 600) return;
-      last = Date.now();
-      const r = btn.getBoundingClientRect();
-      burst(r.left + r.width / 2, r.top + r.height / 2, 7);
-    });
     btn.addEventListener('pointerdown', (e) => burst(e.clientX, e.clientY, 10));
   });
 }

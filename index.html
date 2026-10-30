@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="style.css?v=17">
 </head>
 <body class="is-loading">
 
@@ -37,12 +37,6 @@
     </filter>
   </svg>
 
-  <!-- TELÓN DE ENTRADA -->
-  <div class="curtain" aria-hidden="true">
-    <span class="c-mia"></span><span class="c-lupe"></span><span class="c-juanma"></span><span class="c-alvaro"></span>
-    <svg class="curtain__star"><use href="#star"/></svg>
-  </div>
-
   <!-- NAV -->
   <header class="nav">
     <a class="nav__logo" href="#top" aria-label="GO! Vive a tu manera, inicio" data-i18n-aria="aria.home"><img src="img/logo-go.png" alt="GO! Vive a tu manera"></a>
@@ -63,12 +57,11 @@
 
     <!-- HERO: el afiche -->
     <section class="hero" aria-label="GO! Vive a tu manera, ¿Y si volvemos?">
-      <div class="hero__stripes">
-        <div class="stripe c-mia"><img src="img/mia.jpg" alt=""><p class="stripe__name">Mia<span>Pili Pascual</span></p></div>
-        <div class="stripe c-lupe"><img src="img/lupe.jpg" alt=""><p class="stripe__name">Lupe<span>Renata Toscano</span></p></div>
-        <div class="stripe c-juanma"><img src="img/juanma.jpg" alt=""><p class="stripe__name">Juanma<span>Santiago Saez</span></p></div>
-        <div class="stripe c-alvaro"><img src="img/alvaro.jpg" alt=""><p class="stripe__name">Alvaro<span>El Purre</span></p></div>
+      <!-- franjas de fondo + carga: la estrella gira mientras carga y después se arma el logo -->
+      <div class="hero__stripes" aria-hidden="true">
+        <span class="c-mia"></span><span class="c-lupe"></span><span class="c-juanma"></span><span class="c-alvaro"></span>
       </div>
+      <div class="loader" aria-hidden="true"><svg class="loader__star"><use href="#star"/></svg></div>
 
       <div class="hero__content">
 
@@ -258,6 +251,6 @@
   <!-- CTA fija en mobile -->
   <a class="sticky-cta ticket-btn" data-tickets href="#"><span data-i18n="cta.main">Quiero mi entrada</span></a>
 
-  <script src="script.js?v=16"></script>
+  <script src="script.js?v=17"></script>
 </body>
 </html>
