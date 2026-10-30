@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=26">
+  <link rel="stylesheet" href="style.css?v=27">
 </head>
 <body class="is-loading">
 
@@ -74,26 +74,10 @@
         <p class="hero__tag"><b data-i18n="hero.date">Sáb 12 Dic</b><span data-i18n="venue.name">Teatro Gran Rex</span></p>
         <div class="hero__cta">
           <a class="ticket-btn ticket-btn--lg" data-tickets href="#"><span data-i18n="cta.main">Quiero mi entrada</span></a>
-          <p class="hand hero__hand"><span data-i18n="hero.hand">¡corré que vuelan!</span>
+          <p class="hand hero__hand" data-countdown="2026-12-12T16:00:00-03:00"><span data-days-left>¡corré que vuelan!</span>
             <svg class="doodle doodle--arrow" viewBox="0 0 120 70" aria-hidden="true"><path pathLength="1" d="M112 8 C 90 4, 70 20, 74 36 C 78 52, 58 62, 40 52 C 26 44, 20 40, 10 46 M 20 36 L 9 46 L 22 54"/></svg>
           </p>
         </div>
-      </div>
-    </section>
-
-    <!-- MARQUESINA: cuenta regresiva -->
-    <section class="marquee torn" id="cuenta" aria-label="Cuenta regresiva" data-i18n-aria="aria.countdown">
-      <div class="marquee__board">
-        <i class="bulbs bulbs--top" aria-hidden="true"></i>
-        <i class="bulbs bulbs--bottom" aria-hidden="true"></i>
-        <p class="marquee__label" data-i18n="count.pre">Faltan</p>
-        <div class="marquee__tiles" data-countdown="2026-12-12T16:00:00-03:00">
-          <div class="tile"><strong data-unit="d">--</strong><span data-i18n="count.d">días</span></div>
-          <div class="tile"><strong data-unit="h">--</strong><span data-i18n="count.h">horas</span></div>
-          <div class="tile"><strong data-unit="m">--</strong><span data-i18n="count.m">minutos</span></div>
-          <div class="tile"><strong data-unit="s">--</strong><span data-i18n="count.s">segundos</span></div>
-        </div>
-        <p class="marquee__label" data-i18n="count.post">para volver al Gran Rex</p>
       </div>
     </section>
 
@@ -255,6 +239,6 @@
   <!-- CTA fija en mobile -->
   <a class="sticky-cta ticket-btn" data-tickets href="#"><span data-i18n="cta.main">Quiero mi entrada</span></a>
 
-  <script src="script.js?v=17"></script>
+  <script src="script.js?v=18"></script>
 </body>
 </html>

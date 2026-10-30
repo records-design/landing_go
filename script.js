@@ -28,12 +28,10 @@ Promise.race([Promise.all([pageLoaded, document.fonts.ready, wait(reduceMotion ?
    Cada texto traducible tiene data-i18n="clave" (o data-i18n-aria para aria-label). */
 const EN = {
   'aria.home': 'GO! Vive a tu manera, home', 'aria.sections': 'Sections', 'aria.lang': 'Language',
-  'aria.countdown': 'Countdown', 'aria.soldout': '8 pm show sold out', 'aria.bands': 'Tickets available',
+  'aria.soldout': '8 pm show sold out', 'aria.bands': 'Tickets available',
   'nav.shows': 'Shows', 'nav.cast': 'Cast', 'nav.talent': 'Talent', 'nav.venue': 'Getting there', 'nav.tickets': 'Tickets',
   'hero.claim': 'What if we go back?', 'hero.date': 'Sat Dec 12', 'venue.name': 'Gran Rex Theatre',
-  'cta.main': 'Get my ticket', 'hero.hand': 'selling fast!',
-  'count.pre': 'Only', 'count.d': 'days', 'count.h': 'hours', 'count.m': 'minutes', 'count.s': 'seconds',
-  'count.post': 'until we’re back at the Gran Rex',
+  'cta.main': 'Get my ticket',
   'shows.title': 'Shows', 'shows.hand': 'the 8 pm show<br>is sold out',
   'ticket.show': 'GO! · What if we go back?', 'ticket.day': 'Sat', 'ticket.month': 'Dec',
   'ticket.t16': '4 pm', 'ticket.t20': '8 pm', 'ticket.place': 'Gran Rex Theatre · Av. Corrientes 857',
@@ -192,26 +190,21 @@ if (!reduceMotion) {
   });
 }
 
-// Cuenta regresiva a la función del 12/12, con flip en cada cambio
-const cd = document.querySelector('[data-countdown]');
-const target = new Date(cd.dataset.countdown).getTime();
-const units = ['d', 'h', 'm', 's'].map((u) => cd.querySelector(`[data-unit="${u}"]`));
-const pad = (n) => String(n).padStart(2, '0');
-function tick() {
-  const diff = Math.max(0, target - Date.now());
-  const s = Math.floor(diff / 1000);
-  const values = [String(Math.floor(s / 86400)), pad(Math.floor((s % 86400) / 3600)), pad(Math.floor((s % 3600) / 60)), pad(s % 60)];
-  units.forEach((el, i) => {
-    if (el.textContent === values[i]) return;
-    el.textContent = values[i];
-    if (reduceMotion) return;
-    el.classList.remove('tick');
-    void el.offsetWidth;
-    el.classList.add('tick');
-  });
+// Días que faltan para la función del 12/12, en la nota a mano de la portada
+const countdownEl = document.querySelector('[data-countdown]');
+const showDate = new Date(countdownEl.dataset.countdown);
+const daysLeftEl = countdownEl.querySelector('[data-days-left]');
+function renderDaysLeft() {
+  // se cuentan días de calendario en Buenos Aires, no bloques de 24 h
+  const day = (d) => new Date(d.toLocaleDateString('en-CA', { timeZone: 'America/Argentina/Buenos_Aires' })).getTime();
+  const days = Math.round((day(showDate) - day(new Date())) / 86400000);
+  const es = days > 1 ? `¡faltan ${days} días!` : days === 1 ? '¡es mañana!' : days === 0 ? '¡es hoy!' : '¡gracias por venir!';
+  const en = days > 1 ? `only ${days} days to go!` : days === 1 ? 'it’s tomorrow!' : days === 0 ? 'it’s today!' : 'thanks for coming!';
+  daysLeftEl.textContent = lang === 'en' ? en : es;
 }
-tick();
-setInterval(tick, 1000);
+renderDaysLeft();
+setInterval(renderDaysLeft, 60 * 1000);
+document.addEventListener('langchange', renderDaysLeft);
 
 // Órbita de talentos: al pasar (o tocar) una cara, su nombre va al centro.
 // Versiones más claras de cada color para que se lean sobre el fondo oscuro.
