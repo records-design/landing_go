@@ -42,7 +42,6 @@ const EN = {
   'bio.lupe': 'The queen of Saint Mary and star of GO!. Competitive, but she’d do anything for her friends.',
   'bio.juanma': 'Saint Mary’s basketball star, until he discovers that music is what he really loves.',
   'bio.alvaro': 'Lupe’s brother. Loyal and protective, he always stands by Mía when it really matters.', 'talent.title': '…and they’re not alone',
-  'talent.center': 'Everyone’s back',
   'venue.title': 'Gran Rex<br>Theatre', 'venue.addr': 'Av. Corrientes 857, Buenos Aires, Argentina',
   'cta.buy': 'Get tickets', 'venue.map': 'get directions →',
   'footer.legal': 'GO! Vive a tu manera is a Netflix original series. © 2026 Onceloops Media.',
