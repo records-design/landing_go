@@ -288,7 +288,7 @@ body:not(.is-ready) .nav { opacity: 0; }
 }
 .mega.is-in { transform: none; opacity: 1; }
 
-.tickets { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px 22px; margin-top: -40px; position: relative; }
+.tickets { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px 48px; margin-top: 64px; position: relative; }
 .ticket {
   position: relative; display: flex; width: 370px; min-height: 214px;
   color: var(--ink); text-decoration: none;
@@ -532,8 +532,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .stripe__name span { font-size: 13px; }
   .hero__hand { font-size: 20px; left: calc(100% + 10px); }
 
-
-    .tickets { margin-top: -20px; }
+  .tickets { margin-top: 48px; gap: 30px 36px; }
 
   .polaroids { grid-template-columns: repeat(2, 1fr); max-width: 620px; margin: 0 auto; gap: 40px 34px; }
   .orbit { --size: min(520px, 66vw); --face: 96px; }
@@ -576,7 +575,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
 
   .funciones { padding: 56px 0 90px; }
   .mega { font-size: clamp(70px, 21vw, 120px); }
-      .tickets { margin-top: 10px; gap: 30px; }
+  .tickets { margin-top: 40px; gap: 34px; }
   .ticket { width: 100%; max-width: 380px; min-height: 196px; }
   .ticket__main { padding: 22px 16px 14px; }
   .ticket__num { font-size: 88px; }

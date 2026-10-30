@@ -28,7 +28,7 @@ Promise.race([Promise.all([pageLoaded, document.fonts.ready, wait(reduceMotion ?
    Cada texto traducible tiene data-i18n="clave" (o data-i18n-aria para aria-label). */
 const EN = {
   'aria.home': 'GO! Vive a tu manera, home', 'aria.sections': 'Sections', 'aria.lang': 'Language',
-  'aria.soldout': 'Saturday 12, 4 pm show sold out', 'aria.bands': 'Tickets available',
+  'aria.soldout': 'Saturday 12, 8 pm show sold out', 'aria.bands': 'Tickets available',
   'nav.shows': 'Shows', 'nav.cast': 'Cast', 'nav.talent': 'Talent', 'nav.venue': 'Getting there', 'nav.tickets': 'Tickets',
   'hero.claim': 'What if we go back?', 'hero.date': 'Sat Dec 12', 'venue.name': 'Gran Rex Theatre',
   'cta.main': 'Get my ticket',
@@ -37,7 +37,6 @@ const EN = {
   'ticket.t16': '4 pm', 'ticket.t20': '8 pm', 'ticket.place': 'Gran Rex Theatre · Av. Corrientes 857',
   'ticket.s16': '4 pm show', 'ticket.s20': '8 pm show', 'ticket.buy': 'Buy', 'ticket.stamp': 'Sold out',
   'ticket.lastFlag': 'Last tickets!',
-  'ticket.pass': 'Backstage pass', 'ticket.meet': 'Meet the cast at the Gran Rex', 'ticket.info': 'More info',
   'cast.title': 'they’re back', 'talent.title': '…and they’re not alone',
   'talent.center': 'Everyone’s back', 'talent.hint': 'tap each face', 'talent.generic': 'GO! talent',
   'venue.title': 'Gran Rex<br>Theatre', 'venue.addr': 'Av. Corrientes 857, Buenos Aires, Argentina',
