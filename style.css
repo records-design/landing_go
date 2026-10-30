@@ -687,14 +687,19 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .hero__stripes { inset: 0 43% 0 0; }
   .loader { inset: 0 0 0 57%; }
 
-  /* la foto entera, a lo ancho de la franja, apoyada abajo */
+  /* las caras llenan la franja de arriba hacia abajo; abajo queda una
+     banda de 110px para los nombres. El alto se limita (46vw) para que
+     el recorte a los costados nunca pase del pelo. El pecho se funde con
+     el color de la franja. */
   .stripe img {
-    left: 0; translate: none;
-    width: 100%; height: auto; max-height: 100%;
-    object-fit: cover; object-position: center bottom;
-    -webkit-mask-image: none; mask-image: none;
+    left: 0; translate: none; bottom: 110px;
+    width: 100%; height: min(calc(100% - 110px), 46vw);
+    object-fit: cover; object-position: center top;
+    -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent);
+            mask-image: linear-gradient(to bottom, #000 78%, transparent);
   }
-  .stripe__name { bottom: calc(2% + 24px); font-size: clamp(16px, 1.6vw, 26px); letter-spacing: .08em; } /* 24px = borde rasgado */
+  .c-lupe img { object-position: 30% top; } /* en su foto la cara está corrida a la izquierda */
+  .stripe__name { bottom: 34px; font-size: clamp(16px, 1.6vw, 26px); letter-spacing: .08em; } /* 24px de borde rasgado + aire */
   .stripe__name::after { width: 22px; height: 2px; margin: 8px auto; }
   .stripe__name span { font-size: clamp(10px, .9vw, 15px); letter-spacing: .05em; }
 
