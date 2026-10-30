@@ -404,7 +404,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   box-shadow: 0 16px 30px rgba(0,0,0,.45);
 }
 .polaroid__photo { display: block; overflow: hidden; }
-.polaroid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 72%; }
+.polaroid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; }
 .polaroid figcaption { padding: 10px 4px 16px; text-align: center; color: var(--ink); }
 .polaroid b { display: block; font-family: var(--hand); font-weight: 400; font-size: 34px; line-height: 1.1; color: var(--c); }
 .c-juanma.polaroid b { color: #b08d00; }
