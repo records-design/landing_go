@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GO! Vive a tu manera · ¿Y si volvemos? · Teatro Gran Rex</title>
+  <meta name="description" content="Mia, Lupe, Juanma y Alvaro vuelven al escenario. GO! Vive a tu manera en vivo, 12 de diciembre en el Teatro Gran Rex. Entradas en TuEntrada.">
+  <meta property="og:title" content="GO! Vive a tu manera · ¿Y si volvemos?">
+  <meta property="og:description" content="12 de diciembre · Teatro Gran Rex. ¡Entradas disponibles!">
+  <meta property="og:image" content="img/key-visual.jpg">
+  <meta name="theme-color" content="#006271">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="style.css?v=13">
+</head>
+<body class="is-loading">
+
+  <!-- recursos SVG compartidos: estrella del logo y filtros de tiza / sello gastado -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="star" viewBox="0 0 100 100">
+      <path d="M50 6c4 0 6 22 10 28s30 2 32 6-22 16-24 22 10 30 6 32-22-14-24-14-20 16-24 14 6-26 4-32S6 44 8 40s28 0 32-6S46 6 50 6z"/>
+    </symbol>
+    <filter id="worn" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" seed="4" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 -2.2 1.75" result="holes"/>
+      <feComposite in="SourceGraphic" in2="holes" operator="in" result="eaten"/>
+      <feDisplacementMap in="eaten" in2="noise" scale="3"/>
+    </filter>
+    <filter id="chalk" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="9" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 -1.6 1.45" result="dust"/>
+      <feComposite in="SourceGraphic" in2="dust" operator="in" result="c"/>
+      <feDisplacementMap in="c" in2="noise" scale="2.5"/>
+    </filter>
+  </svg>
+
+  <!-- TELÓN DE ENTRADA -->
+  <div class="curtain" aria-hidden="true">
+    <span class="c-mia"></span><span class="c-lupe"></span><span class="c-juanma"></span><span class="c-alvaro"></span>
+    <svg class="curtain__star"><use href="#star"/></svg>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a class="nav__logo" href="#top" aria-label="GO! Vive a tu manera, inicio"><img src="img/logo-go.png" alt="GO! Vive a tu manera"></a>
+    <nav class="nav__links" aria-label="Secciones">
+      <a href="#funciones">Funciones</a>
+      <a href="#elenco">Elenco</a>
+      <a href="#todos">Talentos</a>
+      <a href="#lugar">Cómo llegar</a>
+    </nav>
+    <a class="ticket-btn ticket-btn--sm" data-tickets href="#"><span>Entradas</span></a>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO: el afiche -->
+    <section class="hero" aria-label="GO! Vive a tu manera, ¿Y si volvemos?">
+      <div class="hero__stripes">
+        <div class="stripe c-mia"><img src="img/mia.jpg" alt=""><p class="stripe__name">Mia<span>Pili Pascual</span></p></div>
+        <div class="stripe c-lupe"><img src="img/lupe.jpg" alt=""><p class="stripe__name">Lupe<span>Renata Toscano</span></p></div>
+        <div class="stripe c-juanma"><img src="img/juanma.jpg" alt=""><p class="stripe__name">Juanma<span>Santiago Saez</span></p></div>
+        <div class="stripe c-alvaro"><img src="img/alvaro.jpg" alt=""><p class="stripe__name">Alvaro<span>El Purre</span></p></div>
+      </div>
+
+      <div class="hero__content">
+        <!-- garabatos a mano alrededor del logo -->
+        <svg class="doodle doodle--star" viewBox="0 0 60 60" aria-hidden="true"><path pathLength="1" d="M30 4 L36 22 L55 23 L40 34 L46 53 L30 42 L13 54 L19 35 L4 24 L23 22 L31 3"/></svg>
+        <svg class="doodle doodle--note" viewBox="0 0 50 70" aria-hidden="true"><path pathLength="1" d="M14 58 C 4 56, 4 66, 12 66 C 20 66, 22 60, 21 52 L 20 10 C 30 12, 40 18, 42 30 M 21 22 C 30 24, 36 28, 38 36"/></svg>
+        <svg class="doodle doodle--spark" viewBox="0 0 60 60" aria-hidden="true"><path pathLength="1" d="M30 6 L30 22 M30 38 L30 54 M6 30 L22 30 M38 30 L54 30 M14 14 L22 22 M46 14 L38 22"/></svg>
+
+        <h1 class="hero__logo"><img src="img/logo-go.png" alt="GO! Vive a tu manera"></h1>
+        <p class="hero__claim" data-split>¿Y si volvemos?</p>
+        <p class="hero__tag"><b>Sáb 12 Dic</b><span>Teatro Gran Rex</span></p>
+        <div class="hero__cta">
+          <a class="ticket-btn ticket-btn--lg" data-tickets href="#"><span>Quiero mi entrada</span></a>
+          <p class="hand hero__hand">¡corré que vuelan!
+            <svg class="doodle doodle--arrow" viewBox="0 0 120 70" aria-hidden="true"><path pathLength="1" d="M112 8 C 90 4, 70 20, 74 36 C 78 52, 58 62, 40 52 C 26 44, 20 40, 10 46 M 20 36 L 9 46 L 22 54"/></svg>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUESINA: cuenta regresiva -->
+    <section class="marquee torn" id="cuenta" aria-label="Cuenta regresiva">
+      <div class="marquee__board">
+        <i class="bulbs bulbs--top" aria-hidden="true"></i>
+        <i class="bulbs bulbs--bottom" aria-hidden="true"></i>
+        <p class="marquee__label">Faltan</p>
+        <div class="marquee__tiles" data-countdown="2026-12-12T16:00:00-03:00">
+          <div class="tile"><strong data-unit="d">--</strong><span>días</span></div>
+          <div class="tile"><strong data-unit="h">--</strong><span>horas</span></div>
+          <div class="tile"><strong data-unit="m">--</strong><span>minutos</span></div>
+          <div class="tile"><strong data-unit="s">--</strong><span>segundos</span></div>
+        </div>
+        <p class="marquee__label">para volver al Gran Rex</p>
+      </div>
+    </section>
+
+    <!-- FUNCIONES: entradas de verdad -->
+    <section class="funciones torn" id="funciones">
+      <div class="wrap">
+        <h2 class="mega">Funciones</h2>
+        <p class="hand funciones__hand">la de las 20 hs<br>ya voló</p>
+
+        <div class="tickets">
+          <a class="ticket c-lupe toss" data-tickets href="#" style="--r:-3deg">
+            <span class="tape" aria-hidden="true"></span>
+            <div class="ticket__main">
+              <p class="ticket__show">GO! · ¿Y si volvemos?</p>
+              <div class="ticket__date"><span class="ticket__day">Sáb</span><span class="ticket__num">12</span><span class="ticket__month">Dic</span></div>
+              <p class="ticket__time">16 hs</p>
+              <p class="ticket__place">Teatro Gran Rex · Av. Corrientes 857</p>
+            </div>
+            <div class="ticket__stub">
+              <span class="ticket__stub-label">Nueva función</span>
+              <span class="ticket__buy">Comprar</span>
+              <i class="barcode" aria-hidden="true"></i>
+            </div>
+          </a>
+
+          <div class="ticket ticket--gone c-alvaro toss" style="--r:2.5deg" aria-label="Función de las 20 hs agotada">
+            <span class="tape" aria-hidden="true"></span>
+            <div class="ticket__main">
+              <p class="ticket__show">GO! · ¿Y si volvemos?</p>
+              <div class="ticket__date"><span class="ticket__day">Sáb</span><span class="ticket__num">12</span><span class="ticket__month">Dic</span></div>
+              <p class="ticket__time">20 hs</p>
+              <p class="ticket__place">Teatro Gran Rex · Av. Corrientes 857</p>
+            </div>
+            <div class="ticket__stub">
+              <span class="ticket__stub-label">Función 20 hs</span>
+              <i class="barcode" aria-hidden="true"></i>
+            </div>
+            <span class="stamp" aria-hidden="true">Agotado</span>
+          </div>
+
+          <a class="ticket c-mia toss" data-tickets href="#" style="--r:-1.5deg">
+            <span class="tape" aria-hidden="true"></span>
+            <div class="ticket__main">
+              <p class="ticket__show">Pase backstage</p>
+              <div class="ticket__date"><span class="ticket__day">Sáb</span><span class="ticket__num">12</span><span class="ticket__month">Dic</span></div>
+              <p class="ticket__time">Meet &amp; Greet</p>
+              <p class="ticket__place">Conocé al elenco en el Gran Rex</p>
+            </div>
+            <div class="ticket__stub">
+              <span class="ticket__stub-label">Meet &amp; Greet</span>
+              <span class="ticket__buy">Más info</span>
+              <i class="barcode" aria-hidden="true"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIZARRÓN: elenco + talentos -->
+    <section class="board torn" id="elenco">
+      <div class="wrap">
+        <header class="board__head">
+          <h2 class="chalk-title">ellos vuelven</h2>
+          <svg class="doodle doodle--chalk doodle--underline" viewBox="0 0 300 30" aria-hidden="true"><path pathLength="1" d="M4 18 C 60 8, 140 6, 200 14 S 280 24, 296 10"/></svg>
+        </header>
+
+        <div class="polaroids">
+          <figure class="polaroid c-mia pin" style="--r:-4deg; --y:0px">
+            <span class="tape" aria-hidden="true"></span>
+            <span class="polaroid__photo"><img src="img/mia.jpg" alt="Pili Pascual como Mia" loading="lazy"></span>
+            <figcaption><b>Mia</b><span>Pili Pascual</span></figcaption>
+          </figure>
+          <figure class="polaroid c-lupe pin" style="--r:3deg; --y:34px">
+            <span class="tape" aria-hidden="true"></span>
+            <span class="polaroid__photo"><img src="img/lupe.jpg" alt="Renata Toscano como Lupe" loading="lazy"></span>
+            <figcaption><b>Lupe</b><span>Renata Toscano</span></figcaption>
+          </figure>
+          <figure class="polaroid c-juanma pin" style="--r:-2deg; --y:-10px">
+            <span class="tape" aria-hidden="true"></span>
+            <span class="polaroid__photo"><img src="img/juanma.jpg" alt="Santiago Saez como Juanma" loading="lazy"></span>
+            <figcaption><b>Juanma</b><span>Santiago Saez</span></figcaption>
+          </figure>
+          <figure class="polaroid c-alvaro pin" style="--r:5deg; --y:24px">
+            <span class="tape" aria-hidden="true"></span>
+            <span class="polaroid__photo"><img src="img/alvaro.jpg" alt="El Purre como Alvaro" loading="lazy"></span>
+            <figcaption><b>Alvaro</b><span>El Purre</span></figcaption>
+          </figure>
+        </div>
+
+        <!-- órbita de talentos -->
+        <div class="todos" id="todos">
+          <p class="chalk-title chalk-title--sm">…y no vuelven solos</p>
+          <div class="orbit" data-orbit>
+            <svg class="orbit__path" viewBox="0 0 200 200" aria-hidden="true">
+              <path d="M100 3 C 156 2, 198 44, 197 100 C 196 158, 154 198, 98 197 C 44 196, 3 154, 4 98 C 5 46, 46 4, 100 3"/>
+            </svg>
+            <div class="orbit__center">
+              <p class="orbit__title" data-orbit-title>Vuelven todos</p>
+              <p class="orbit__sub" data-orbit-sub>tocá cada cara</p>
+            </div>
+            <ul class="orbit__ring">
+              <li style="--i:0" class="c-mia"    data-name="Agustina" data-actor="Majo Cardozo"><img src="img/talentos/agustina.jpg" alt="Majo Cardozo como Agustina" loading="lazy"></li>
+              <li style="--i:1" class="c-lupe"   data-name="Martina"  data-actor="Ana Paula"><img src="img/talentos/martina.jpg" alt="Ana Paula como Martina" loading="lazy"></li>
+              <li style="--i:2" class="c-juanma" data-name="Martín"   data-actor="Bauti Lena"><img src="img/talentos/martin.jpg" alt="Bauti Lena como Martín" loading="lazy"></li>
+              <li style="--i:3" class="c-alvaro" data-name="Zoe"      data-actor="Carmela"><img src="img/talentos/zoe.jpg" alt="Carmela como Zoe" loading="lazy"></li>
+              <li style="--i:4" class="c-mia"    data-name="Crash"    data-actor="Crash"><img src="img/talentos/crash.jpg" alt="Crash" loading="lazy"></li>
+              <li style="--i:5" class="c-lupe"   data-name="Sofía"    data-actor="Majo Chicar"><img src="img/talentos/sofia.jpg" alt="Majo Chicar como Sofía" loading="lazy"></li>
+              <li style="--i:6" class="c-juanma" data-name="Tobías"   data-actor="Manuel"><img src="img/talentos/tobias.jpg" alt="Manuel como Tobías" loading="lazy"></li>
+              <li style="--i:7" class="c-alvaro" data-name="Simón"    data-actor="Paulo"><img src="img/talentos/simon.jpg" alt="Paulo como Simón" loading="lazy"></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- garabatos de tiza sueltos -->
+        <svg class="doodle doodle--chalk board__d1" viewBox="0 0 60 60" aria-hidden="true"><path pathLength="1" d="M30 4 L36 22 L55 23 L40 34 L46 53 L30 42 L13 54 L19 35 L4 24 L23 22 L31 3"/></svg>
+        <svg class="doodle doodle--chalk board__d2" viewBox="0 0 50 70" aria-hidden="true"><path pathLength="1" d="M14 58 C 4 56, 4 66, 12 66 C 20 66, 22 60, 21 52 L 20 10 C 30 12, 40 18, 42 30"/></svg>
+        <svg class="doodle doodle--chalk board__d3" viewBox="0 0 80 40" aria-hidden="true"><path pathLength="1" d="M4 30 C 14 4, 24 4, 30 20 S 46 36, 52 16 S 70 2, 76 20"/></svg>
+      </div>
+    </section>
+
+    <!-- CINTAS CRUZADAS -->
+    <section class="bands" aria-label="Entradas disponibles">
+      <div class="band band--a"><div class="band__track" aria-hidden="true"></div></div>
+      <div class="band band--b"><div class="band__track" aria-hidden="true"></div></div>
+    </section>
+
+    <!-- LUGAR -->
+    <section class="lugar" id="lugar">
+      <div class="wrap lugar__grid">
+        <div class="lugar__info">
+          <div class="street-sign" aria-label="Avenida Corrientes 800">
+            <span class="street-sign__name">Av. Corrientes</span>
+            <span class="street-sign__num">800</span>
+          </div>
+          <h2 class="mega mega--light">Teatro<br>Gran Rex</h2>
+          <p class="lugar__addr">Av. Corrientes 857, Ciudad de Buenos Aires</p>
+          <div class="lugar__actions">
+            <a class="ticket-btn" data-tickets href="#"><span>Comprar entradas</span></a>
+            <a class="hand-link" href="https://maps.google.com/?q=Teatro+Gran+Rex+Av.+Corrientes+857+Buenos+Aires" target="_blank" rel="noopener">cómo llegar →</a>
+          </div>
+          <img class="lugar__logos" src="img/ticketeras.png" alt="TuEntrada.com · Teatro Gran Rex, 89 años" loading="lazy">
+        </div>
+        <figure class="poster pin" style="--r:3deg; --y:0px">
+          <span class="tape tape--tl" aria-hidden="true"></span>
+          <span class="tape tape--br" aria-hidden="true"></span>
+          <img src="img/key-visual.jpg" alt="Afiche de GO! Vive a tu manera, ¿Y si volvemos?, con Mia, Lupe, Juanma y Alvaro" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer torn">
+    <img class="footer__logo" src="img/logo-go.png" alt="GO! Vive a tu manera">
+    <img class="footer__sponsors" src="img/sponsors.png" alt="Onceloops Media, Kuarzo Entertainment Argentina, Yellow Kingdom, EB Producciones, Swap, Los 40" loading="lazy">
+    <p class="footer__legal">GO! Vive a tu manera es una serie original de Netflix. © 2026 Onceloops Media.</p>
+  </footer>
+
+  <!-- CTA fija en mobile -->
+  <a class="sticky-cta ticket-btn" data-tickets href="#"><span>Quiero mi entrada</span></a>
+
+  <script src="script.js?v=13"></script>
+</body>
+</html>
