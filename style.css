@@ -450,10 +450,9 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
 .wave__faces li:hover img, .wave__faces li.is-active img { border-color: var(--juanma); }
 @keyframes ring { 0%, 100% { transform: scale(1) rotate(0); opacity: .9; } 50% { transform: scale(1.1) rotate(20deg); opacity: .4; } }
 
-.wave__caption { text-align: center; min-height: 110px; }
+.wave__caption { text-align: center; min-height: 70px; }
 .orbit__title { font-family: var(--display); font-size: 60px; line-height: 1; transition: color .3s ease; }
-.orbit__sub { font-family: var(--hand); font-size: 24px; color: var(--juanma); margin-top: 6px; transform: rotate(-3deg); }
-.orbit__title.swap, .orbit__sub.swap { animation: swap .45s var(--bounce); }
+.orbit__title.swap { animation: swap .45s var(--bounce); }
 @keyframes swap { from { transform: translateY(10px) scale(.9); opacity: 0; } to { transform: none; opacity: 1; } }
 
 /* =========================================================
@@ -604,9 +603,8 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .wave { --face: 70px; height: 190px; margin: 24px 0 6px; }
   .wave__faces li::before { inset: -6px; border-width: 2px; }
   .wave__faces img { border-width: 3px; }
-  .wave__caption { min-height: 84px; }
+  .wave__caption { min-height: 50px; }
   .orbit__title { font-size: 38px; }
-  .orbit__sub { font-size: 16px; }
 
   .bands { padding: 22px 0; }
   .band__track span { font-size: 30px; }

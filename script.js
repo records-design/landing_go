@@ -38,7 +38,7 @@ const EN = {
   'ticket.s16': '4 pm show', 'ticket.s20': '8 pm show', 'ticket.buy': 'Buy', 'ticket.stamp': 'Sold out',
   'ticket.lastFlag': 'Last tickets!',
   'cast.title': 'they’re back', 'talent.title': '…and they’re not alone',
-  'talent.center': 'Everyone’s back', 'talent.hint': 'tap each face',
+  'talent.center': 'Everyone’s back',
   'venue.title': 'Gran Rex<br>Theatre', 'venue.addr': 'Av. Corrientes 857, Buenos Aires, Argentina',
   'cta.buy': 'Get tickets', 'venue.map': 'get directions →',
   'footer.legal': 'GO! Vive a tu manera is a Netflix original series. © 2026 Onceloops Media.',
@@ -212,7 +212,6 @@ const orbitTitleColors = { 'c-mia': '#2fb3c4', 'c-lupe': '#e0609b', 'c-juanma': 
 const wave = document.querySelector('[data-orbit]');
 if (wave) {
   const title = document.querySelector('[data-orbit-title]');
-  const sub = document.querySelector('[data-orbit-sub]');
   const faces = [...wave.querySelectorAll('.wave__faces li')];
   const line = wave.querySelector('.wave__line');
   const SPEED = 45; // px por segundo
@@ -270,11 +269,9 @@ if (wave) {
     faces.forEach((f) => f.classList.toggle('is-active', f === li));
     if (li) {
       swap(title, li.dataset.name);
-      swap(sub, '');
       title.style.color = orbitTitleColors[li.className.match(/c-\w+/)[0]];
     } else {
       swap(title, t('talent.center'));
-      swap(sub, t('talent.hint'));
       title.style.color = '';
     }
   };
