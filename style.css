@@ -168,6 +168,16 @@ body::after {
 .nav__links a { text-decoration: none; font-size: 16px; letter-spacing: .14em; text-transform: uppercase; opacity: .9; }
 .nav__links a:hover { opacity: 1; text-decoration: underline wavy var(--juanma); text-underline-offset: 7px; }
 
+/* selector de idioma: chiquito, al lado de Entradas */
+.lang { display: flex; align-items: center; font-size: 13px; letter-spacing: .14em; }
+.lang button {
+  padding: 6px 8px; border: 0; background: none; color: inherit; font: inherit; letter-spacing: inherit;
+  cursor: pointer; opacity: .55; transition: opacity .2s;
+}
+.lang button + button { border-left: 1px solid rgba(255,255,255,.45); }
+.lang button:hover { opacity: .9; }
+.lang button[aria-pressed="true"] { opacity: 1; text-decoration: underline 2px var(--juanma); text-underline-offset: 5px; }
+
 /* =========================================================
    HERO · el afiche
    ========================================================= */
@@ -219,7 +229,7 @@ body::after {
 @keyframes wobble { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-1.5deg) scale(1.02); } }
 
 .hero__claim { font-size: clamp(26px, 2.6vw, 40px); letter-spacing: .1em; text-transform: uppercase; text-shadow: 0 2px 16px rgba(0,0,0,.3); }
-.hero__claim .ch { display: inline-block; white-space: pre; animation: letter .6s var(--bounce) both; animation-delay: calc(1.9s + var(--i) * .035s); }
+.hero__claim .ch { display: inline-block; white-space: pre; animation: letter .6s var(--bounce) both; animation-delay: calc(var(--base, 1.9s) + var(--i) * .035s); }
 
 /* fecha como etiqueta pegada */
 .hero__tag {
@@ -360,7 +370,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
 .ticket--gone .ticket__main > * { opacity: .55; }
 .stamp {
   position: absolute; left: 50%; top: 50%; z-index: 2;
-  padding: 2px 16px 0;
+  padding: 2px 16px 0; white-space: nowrap;
   font-family: var(--display); font-size: 70px; line-height: 1; letter-spacing: .06em;
   color: var(--red); border: 6px solid var(--red); border-radius: 6px;
   mix-blend-mode: multiply; filter: url(#worn);
@@ -530,6 +540,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   :root { --gutter: 32px; }
   .nav__links { gap: 18px; }
   .nav__links a { font-size: 14px; letter-spacing: .1em; }
+  .lang { font-size: 12px; }
   .stripe img { height: 46%; }
   .stripe__name { font-size: 24px; bottom: 10%; }
   .stripe__name span { font-size: 14px; }
@@ -559,6 +570,8 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
 
   .nav { padding: 10px var(--gutter); }
   .nav__links { display: none; }
+  .lang { margin-left: auto; font-size: 12px; letter-spacing: .1em; }
+  .lang button { padding: 6px; }
   .nav__logo img { height: 36px; }
 
   .curtain__star { width: 64px; height: 64px; margin: -32px 0 0 -32px; }

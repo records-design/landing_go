@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=14">
+  <link rel="stylesheet" href="style.css?v=16">
 </head>
 <body class="is-loading">
 
@@ -45,14 +45,18 @@
 
   <!-- NAV -->
   <header class="nav">
-    <a class="nav__logo" href="#top" aria-label="GO! Vive a tu manera, inicio"><img src="img/logo-go.png" alt="GO! Vive a tu manera"></a>
-    <nav class="nav__links" aria-label="Secciones">
-      <a href="#funciones">Funciones</a>
-      <a href="#elenco">Elenco</a>
-      <a href="#todos">Talentos</a>
-      <a href="#lugar">Cómo llegar</a>
+    <a class="nav__logo" href="#top" aria-label="GO! Vive a tu manera, inicio" data-i18n-aria="aria.home"><img src="img/logo-go.png" alt="GO! Vive a tu manera"></a>
+    <nav class="nav__links" aria-label="Secciones" data-i18n-aria="aria.sections">
+      <a href="#funciones" data-i18n="nav.shows">Funciones</a>
+      <a href="#elenco" data-i18n="nav.cast">Elenco</a>
+      <a href="#todos" data-i18n="nav.talent">Talentos</a>
+      <a href="#lugar" data-i18n="nav.venue">Cómo llegar</a>
     </nav>
-    <a class="ticket-btn ticket-btn--sm" data-tickets href="#"><span>Entradas</span></a>
+    <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="aria.lang">
+      <button type="button" data-lang="es" lang="es">ES</button>
+      <button type="button" data-lang="en" lang="en">EN</button>
+    </div>
+    <a class="ticket-btn ticket-btn--sm" data-tickets href="#"><span data-i18n="nav.tickets">Entradas</span></a>
   </header>
 
   <main id="top">
@@ -69,11 +73,11 @@
       <div class="hero__content">
 
         <h1 class="hero__logo"><img src="img/logo-go.png" alt="GO! Vive a tu manera"></h1>
-        <p class="hero__claim" data-split>¿Y si volvemos?</p>
-        <p class="hero__tag"><b>Sáb 12 Dic</b><span>Teatro Gran Rex</span></p>
+        <p class="hero__claim" data-split data-i18n="hero.claim">¿Y si volvemos?</p>
+        <p class="hero__tag"><b data-i18n="hero.date">Sáb 12 Dic</b><span data-i18n="venue.name">Teatro Gran Rex</span></p>
         <div class="hero__cta">
-          <a class="ticket-btn ticket-btn--lg" data-tickets href="#"><span>Quiero mi entrada</span></a>
-          <p class="hand hero__hand">¡corré que vuelan!
+          <a class="ticket-btn ticket-btn--lg" data-tickets href="#"><span data-i18n="cta.main">Quiero mi entrada</span></a>
+          <p class="hand hero__hand"><span data-i18n="hero.hand">¡corré que vuelan!</span>
             <svg class="doodle doodle--arrow" viewBox="0 0 120 70" aria-hidden="true"><path pathLength="1" d="M112 8 C 90 4, 70 20, 74 36 C 78 52, 58 62, 40 52 C 26 44, 20 40, 10 46 M 20 36 L 9 46 L 22 54"/></svg>
           </p>
         </div>
@@ -81,69 +85,69 @@
     </section>
 
     <!-- MARQUESINA: cuenta regresiva -->
-    <section class="marquee torn" id="cuenta" aria-label="Cuenta regresiva">
+    <section class="marquee torn" id="cuenta" aria-label="Cuenta regresiva" data-i18n-aria="aria.countdown">
       <div class="marquee__board">
         <i class="bulbs bulbs--top" aria-hidden="true"></i>
         <i class="bulbs bulbs--bottom" aria-hidden="true"></i>
-        <p class="marquee__label">Faltan</p>
+        <p class="marquee__label" data-i18n="count.pre">Faltan</p>
         <div class="marquee__tiles" data-countdown="2026-12-12T16:00:00-03:00">
-          <div class="tile"><strong data-unit="d">--</strong><span>días</span></div>
-          <div class="tile"><strong data-unit="h">--</strong><span>horas</span></div>
-          <div class="tile"><strong data-unit="m">--</strong><span>minutos</span></div>
-          <div class="tile"><strong data-unit="s">--</strong><span>segundos</span></div>
+          <div class="tile"><strong data-unit="d">--</strong><span data-i18n="count.d">días</span></div>
+          <div class="tile"><strong data-unit="h">--</strong><span data-i18n="count.h">horas</span></div>
+          <div class="tile"><strong data-unit="m">--</strong><span data-i18n="count.m">minutos</span></div>
+          <div class="tile"><strong data-unit="s">--</strong><span data-i18n="count.s">segundos</span></div>
         </div>
-        <p class="marquee__label">para volver al Gran Rex</p>
+        <p class="marquee__label" data-i18n="count.post">para volver al Gran Rex</p>
       </div>
     </section>
 
     <!-- FUNCIONES: entradas de verdad -->
     <section class="funciones torn" id="funciones">
       <div class="wrap">
-        <h2 class="mega">Funciones</h2>
-        <p class="hand funciones__hand">la de las 20 hs<br>ya voló</p>
+        <h2 class="mega" data-i18n="shows.title">Funciones</h2>
+        <p class="hand funciones__hand" data-i18n="shows.hand">la de las 20 hs<br>ya voló</p>
 
         <div class="tickets">
           <a class="ticket c-lupe toss" data-tickets href="#" style="--r:-3deg">
             <span class="tape" aria-hidden="true"></span>
             <div class="ticket__main">
-              <p class="ticket__show">GO! · ¿Y si volvemos?</p>
-              <div class="ticket__date"><span class="ticket__day">Sáb</span><span class="ticket__num">12</span><span class="ticket__month">Dic</span></div>
-              <p class="ticket__time">16 hs</p>
-              <p class="ticket__place">Teatro Gran Rex · Av. Corrientes 857</p>
+              <p class="ticket__show" data-i18n="ticket.show">GO! · ¿Y si volvemos?</p>
+              <div class="ticket__date"><span class="ticket__day" data-i18n="ticket.day">Sáb</span><span class="ticket__num">12</span><span class="ticket__month" data-i18n="ticket.month">Dic</span></div>
+              <p class="ticket__time" data-i18n="ticket.t16">16 hs</p>
+              <p class="ticket__place" data-i18n="ticket.place">Teatro Gran Rex · Av. Corrientes 857</p>
             </div>
             <div class="ticket__stub">
-              <span class="ticket__stub-label">Nueva función</span>
-              <span class="ticket__buy">Comprar</span>
+              <span class="ticket__stub-label" data-i18n="ticket.new">Nueva función</span>
+              <span class="ticket__buy" data-i18n="ticket.buy">Comprar</span>
               <i class="barcode" aria-hidden="true"></i>
             </div>
           </a>
 
-          <div class="ticket ticket--gone c-alvaro toss" style="--r:2.5deg" aria-label="Función de las 20 hs agotada">
+          <div class="ticket ticket--gone c-alvaro toss" style="--r:2.5deg" aria-label="Función de las 20 hs agotada" data-i18n-aria="aria.soldout">
             <span class="tape" aria-hidden="true"></span>
             <div class="ticket__main">
-              <p class="ticket__show">GO! · ¿Y si volvemos?</p>
-              <div class="ticket__date"><span class="ticket__day">Sáb</span><span class="ticket__num">12</span><span class="ticket__month">Dic</span></div>
-              <p class="ticket__time">20 hs</p>
-              <p class="ticket__place">Teatro Gran Rex · Av. Corrientes 857</p>
+              <p class="ticket__show" data-i18n="ticket.show">GO! · ¿Y si volvemos?</p>
+              <div class="ticket__date"><span class="ticket__day" data-i18n="ticket.day">Sáb</span><span class="ticket__num">12</span><span class="ticket__month" data-i18n="ticket.month">Dic</span></div>
+              <p class="ticket__time" data-i18n="ticket.t20">20 hs</p>
+              <p class="ticket__place" data-i18n="ticket.place">Teatro Gran Rex · Av. Corrientes 857</p>
             </div>
             <div class="ticket__stub">
-              <span class="ticket__stub-label">Función 20 hs</span>
+              <span class="ticket__stub-label" data-i18n="ticket.s20">Función 20 hs</span>
               <i class="barcode" aria-hidden="true"></i>
             </div>
-            <span class="stamp" aria-hidden="true">Agotado</span>
+            <span class="stamp" aria-hidden="true" data-i18n="ticket.stamp">Agotado</span>
           </div>
 
           <a class="ticket c-mia toss" data-tickets href="#" style="--r:-1.5deg">
             <span class="tape" aria-hidden="true"></span>
             <div class="ticket__main">
-              <p class="ticket__show">Pase backstage</p>
-              <div class="ticket__date"><span class="ticket__day">Sáb</span><span class="ticket__num">12</span><span class="ticket__month">Dic</span></div>
+              <p class="ticket__show" data-i18n="ticket.pass">Pase backstage</p>
+              <div class="ticket__date"><span class="ticket__day" data-i18n="ticket.day">Sáb</span><span class="ticket__num">12</span><span class="ticket__month" data-i18n="ticket.month">Dic</span></div>
               <p class="ticket__time">Meet &amp; Greet</p>
-              <p class="ticket__place">Conocé al elenco en el Gran Rex</p>
+              <p class="ticket__place" data-i18n="ticket.meet">Conocé al elenco en el Gran Rex</p>
             </div>
             <div class="ticket__stub">
               <span class="ticket__stub-label">Meet &amp; Greet</span>
-              <span class="ticket__buy">Más info</span>
+              <span class="ticket__buy" data-i18n="ticket.info">Más info</span>
               <i class="barcode" aria-hidden="true"></i>
             </div>
           </a>
@@ -155,7 +159,7 @@
     <section class="board torn" id="elenco">
       <div class="wrap">
         <header class="board__head">
-          <h2 class="chalk-title">ellos vuelven</h2>
+          <h2 class="chalk-title" data-i18n="cast.title">ellos vuelven</h2>
           <svg class="doodle doodle--chalk doodle--underline" viewBox="0 0 300 30" aria-hidden="true"><path pathLength="1" d="M4 18 C 60 8, 140 6, 200 14 S 280 24, 296 10"/></svg>
         </header>
 
@@ -184,14 +188,14 @@
 
         <!-- órbita de talentos -->
         <div class="todos" id="todos">
-          <p class="chalk-title chalk-title--sm">…y no vuelven solos</p>
+          <p class="chalk-title chalk-title--sm" data-i18n="talent.title">…y no vuelven solos</p>
           <div class="orbit" data-orbit>
             <svg class="orbit__path" viewBox="0 0 200 200" aria-hidden="true">
               <path d="M100 3 C 156 2, 198 44, 197 100 C 196 158, 154 198, 98 197 C 44 196, 3 154, 4 98 C 5 46, 46 4, 100 3"/>
             </svg>
             <div class="orbit__center">
-              <p class="orbit__title" data-orbit-title>Vuelven todos</p>
-              <p class="orbit__sub" data-orbit-sub>tocá cada cara</p>
+              <p class="orbit__title" data-orbit-title data-i18n="talent.center">Vuelven todos</p>
+              <p class="orbit__sub" data-orbit-sub data-i18n="talent.hint">tocá cada cara</p>
             </div>
             <ul class="orbit__ring">
               <li style="--i:0" class="c-mia"    data-name="Agustina" data-actor="Majo Cardozo"><img src="img/talentos/agustina.jpg" alt="Majo Cardozo como Agustina" loading="lazy"></li>
@@ -214,7 +218,7 @@
     </section>
 
     <!-- CINTAS CRUZADAS -->
-    <section class="bands" aria-label="Entradas disponibles">
+    <section class="bands" aria-label="Entradas disponibles" data-i18n-aria="aria.bands">
       <div class="band band--a"><div class="band__track" aria-hidden="true"></div></div>
       <div class="band band--b"><div class="band__track" aria-hidden="true"></div></div>
     </section>
@@ -227,11 +231,11 @@
             <span class="street-sign__name">Av. Corrientes</span>
             <span class="street-sign__num">800</span>
           </div>
-          <h2 class="mega mega--light">Teatro<br>Gran Rex</h2>
-          <p class="lugar__addr">Av. Corrientes 857, Ciudad de Buenos Aires</p>
+          <h2 class="mega mega--light" data-i18n="venue.title">Teatro<br>Gran Rex</h2>
+          <p class="lugar__addr" data-i18n="venue.addr">Av. Corrientes 857, Ciudad de Buenos Aires</p>
           <div class="lugar__actions">
-            <a class="ticket-btn" data-tickets href="#"><span>Comprar entradas</span></a>
-            <a class="hand-link" href="https://maps.google.com/?q=Teatro+Gran+Rex+Av.+Corrientes+857+Buenos+Aires" target="_blank" rel="noopener">cómo llegar →</a>
+            <a class="ticket-btn" data-tickets href="#"><span data-i18n="cta.buy">Comprar entradas</span></a>
+            <a class="hand-link" href="https://maps.google.com/?q=Teatro+Gran+Rex+Av.+Corrientes+857+Buenos+Aires" target="_blank" rel="noopener" data-i18n="venue.map">cómo llegar →</a>
           </div>
           <img class="lugar__logos" src="img/ticketeras.png" alt="TuEntrada.com · Teatro Gran Rex, 89 años" loading="lazy">
         </div>
@@ -248,12 +252,12 @@
   <footer class="footer torn">
     <img class="footer__logo" src="img/logo-go.png" alt="GO! Vive a tu manera">
     <img class="footer__sponsors" src="img/sponsors.png" alt="Onceloops Media, Kuarzo Entertainment Argentina, Yellow Kingdom, EB Producciones, Swap, Los 40" loading="lazy">
-    <p class="footer__legal">GO! Vive a tu manera es una serie original de Netflix. © 2026 Onceloops Media.</p>
+    <p class="footer__legal" data-i18n="footer.legal">GO! Vive a tu manera es una serie original de Netflix. © 2026 Onceloops Media.</p>
   </footer>
 
   <!-- CTA fija en mobile -->
-  <a class="sticky-cta ticket-btn" data-tickets href="#"><span>Quiero mi entrada</span></a>
+  <a class="sticky-cta ticket-btn" data-tickets href="#"><span data-i18n="cta.main">Quiero mi entrada</span></a>
 
-  <script src="script.js?v=14"></script>
+  <script src="script.js?v=16"></script>
 </body>
 </html>
