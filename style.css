@@ -670,7 +670,7 @@ a.ticket:hover .ticket__buy { background: var(--white); }
 /* sección Teatro Gran Rex de la landing */
 .lugar__addr { font-size: 22px; margin: 18px 0 30px; opacity: .9; }
 .lugar__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 26px; margin-bottom: 44px; }
-.lugar__logos { width: 290px; opacity: .9; }
+.lugar__logos { width: 180px; opacity: .85; } /* chiquitos, debajo de "cómo llegar" */
 .poster { position: relative; }
 .poster img { box-shadow: 0 30px 60px rgba(0,0,0,.4); }
 .poster .tape--tl { top: -10px; left: -24px; margin: 0; transform: rotate(-38deg); }
@@ -936,7 +936,7 @@ a.ticket:hover .ticket__buy { background: var(--white); }
   .mega--light { font-size: clamp(64px, 19vw, 100px); }
   .llegar__intro { font-size: 17px; }
   .lugar__addr { font-size: 18px; }
-  .lugar__logos { width: 230px; }
+  .lugar__logos { width: 150px; }
   .poster { margin: 0 10px; }
   .addr-chip { font-size: 17px; }
   .card { padding: 22px 18px; }
