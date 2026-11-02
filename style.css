@@ -649,11 +649,11 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
 .footer { --bg: var(--ink); padding: 70px var(--gutter) 48px; display: flex; flex-direction: column; align-items: center; gap: 36px; text-align: center; }
 .footer__logo { width: 160px; transition: transform .5s var(--bounce); }
 .footer__logo:hover { transform: rotate(-6deg) scale(1.08); }
-.footer__sponsors { width: min(860px, 100%); opacity: .85; }
-/* venta oficial y sala: debajo de las productoras */
-.footer__partners { display: flex; align-items: center; justify-content: center; gap: 56px; opacity: .85; }
-.footer__tuentrada { height: 46px; width: auto; }
-.footer__granrex { height: 76px; width: auto; }
+/* productoras + venta oficial + sala, todos en una línea (en pantallas angostas pasan abajo) */
+.footer__partners { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 28px 44px; width: min(1240px, 100%); opacity: .85; }
+.footer__sponsors { flex: 1 1 560px; max-width: 860px; min-width: 0; }
+.footer__tuentrada { height: 36px; width: auto; }
+.footer__granrex { height: 66px; width: auto; }
 .footer__legal { font-size: 14px; color: rgba(255,255,255,.5); }
 
 .sticky-cta { display: none; }
