@@ -737,10 +737,12 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
 
   .loader__star { width: 72px; height: 72px; }
 
-  .hero { min-height: 92svh; }
+  /* las caras ocupan una franja fija abajo (--faces) y el contenido se corta antes:
+     así el logo y los carteles nunca tapan las cabezas, sea cual sea el alto */
+  .hero { --faces: 62vw; min-height: 92svh; padding-bottom: calc(var(--faces) * .85 + 14px); place-items: center; }
   .hero__content { width: 100%; padding: 76px var(--gutter) 0; gap: 8px; }
-  .hero__logo img { width: min(70vw, 280px); }
-  .stripe img { left: 0; translate: none; width: 100%; height: 46%; object-position: center 58%; -webkit-mask-image: none; mask-image: none; }
+  .hero__logo img { width: min(54vw, 230px); }
+  .stripe img { left: 0; translate: none; width: 100%; height: var(--faces); object-position: center top; -webkit-mask-image: none; mask-image: none; }
   .stripe__name { font-size: 15px; letter-spacing: .06em; bottom: 8%; }
   .stripe__name::after { width: 16px; height: 2px; margin: 6px auto; }
   .stripe__name span { font-size: 10px; letter-spacing: .03em; }
