@@ -739,11 +739,18 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
 
   /* las caras ocupan una franja fija abajo (--faces) y el contenido se corta antes:
      así el logo y los carteles nunca tapan las cabezas, sea cual sea el alto */
-  .hero { --faces: 62vw; min-height: 92svh; padding-bottom: calc(var(--faces) * .85 + 14px); place-items: center; }
+  /* abajo de las caras queda una banda (--names) para los nombres, así no tapan las caras.
+     La portada ocupa toda la pantalla: lo amarillo aparece recién al bajar */
+  .hero { --faces: 62vw; --names: 78px; min-height: calc(100svh + 24px); /* el borde rasgado amarillo queda justo debajo del pliegue */ padding-bottom: calc(var(--faces) * .85 + var(--names) + 14px); place-items: center; }
   .hero__content { width: 100%; padding: 76px var(--gutter) 0; gap: 8px; }
   .hero__logo img { width: min(54vw, 230px); }
-  .stripe img { left: 0; translate: none; width: 100%; height: var(--faces); object-position: center top; -webkit-mask-image: none; mask-image: none; }
-  .stripe__name { font-size: 15px; letter-spacing: .06em; bottom: 8%; }
+  .stripe img {
+    left: 0; translate: none; bottom: var(--names); width: 100%; height: var(--faces); object-position: center top;
+    /* el pecho se funde con el color de la franja */
+    -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent);
+            mask-image: linear-gradient(to bottom, #000 80%, transparent);
+  }
+  .stripe__name { font-size: 15px; letter-spacing: .06em; bottom: 44px; } /* 24px de borde rasgado + aire */
   .stripe__name::after { width: 16px; height: 2px; margin: 6px auto; }
   .stripe__name span { font-size: 10px; letter-spacing: .03em; }
   .hero__claim { font-size: clamp(17px, 6vw, 22px); }
