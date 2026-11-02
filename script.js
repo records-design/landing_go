@@ -75,7 +75,7 @@ const EN = {
   'bio.alvaro': 'Lupe’s brother. Loyal and protective, he always stands by Mía when it really matters.', 'talent.title': '…and they’re not alone',
   'venue.title': 'Gran Rex<br>Theatre', 'venue.addr': 'Av. Corrientes 857, Buenos Aires, Argentina',
   'cta.buy': 'Get tickets', 'venue.map': 'get directions →',
-  'songs.kicker': 'new music!', 'songs.title': '4 new<br>songs', 'songs.date': '11 · 13',
+  'songs.kicker': 'new music!', 'songs.title': 'new music!', 'songs.date': '11 · 13',
   'songs.soon': 'Out on every platform', 'songs.out': 'Out now on every platform!',
   'songs.cta': 'Pre-save', 'songs.listen': 'Listen now',
   'merch.title': 'Merch', 'merch.sub': 'take GO! home', 'merch.go': 'Buy →',

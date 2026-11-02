@@ -400,15 +400,15 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
   box-shadow: 0 24px 50px rgba(0,0,0,.45);
   transform: rotate(-4deg);
 }
-.record__sleeve span { flex: 1; }
-.record__sleeve span:nth-child(1) { background: var(--mia); }
-.record__sleeve span:nth-child(2) { background: var(--lupe); }
-.record__sleeve span:nth-child(3) { background: var(--juanma); }
-.record__sleeve span:nth-child(4) { background: var(--alvaro); }
-.record__sleeve b {
-  position: absolute; left: 0; right: 0; bottom: 6%;
-  font-family: var(--display); font-weight: 400; font-size: calc(var(--s) * .34); line-height: .8; text-align: center;
-  color: var(--white); text-shadow: 0 6px 20px rgba(0,0,0,.3);
+/* tapa como la gráfica de la campaña: las 4 franjas con las caras abajo y el logo arriba */
+.record__sleeve span { flex: 1; background: var(--c) var(--img) center bottom / 100% auto no-repeat; }
+.record__sleeve span:nth-child(1) { --c: var(--mia);    --img: url("img/mia.jpg"); }
+.record__sleeve span:nth-child(2) { --c: var(--lupe);   --img: url("img/lupe.jpg"); }
+.record__sleeve span:nth-child(3) { --c: var(--juanma); --img: url("img/juanma.jpg"); }
+.record__sleeve span:nth-child(4) { --c: var(--alvaro); --img: url("img/alvaro.jpg"); }
+.record__logo {
+  position: absolute; left: 50%; top: 6%; width: 56%; translate: -50% 0;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,.3));
 }
 .record__disc {
   position: absolute; top: 4%; left: 4%; width: calc(var(--s) * .92); height: calc(var(--s) * .92);
@@ -430,8 +430,7 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
 .record__disc img { position: relative; z-index: 1; width: 30%; animation: spin 6s linear infinite; }
 .record.is-in .record__disc { transform: translateX(34%); }
 
-.canciones__kicker { font-size: 30px; color: var(--juanma); transform: rotate(-3deg); margin-bottom: 10px; }
-.canciones .mega--light { font-size: clamp(80px, 8.4vw, 132px); }
+.canciones__title { font-family: var(--hand); font-weight: 400; font-size: clamp(56px, 6.4vw, 100px); line-height: 1; color: var(--juanma); transform: rotate(-3deg); }
 .canciones__date { display: flex; align-items: center; gap: 16px; margin: 22px 0 26px; }
 .canciones__date b {
   font-family: var(--display); font-weight: 400; font-size: 46px; line-height: 1; letter-spacing: .03em;
@@ -841,8 +840,7 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
   .canciones { padding: 100px 0 80px; }
   .canciones__grid { grid-template-columns: 1fr; gap: 40px; }
   .canciones .record { --s: min(220px, 56vw); margin: 0 auto; translate: -13% 0; }
-  .canciones__kicker { font-size: 24px; }
-  .canciones .mega--light { font-size: clamp(64px, 19vw, 96px); }
+  .canciones__title { font-size: clamp(44px, 13vw, 64px); }
   .canciones__date { gap: 12px; margin: 18px 0 20px; }
   .canciones__date b { font-size: 36px; }
   .canciones__date span { font-size: 14px; letter-spacing: .06em; }
