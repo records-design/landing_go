@@ -90,7 +90,7 @@ const BANDS = {
 };
 const TITLES = {
   es: document.title,
-  en: 'GO! Live Your Way · What if we go back? · Gran Rex Theatre',
+  en: document.body.classList.contains('page-merch') ? 'Merch · GO! Live Your Way' : 'GO! Live Your Way · What if we go back? · Gran Rex Theatre',
 };
 
 // Guardamos el español original de cada elemento antes de tocar nada
@@ -164,10 +164,12 @@ document.querySelectorAll('[data-lang]').forEach((btn) => {
 const nav = document.querySelector('.nav');
 const sticky = document.querySelector('.sticky-cta');
 const hero = document.querySelector('.hero');
-new IntersectionObserver(([entry]) => {
-  nav.classList.toggle('is-solid', !entry.isIntersecting);
-  sticky.classList.toggle('is-visible', !entry.isIntersecting);
-}, { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
+if (hero) { // en la página de merch no hay portada: la nav ya viene sólida
+  new IntersectionObserver(([entry]) => {
+    nav.classList.toggle('is-solid', !entry.isIntersecting);
+    sticky.classList.toggle('is-visible', !entry.isIntersecting);
+  }, { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
+}
 
 // Aparición al hacer scroll: entradas que caen, fotos que se pegan,
 // tiza que se escribe y garabatos que se dibujan
@@ -195,7 +197,7 @@ document.querySelectorAll('.chalk-title').forEach((el) => {
 });
 
 // Hero: el contenido se desvanece al bajar
-if (!reduceMotion) {
+if (hero && !reduceMotion) {
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (ticking) return;
@@ -234,10 +236,10 @@ if (!reduceMotion) {
 }
 
 // Días que faltan para la función del 12/12, en la nota a mano de la portada
-const countdownEl = document.querySelector('[data-countdown]');
-const showDate = new Date(countdownEl.dataset.countdown);
-const daysLeftEl = countdownEl.querySelector('[data-days-left]');
+const showDate = new Date('2026-12-12T16:00:00-03:00');
+const daysLeftEl = document.querySelector('[data-countdown] [data-days-left]');
 function renderDaysLeft() {
+  if (!daysLeftEl) return;
   // se cuentan días de calendario en Buenos Aires, no bloques de 24 h
   const day = (d) => new Date(d.toLocaleDateString('en-CA', { timeZone: 'America/Argentina/Buenos_Aires' })).getTime();
   const days = Math.round((day(showDate) - day(new Date())) / 86400000);

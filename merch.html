@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merch · GO! Vive a tu manera</title>
+  <meta name="description" content="Mia, Lupe, Juanma y Alvaro vuelven al escenario. GO! Vive a tu manera en vivo, 12 de diciembre en el Teatro Gran Rex. Entradas en TuEntrada.">
+  <meta property="og:title" content="GO! Vive a tu manera · ¿Y si volvemos?">
+  <meta property="og:description" content="12 de diciembre · Teatro Gran Rex. ¡Entradas disponibles!">
+  <meta property="og:image" content="img/key-visual.jpg">
+  <meta name="theme-color" content="#006271">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="style.css?v=54">
+</head>
+<body class="is-ready page-merch">
+
+  <!-- recursos SVG compartidos: estrella del logo y filtro de tiza -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="star" viewBox="0 0 100 100">
+      <path d="M50 6c4 0 6 22 10 28s30 2 32 6-22 16-24 22 10 30 6 32-22-14-24-14-20 16-24 14 6-26 4-32S6 44 8 40s28 0 32-6S46 6 50 6z"/>
+    </symbol>
+    <filter id="chalk" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="9" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 -1.6 1.45" result="dust"/>
+      <feComposite in="SourceGraphic" in2="dust" operator="in" result="c"/>
+      <feDisplacementMap in="c" in2="noise" scale="2.5"/>
+    </filter>
+  </svg>
+
+  <!-- NAV -->
+  <header class="nav is-solid">
+    <a class="nav__logo" href="index.html" aria-label="GO! Vive a tu manera, inicio" data-i18n-aria="aria.home"><img src="img/logo-go.png" alt="GO! Vive a tu manera"></a>
+    <nav class="nav__links" aria-label="Secciones" data-i18n-aria="aria.sections">
+      <a href="index.html#funciones" data-i18n="nav.shows">Funciones</a>
+      <a href="index.html#elenco" data-i18n="nav.cast">Elenco</a>
+      <a href="index.html#lugar" data-i18n="nav.venue">Cómo llegar</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="aria.lang">
+      <button type="button" data-lang="es" lang="es">ES</button>
+      <button type="button" data-lang="en" lang="en">EN</button>
+    </div>
+    <a class="nav__merch" href="merch.html" aria-current="page" data-i18n="nav.merch">Merch</a>
+    <a class="ticket-btn ticket-btn--sm" data-tickets href="#"><span data-i18n="nav.tickets">Entradas</span></a>
+  </header>
+
+  <main id="top">
+
+    <!-- MERCH: cada producto lleva a la página del vendedor.
+         Para sumar uno: copiar un <li>, cambiar la foto (img/merch/), el nombre y el link (href). -->
+    <section class="merch" id="merch">
+      <div class="wrap">
+        <header class="merch__head">
+          <h2 class="mega" data-i18n="merch.title">Merch</h2>
+          <p class="merch__sub hand" data-i18n="merch.sub">llevate GO! a casa</p>
+        </header>
+        <ul class="products">
+          <li><a class="product pin c-mia" style="--r:-2deg; --y:0px" href="#">
+            <span class="tape" aria-hidden="true"></span>
+            <img src="img/merch/remera.svg" alt="" loading="lazy">
+            <b class="product__name">Remera GO!</b>
+            <span class="product__go" data-i18n="merch.go">Comprar →</span>
+          </a></li>
+          <li><a class="product pin c-lupe" style="--r:2deg; --y:18px" href="#">
+            <span class="tape" aria-hidden="true"></span>
+            <img src="img/merch/buzo.svg" alt="" loading="lazy">
+            <b class="product__name">Buzo Saint Mary</b>
+            <span class="product__go" data-i18n="merch.go">Comprar →</span>
+          </a></li>
+          <li><a class="product pin c-alvaro" style="--r:-1deg; --y:-6px" href="#">
+            <span class="tape" aria-hidden="true"></span>
+            <img src="img/merch/gorra.svg" alt="" loading="lazy">
+            <b class="product__name">Gorra GO!</b>
+            <span class="product__go" data-i18n="merch.go">Comprar →</span>
+          </a></li>
+          <li><a class="product pin c-juanma" style="--r:3deg; --y:12px" href="#">
+            <span class="tape" aria-hidden="true"></span>
+            <img src="img/merch/tote.svg" alt="" loading="lazy">
+            <b class="product__name">Tote bag</b>
+            <span class="product__go" data-i18n="merch.go">Comprar →</span>
+          </a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer torn">
+    <img class="footer__logo" src="img/logo-go.png" alt="GO! Vive a tu manera">
+    <img class="footer__sponsors" src="img/sponsors.png" alt="Onceloops Media, Kuarzo Entertainment Argentina, Yellow Kingdom, EB Producciones, Swap, Los 40" loading="lazy">
+    <p class="footer__legal" data-i18n="footer.legal">GO! Vive a tu manera es una serie original de Netflix. © 2026 Onceloops Media.</p>
+  </footer>
+
+  <script src="script.js?v=35"></script>
+</body>
+</html>

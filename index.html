@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=53">
+  <link rel="stylesheet" href="style.css?v=54">
 </head>
 <body class="is-loading">
 
@@ -43,7 +43,7 @@
       <button type="button" data-lang="es" lang="es">ES</button>
       <button type="button" data-lang="en" lang="en">EN</button>
     </div>
-    <a class="nav__merch" href="#merch" data-i18n="nav.merch">Merch</a>
+    <a class="nav__merch" href="merch.html" data-i18n="nav.merch">Merch</a>
     <a class="ticket-btn ticket-btn--sm" data-tickets href="#"><span data-i18n="nav.tickets">Entradas</span></a>
   </header>
 
@@ -188,7 +188,7 @@
             <span class="street-sign__num">800</span>
           </div>
           <h2 class="mega mega--light" data-i18n="venue.title">Teatro<br>Gran Rex</h2>
-          <p class="lugar__addr" data-i18n="venue.addr">Av. Corrientes 857, Ciudad de Buenos Aires</p>
+          <p class="lugar__addr" data-i18n="venue.addr">Av. Corrientes 857, Ciudad Autónoma de Buenos Aires</p>
           <div class="lugar__actions">
             <a class="ticket-btn" data-tickets href="#"><span data-i18n="cta.buy">Comprar entradas</span></a>
             <a class="hand-link" href="https://maps.google.com/?q=Teatro+Gran+Rex+Av.+Corrientes+857+Buenos+Aires" target="_blank" rel="noopener" data-i18n="venue.map">cómo llegar →</a>
@@ -203,42 +203,6 @@
       </div>
     </section>
 
-    <!-- MERCH: cada producto lleva a la página del vendedor.
-         Para sumar uno: copiar un <li>, cambiar la foto (img/merch/), el nombre y el link (href). -->
-    <section class="merch torn" id="merch">
-      <div class="wrap">
-        <header class="merch__head">
-          <h2 class="mega" data-i18n="merch.title">Merch</h2>
-          <p class="merch__sub hand" data-i18n="merch.sub">llevate GO! a casa</p>
-        </header>
-        <ul class="products">
-          <li><a class="product pin c-mia" style="--r:-2deg; --y:0px" href="#merch">
-            <span class="tape" aria-hidden="true"></span>
-            <img src="img/merch/remera.svg" alt="" loading="lazy">
-            <b class="product__name">Remera GO!</b>
-            <span class="product__go" data-i18n="merch.go">Comprar →</span>
-          </a></li>
-          <li><a class="product pin c-lupe" style="--r:2deg; --y:18px" href="#merch">
-            <span class="tape" aria-hidden="true"></span>
-            <img src="img/merch/buzo.svg" alt="" loading="lazy">
-            <b class="product__name">Buzo Saint Mary</b>
-            <span class="product__go" data-i18n="merch.go">Comprar →</span>
-          </a></li>
-          <li><a class="product pin c-alvaro" style="--r:-1deg; --y:-6px" href="#merch">
-            <span class="tape" aria-hidden="true"></span>
-            <img src="img/merch/gorra.svg" alt="" loading="lazy">
-            <b class="product__name">Gorra GO!</b>
-            <span class="product__go" data-i18n="merch.go">Comprar →</span>
-          </a></li>
-          <li><a class="product pin c-juanma" style="--r:3deg; --y:12px" href="#merch">
-            <span class="tape" aria-hidden="true"></span>
-            <img src="img/merch/tote.svg" alt="" loading="lazy">
-            <b class="product__name">Tote bag</b>
-            <span class="product__go" data-i18n="merch.go">Comprar →</span>
-          </a></li>
-        </ul>
-      </div>
-    </section>
 
   </main>
 
@@ -282,10 +246,10 @@
       <p class="popup__kicker" data-i18n="popup.m.kicker">Merch oficial</p>
       <h2 class="popup__title" data-i18n="merch.sub">llevate GO! a casa</h2>
       <p class="popup__text" data-i18n="popup.m.text">Remeras, buzos y más de la serie.</p>
-      <a class="ticket-btn" href="#merch" data-popup-close><span data-i18n="popup.m.cta">Ver la tienda</span></a>
+      <a class="ticket-btn" href="merch.html" data-popup-close><span data-i18n="popup.m.cta">Ver la tienda</span></a>
     </div>
   </dialog>
 
-  <script src="script.js?v=34"></script>
+  <script src="script.js?v=35"></script>
 </body>
 </html>

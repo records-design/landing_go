@@ -163,7 +163,7 @@ body::after {
   text-decoration: none; white-space: nowrap;
   transition: background .2s ease, color .2s ease, border-color .2s ease;
 }
-.nav__merch:hover { background: var(--white); color: var(--ink); border-color: var(--white); }
+.nav__merch[aria-current="page"], .nav__merch:hover { background: var(--white); color: var(--ink); border-color: var(--white); }
 .nav__merch + .ticket-btn { margin-left: -12px; }
 .lang { display: flex; align-items: center; font-size: 13px; letter-spacing: .14em; }
 .lang button {
@@ -588,7 +588,8 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
 /* =========================================================
    MERCH · galería de productos (cada uno lleva a la tienda)
    ========================================================= */
-.merch { --bg: var(--paper); color: var(--ink); padding: 90px 0 120px; }
+/* página aparte (merch.html): la nav ya viene sólida, así que se deja lugar arriba */
+.merch { --bg: var(--paper); background: var(--paper); color: var(--ink); padding: 150px 0 120px; min-height: calc(100svh - 120px); }
 .merch__head { text-align: center; margin-bottom: 60px; }
 .merch .mega { color: var(--mia); font-size: clamp(80px, 9vw, 140px); }
 .merch__sub { font-size: 30px; color: var(--lupe); transform: rotate(-3deg); margin-top: 6px; }
@@ -780,7 +781,7 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
   .lugar__logos { width: 230px; }
   .poster { margin: 0 10px; }
 
-  .merch { padding: 64px 0 90px; }
+  .merch { padding: 110px 0 70px; }
   .merch__head { margin-bottom: 40px; }
   .merch .mega { font-size: clamp(70px, 21vw, 110px); }
   .merch__sub { font-size: 24px; }
