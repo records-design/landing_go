@@ -60,7 +60,7 @@ const EN = {
   'aria.home': 'GO! Vive a tu manera, home', 'aria.sections': 'Sections', 'aria.lang': 'Language',
   'aria.soldout': 'Saturday 12, 8 pm show sold out', 'aria.bands': 'Tickets available',
   'aria.close': 'Close', 'aria.menu': 'Menu',
-  'nav.home': 'Home', 'nav.shows': 'Shows', 'nav.releases': 'New releases', 'nav.merch': 'Shop', 'nav.cast': 'Cast', 'nav.venue': 'Getting there', 'nav.tickets': 'Tickets',
+  'nav.home': 'Home', 'nav.shows': 'Shows', 'nav.releases': 'Music', 'nav.merch': 'Shop', 'nav.cast': 'Cast', 'nav.venue': 'Getting there', 'nav.tickets': 'Tickets',
   'hero.claim': 'What if we go back?', 'hero.date': 'Sat Dec 12', 'venue.name': 'Gran Rex Theatre',
   'cta.main': 'Get my ticket',
   'shows.title': 'Shows',
