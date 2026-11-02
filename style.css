@@ -156,15 +156,7 @@ body::after {
 .nav__links a:hover { opacity: 1; text-decoration: underline wavy var(--juanma); text-underline-offset: 7px; }
 
 /* selector de idioma: chiquito, al lado de Entradas */
-/* botón "Merch" del menú: secundario al de entradas (contorno, sin relleno) */
-.nav__merch {
-  padding: 7px 16px 4px; border: 2px solid currentColor; border-radius: 4px;
-  font-family: var(--display); font-size: 20px; line-height: 1; letter-spacing: .05em;
-  text-decoration: none; white-space: nowrap;
-  transition: background .2s ease, color .2s ease, border-color .2s ease;
-}
-.nav__merch[aria-current="page"], .nav__merch:hover { background: var(--white); color: var(--ink); border-color: var(--white); }
-.nav__merch + .ticket-btn { margin-left: -12px; }
+.nav__links a[aria-current="page"] { opacity: 1; text-decoration: underline wavy var(--juanma); text-underline-offset: 7px; }
 .lang { display: flex; align-items: center; font-size: 13px; letter-spacing: .14em; }
 .lang button {
   padding: 6px 8px; border: 0; background: none; color: inherit; font: inherit; letter-spacing: inherit;
@@ -707,13 +699,14 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
   body { font-size: 17px; padding-bottom: 84px; }
 
   .nav { padding: 10px var(--gutter); }
-  .nav__links { display: none; }
-  .lang { margin-left: auto; font-size: 12px; letter-spacing: .1em; }
+  /* en el celular, del menú queda solo "Merch" (las secciones se recorren bajando) */
+  .nav__links { margin-left: auto; }
+  .nav__links a:not(.nav__shop) { display: none; }
+  .nav__links a { font-size: 14px; letter-spacing: .1em; }
+  .lang { font-size: 12px; letter-spacing: .1em; }
   .lang button { padding: 6px; }
   .nav__logo img { height: 36px; }
   .nav { gap: 14px; }
-  .nav__merch { font-size: 17px; padding: 6px 10px 3px; }
-  .nav__merch + .ticket-btn { margin-left: -6px; }
   .nav .ticket-btn--sm { font-size: 17px; padding: 7px 14px 5px; }
 
   .loader__star { width: 72px; height: 72px; }
