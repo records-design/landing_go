@@ -386,8 +386,12 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
 }
 
 /* =========================================================
-   DISCO (lo usa el popup de pre-save)
+   LANZAMIENTOS (página aparte, lanzamientos.html) · disco que sale de la funda + pre-save.
+   El disco también lo usa el popup de pre-save.
    ========================================================= */
+.canciones { background: var(--alvaro); color: var(--white); padding: 150px 0 120px; min-height: calc(100svh - 120px); overflow: hidden; }
+.canciones__grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 70px; align-items: center; }
+
 .record { --s: 360px; position: relative; width: calc(var(--s) * 1.35); height: var(--s); }
 .record__sleeve {
   position: absolute; left: 0; top: 0; width: var(--s); height: var(--s); z-index: 1;
@@ -424,6 +428,24 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
   background: conic-gradient(from 30deg, transparent 0 10%, rgba(255,255,255,.12) 14%, transparent 20% 60%, rgba(255,255,255,.1) 64%, transparent 70%);
 }
 .record__disc img { position: relative; z-index: 1; width: 30%; animation: spin 6s linear infinite; }
+.record.is-in .record__disc { transform: translateX(34%); }
+
+.canciones__kicker { font-size: 30px; color: var(--juanma); transform: rotate(-3deg); margin-bottom: 10px; }
+.canciones .mega--light { font-size: clamp(80px, 8.4vw, 132px); }
+.canciones__date { display: flex; align-items: center; gap: 16px; margin: 22px 0 26px; }
+.canciones__date b {
+  font-family: var(--display); font-weight: 400; font-size: 46px; line-height: 1; letter-spacing: .03em;
+  padding: 8px 14px 3px; background: var(--juanma); color: var(--ink); transform: rotate(-3deg);
+  flex: none; white-space: nowrap;
+}
+.canciones__date span { font-size: 18px; letter-spacing: .12em; text-transform: uppercase; }
+.tracks { list-style: none; margin-bottom: 36px; max-width: 460px; }
+.tracks li {
+  display: flex; align-items: baseline; gap: 18px;
+  padding: 10px 0 8px; border-bottom: 2px dashed rgba(255,255,255,.25);
+}
+.tracks__n { font-family: var(--display); font-size: 28px; line-height: 1; color: var(--juanma); }
+.tracks__name { font-size: 20px; letter-spacing: .1em; text-transform: uppercase; }
 
 /* =========================================================
    PIZARRÓN · elenco + talentos
@@ -692,6 +714,10 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
   .lugar__grid { grid-template-columns: 1fr 1fr; gap: 40px; }
   .street-sign { font-size: 24px; }
 
+  .canciones__grid { grid-template-columns: 1fr; justify-items: center; gap: 50px; }
+  .canciones .record { --s: 300px; margin-left: -20%; }
+  .canciones__info { width: 100%; max-width: 560px; }
+
   .products { grid-template-columns: repeat(2, 1fr); max-width: 620px; margin: 0 auto; }
 }
 
@@ -811,6 +837,18 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
   .lugar__addr { font-size: 18px; }
   .lugar__logos { width: 230px; }
   .poster { margin: 0 10px; }
+
+  .canciones { padding: 100px 0 80px; }
+  .canciones__grid { grid-template-columns: 1fr; gap: 40px; }
+  .canciones .record { --s: min(220px, 56vw); margin: 0 auto; translate: -13% 0; }
+  .canciones__kicker { font-size: 24px; }
+  .canciones .mega--light { font-size: clamp(64px, 19vw, 96px); }
+  .canciones__date { gap: 12px; margin: 18px 0 20px; }
+  .canciones__date b { font-size: 36px; }
+  .canciones__date span { font-size: 14px; letter-spacing: .06em; }
+  .tracks__n { font-size: 24px; }
+  .tracks__name { font-size: 16px; }
+  .canciones .ticket-btn--lg { width: 100%; }
 
   .merch { padding: 110px 0 70px; }
   .merch__head { margin-bottom: 40px; }

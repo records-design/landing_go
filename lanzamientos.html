@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lanzamientos · GO! Vive a tu manera</title>
+  <meta name="description" content="Mia, Lupe, Juanma y Alvaro vuelven al escenario. GO! Vive a tu manera en vivo, 12 de diciembre en el Teatro Gran Rex. Entradas en TuEntrada.">
+  <meta property="og:title" content="GO! Vive a tu manera · ¿Y si volvemos?">
+  <meta property="og:description" content="12 de diciembre · Teatro Gran Rex. ¡Entradas disponibles!">
+  <meta property="og:image" content="img/key-visual.jpg">
+  <meta name="theme-color" content="#006271">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="style.css?v=63">
+</head>
+<body class="is-ready page-lanzamientos">
+
+  <!-- recursos SVG compartidos: estrella del logo y filtro de tiza -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="star" viewBox="0 0 100 100">
+      <path d="M50 6c4 0 6 22 10 28s30 2 32 6-22 16-24 22 10 30 6 32-22-14-24-14-20 16-24 14 6-26 4-32S6 44 8 40s28 0 32-6S46 6 50 6z"/>
+    </symbol>
+    <filter id="chalk" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="9" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 -1.6 1.45" result="dust"/>
+      <feComposite in="SourceGraphic" in2="dust" operator="in" result="c"/>
+      <feDisplacementMap in="c" in2="noise" scale="2.5"/>
+    </filter>
+  </svg>
+
+  <!-- NAV -->
+  <header class="nav is-solid">
+    <a class="nav__logo" href="index.html" aria-label="GO! Vive a tu manera, inicio" data-i18n-aria="aria.home"><img src="img/logo-go.png" alt="GO! Vive a tu manera"></a>
+    <nav class="nav__links" id="menu" aria-label="Secciones" data-i18n-aria="aria.sections">
+      <a href="index.html#funciones" data-i18n="nav.shows">Funciones</a>
+      <a href="index.html#elenco" data-i18n="nav.cast">Elenco</a>
+      <a href="lanzamientos.html" aria-current="page" data-i18n="nav.releases">Lanzamientos</a>
+      <a class="nav__shop" href="merch.html" data-i18n="nav.merch">Merch</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="aria.lang">
+      <button type="button" data-lang="es" lang="es">ES</button>
+      <button type="button" data-lang="en" lang="en">EN</button>
+    </div>
+    <a class="ticket-btn ticket-btn--sm" data-tickets href="#"><span data-i18n="nav.tickets">Entradas</span></a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menú" data-i18n-aria="aria.menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main id="top">
+
+    <!-- LANZAMIENTOS: pre-save de las canciones nuevas (después del 13/11 pasa solo a "Escuchalas ya") -->
+    <section class="canciones" id="canciones">
+      <div class="wrap canciones__grid">
+        <!-- disco que sale de la funda -->
+        <div class="record" aria-hidden="true">
+          <div class="record__disc"><img src="img/logo-go.png" alt=""></div>
+          <div class="record__sleeve"><span></span><span></span><span></span><span></span><b>GO!</b></div>
+        </div>
+
+        <div class="canciones__info">
+          <p class="canciones__kicker hand" data-i18n="songs.kicker">¡música nueva!</p>
+          <h1 class="mega mega--light" data-i18n="songs.title">4 canciones<br>nuevas</h1>
+          <p class="canciones__date"><b data-i18n="songs.date">13 · 11</b><span data-i18n="songs.soon">Salen en todas las plataformas</span></p>
+          <!-- nombres de las canciones: reemplazar cuando estén confirmados -->
+          <ol class="tracks">
+            <li><span class="tracks__n">01</span><span class="tracks__name">Canción 1</span></li>
+            <li><span class="tracks__n">02</span><span class="tracks__name">Canción 2</span></li>
+            <li><span class="tracks__n">03</span><span class="tracks__name">Canción 3</span></li>
+            <li><span class="tracks__n">04</span><span class="tracks__name">Canción 4</span></li>
+          </ol>
+          <a class="ticket-btn ticket-btn--lg" data-presave href="#"><span data-i18n="songs.cta">Hacer pre-save</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer torn">
+    <img class="footer__logo" src="img/logo-go.png" alt="GO! Vive a tu manera">
+    <!-- cada logo con su alto propio (--h): se ven todos parejos y se acomodan en una o más líneas -->
+    <div class="footer__partners">
+      <img src="img/logo-onceloops.png" alt="Onceloops Media" style="--h:50" loading="lazy">
+      <img src="img/logo-kuarzo.png" alt="Kuarzo Entertainment Argentina" style="--h:99" loading="lazy">
+      <img src="img/logo-yellow.png" alt="Yellow Kingdom" style="--h:73" loading="lazy">
+      <img src="img/logo-eb.png" alt="EB Producciones" style="--h:49" loading="lazy">
+      <img src="img/logo-swap.png" alt="Swap" style="--h:71" loading="lazy">
+      <img src="img/logo-los40.png" alt="Los 40" style="--h:148" loading="lazy">
+      <img src="img/logo-tuentrada.png" alt="TuEntrada.com" style="--h:72" loading="lazy">
+      <img src="img/logo-granrex.png" alt="Teatro Gran Rex, 89 años" style="--h:132" loading="lazy">
+    </div>
+    <p class="footer__legal" data-i18n="footer.legal">GO! Vive a tu manera es una serie original de Netflix. © 2026 Onceloops Media.</p>
+  </footer>
+
+  <script src="script.js?v=37"></script>
+</body>
+</html>
