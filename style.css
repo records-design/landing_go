@@ -851,10 +851,10 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
   .board__d1 { width: 40px; right: 16px; top: 0; }
 
   .todos { margin-top: 80px; }
-  .wave { --face: 70px; height: 220px; margin: 24px 0 6px; }
+  .wave { --face: 98px; height: 290px; margin: 20px 0 6px; }
   .wave__name { font-size: 12px; letter-spacing: .1em; margin-top: 12px; }
-  .wave__faces li::before { inset: -6px; border-width: 2px; }
-  .wave__faces img { border-width: 3px; }
+  .wave__faces li::before { inset: -8px; border-width: 2.5px; }
+  .wave__faces img { border-width: 4px; }
     
   .bands { padding: 22px 0; }
   .band__track span { font-size: 30px; }
