@@ -376,6 +376,67 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
 }
 
 /* =========================================================
+   CANCIONES NUEVAS · disco que sale de la funda + pre-save
+   ========================================================= */
+.canciones { --bg: var(--alvaro); color: var(--white); padding: 100px 0 120px; overflow: hidden; }
+.canciones__grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 70px; align-items: center; }
+
+.record { --s: 360px; position: relative; width: calc(var(--s) * 1.35); height: var(--s); }
+.record__sleeve {
+  position: absolute; left: 0; top: 0; width: var(--s); height: var(--s); z-index: 1;
+  display: flex; overflow: hidden;
+  border: calc(var(--s) * .025) solid var(--paper);
+  box-shadow: 0 24px 50px rgba(0,0,0,.45);
+  transform: rotate(-4deg);
+}
+.record__sleeve span { flex: 1; }
+.record__sleeve span:nth-child(1) { background: var(--mia); }
+.record__sleeve span:nth-child(2) { background: var(--lupe); }
+.record__sleeve span:nth-child(3) { background: var(--juanma); }
+.record__sleeve span:nth-child(4) { background: var(--alvaro); }
+.record__sleeve b {
+  position: absolute; left: 0; right: 0; bottom: 6%;
+  font-family: var(--display); font-weight: 400; font-size: calc(var(--s) * .34); line-height: .8; text-align: center;
+  color: var(--white); text-shadow: 0 6px 20px rgba(0,0,0,.3);
+}
+.record__disc {
+  position: absolute; top: 4%; left: 4%; width: calc(var(--s) * .92); height: calc(var(--s) * .92);
+  display: grid; place-items: center; border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 0 30%, rgba(255,255,255,.07) 30.5% 31%, transparent 31.5%),
+    repeating-radial-gradient(circle, #141414 0 2px, #1f1f1f 2px 4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.5);
+  transition: transform 1.2s var(--ease);
+}
+.record__disc::before { /* etiqueta del centro */
+  content: ""; position: absolute; width: 40%; height: 40%; border-radius: 50%;
+  background: var(--lupe);
+}
+.record__disc::after { /* brillo */
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: conic-gradient(from 30deg, transparent 0 10%, rgba(255,255,255,.12) 14%, transparent 20% 60%, rgba(255,255,255,.1) 64%, transparent 70%);
+}
+.record__disc img { position: relative; z-index: 1; width: 30%; animation: spin 6s linear infinite; }
+.record.is-in .record__disc { transform: translateX(34%); }
+
+.canciones__kicker { font-size: 30px; color: var(--juanma); transform: rotate(-3deg); margin-bottom: 10px; }
+.canciones .mega--light { font-size: clamp(80px, 8.4vw, 132px); }
+.canciones__date { display: flex; align-items: center; gap: 16px; margin: 22px 0 26px; }
+.canciones__date b {
+  font-family: var(--display); font-weight: 400; font-size: 46px; line-height: 1; letter-spacing: .03em;
+  padding: 8px 14px 3px; background: var(--juanma); color: var(--ink); transform: rotate(-3deg);
+  flex: none; white-space: nowrap;
+}
+.canciones__date span { font-size: 18px; letter-spacing: .12em; text-transform: uppercase; }
+.tracks { list-style: none; margin-bottom: 36px; max-width: 460px; }
+.tracks li {
+  display: flex; align-items: baseline; gap: 18px;
+  padding: 10px 0 8px; border-bottom: 2px dashed rgba(255,255,255,.25);
+}
+.tracks__n { font-family: var(--display); font-size: 28px; line-height: 1; color: var(--juanma); }
+.tracks__name { font-size: 20px; letter-spacing: .1em; text-transform: uppercase; }
+
+/* =========================================================
    PIZARRÓN · elenco + talentos
    ========================================================= */
 .board {
@@ -529,6 +590,70 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
 .poster .tape--br { top: auto; bottom: -10px; left: auto; right: -24px; margin: 0; transform: rotate(-38deg); }
 
 /* =========================================================
+   MERCH · galería de productos (cada uno lleva a la tienda)
+   ========================================================= */
+.merch { --bg: var(--paper); color: var(--ink); padding: 90px 0 120px; }
+.merch__head { text-align: center; margin-bottom: 60px; }
+.merch .mega { color: var(--mia); font-size: clamp(80px, 9vw, 140px); }
+.merch__sub { font-size: 30px; color: var(--lupe); transform: rotate(-3deg); margin-top: 6px; }
+.products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 34px; }
+.product {
+  position: relative; display: block; padding: 12px 12px 18px;
+  background: #fff; color: var(--ink); text-decoration: none; text-align: center;
+  box-shadow: 0 14px 28px rgba(15,20,18,.18);
+}
+.product img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.product__name { display: block; margin-top: 14px; font-family: var(--hand); font-weight: 400; font-size: 26px; line-height: 1.1; color: var(--c); }
+.c-juanma .product__name { color: #b08d00; }
+.product__go { display: inline-block; margin-top: 8px; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; border-bottom: 2px solid currentColor; }
+.product .tape { background: color-mix(in srgb, var(--c) 55%, rgba(250,244,226,.5)); }
+.product.pin.is-in:hover { transform: translateY(calc(var(--y) - 8px)) rotate(0deg); transition-delay: 0ms; transition-duration: .35s; }
+
+/* =========================================================
+   POPUP rotativo (entradas / canciones / merch)
+   ========================================================= */
+.popup {
+  margin: auto; padding: 0; border: 0; background: none; color: var(--ink);
+  width: min(400px, calc(100% - 32px)); max-height: none; overflow: visible;
+}
+.popup::backdrop { background: rgba(15, 20, 18, .72); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.popup[open] { animation: popup-in .55s var(--bounce); }
+@keyframes popup-in { from { transform: translateY(40px) rotate(-8deg) scale(.85); opacity: 0; } }
+.popup__card {
+  position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 34px 28px 30px;
+  background:
+    linear-gradient(var(--c), var(--c)) top / 100% 10px no-repeat,
+    var(--paper);
+  box-shadow: 0 30px 60px rgba(0,0,0,.45);
+  transform: rotate(-1.5deg);
+}
+.popup__card[hidden] { display: none; }
+.popup__card .ticket__flag { top: -20px; left: -14px; right: auto; transform: rotate(-4deg); animation: none; }
+.popup__img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center 20%; margin-bottom: 18px; }
+.popup__kicker { font-size: 14px; letter-spacing: .16em; text-transform: uppercase; opacity: .7; }
+.popup__title { font-family: var(--display); font-weight: 400; font-size: 48px; line-height: .95; color: var(--c); margin: 6px 0 10px; }
+.nw { white-space: nowrap; }
+.popup__text { font-size: 17px; line-height: 1.4; margin-bottom: 22px; text-wrap: balance; }
+.popup .ticket-btn { background: var(--c); color: var(--white); }
+.popup .ticket-btn span { border-color: rgba(255,255,255,.4); }
+.popup .ticket-btn:hover { background: var(--ink); }
+.popup__close {
+  position: absolute; top: -16px; right: -16px; z-index: 5;
+  width: 44px; height: 44px; border: 0; border-radius: 50%;
+  background: var(--ink); color: var(--white); font-size: 28px; line-height: 1; cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,.35);
+  transition: transform .3s var(--bounce);
+}
+.popup__close:hover { transform: rotate(90deg); }
+.record--mini { --s: 150px; margin: 4px 0 20px; translate: -13% 0; }
+.record--mini .record__disc { transform: translateX(34%); }
+.popup__merch { display: flex; gap: 10px; margin-bottom: 18px; }
+.popup__merch img { width: 100px; aspect-ratio: 1; object-fit: cover; box-shadow: 0 6px 14px rgba(0,0,0,.15); }
+.popup__merch img:nth-child(1) { transform: rotate(-4deg); }
+.popup__merch img:nth-child(3) { transform: rotate(4deg); }
+
+/* =========================================================
    FOOTER
    ========================================================= */
 .footer { --bg: var(--ink); padding: 70px var(--gutter) 48px; display: flex; flex-direction: column; align-items: center; gap: 36px; text-align: center; }
@@ -550,6 +675,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .stamp { opacity: 1; }
   .chalk-title { clip-path: none; }
   .doodle path { stroke-dashoffset: 0; }
+  .record .record__disc { transform: translateX(34%); }
 }
 
 /* =========================================================
@@ -573,6 +699,11 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   
   .lugar__grid { grid-template-columns: 1fr 1fr; gap: 40px; }
   .street-sign { font-size: 24px; }
+
+  .canciones__grid { grid-template-columns: 1fr; justify-items: center; gap: 50px; }
+  .canciones .record { --s: 300px; margin-left: -20%; }
+  .canciones__info { width: 100%; max-width: 560px; }
+  .products { grid-template-columns: repeat(2, 1fr); max-width: 620px; margin: 0 auto; }
 }
 
 /* =========================================================
@@ -652,6 +783,34 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .lugar__addr { font-size: 18px; }
   .lugar__logos { width: 230px; }
   .poster { margin: 0 10px; }
+
+  .canciones { padding: 70px 0 90px; }
+  .canciones__grid { grid-template-columns: 1fr; gap: 40px; }
+  .canciones .record { --s: min(220px, 56vw); margin: 0 auto; translate: -13% 0; }
+  .canciones__kicker { font-size: 24px; }
+  .canciones .mega--light { font-size: clamp(64px, 19vw, 96px); }
+  .canciones__date { gap: 12px; margin: 18px 0 20px; }
+  .canciones__date b { font-size: 36px; }
+  .canciones__date span { font-size: 14px; letter-spacing: .06em; }
+  .tracks__n { font-size: 24px; }
+  .tracks__name { font-size: 16px; }
+  .canciones .ticket-btn--lg { width: 100%; }
+
+  .merch { padding: 64px 0 90px; }
+  .merch__head { margin-bottom: 40px; }
+  .merch .mega { font-size: clamp(70px, 21vw, 110px); }
+  .merch__sub { font-size: 24px; }
+  .products { grid-template-columns: 1fr 1fr; gap: 28px 16px; }
+  .product { padding: 8px 8px 14px; }
+  .product__name { font-size: 19px; }
+  .product__go { font-size: 11px; letter-spacing: .08em; }
+  .product .tape { width: 80px; margin-left: -40px; height: 24px; top: -12px; }
+
+  .popup__card { padding: 30px 20px 24px; }
+  .popup__title { font-size: 40px; }
+  .popup__text { font-size: 15px; }
+  .popup__close { top: -14px; right: -6px; }
+  .popup__merch img { width: 80px; }
 
   .footer { padding: 56px var(--gutter) 32px; gap: 28px; }
   .footer__logo { width: 120px; }

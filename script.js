@@ -1,5 +1,15 @@
 // Link de compra de entradas: cambiarlo acá y se actualiza en todos los botones.
 const TICKETS_URL = 'https://www.tuentrada.com/';
+// Link del pre-save de las canciones nuevas (cuando lo tengamos, pegarlo acá).
+const PRESAVE_URL = '';
+// Día en que salen las canciones: desde ahí el botón dice "Escuchalas ya".
+const RELEASE_DATE = new Date('2026-11-13T00:00:00-03:00');
+
+// Popup que aparece a los 5 s. Cada visita ve uno, y va rotando: la primera vez
+// se sortea (con estas proporciones), y si la persona vuelve le toca el siguiente.
+// Para sacar uno, ponerle 0. Para probar uno: ?popup=tickets | presave | merch
+const POPUP_DELAY = 5000;
+const POPUPS = { tickets: 50, presave: 30, merch: 20 };
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const STAR = '<svg aria-hidden="true"><use href="#star"/></svg>';
@@ -10,6 +20,25 @@ document.querySelectorAll('[data-tickets]').forEach((a) => {
   a.rel = 'noopener';
 });
 
+// Links externos (pre-save y merch) se abren en otra pestaña
+const released = new Date() >= RELEASE_DATE;
+document.querySelectorAll('[data-presave]').forEach((a) => { if (PRESAVE_URL) a.href = PRESAVE_URL; });
+document.querySelectorAll('[data-presave], .product').forEach((a) => {
+  if (a.href.startsWith('http') && !a.href.startsWith(location.origin)) { a.target = '_blank'; a.rel = 'noopener'; }
+});
+// Ya salieron las canciones: cambian los textos (antes de guardar el español original)
+if (released) {
+  const ES_OUT = {
+    'songs.soon': ['songs.out', '¡Ya están en todas las plataformas!'],
+    'popup.p.text': ['popup.p.out', 'Ya están en todas las plataformas. ¡Dale play!'],
+    'songs.cta': ['songs.listen', 'Escuchalas ya'],
+  };
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const out = ES_OUT[el.dataset.i18n];
+    if (out) { el.dataset.i18n = out[0]; el.textContent = out[1]; }
+  });
+}
+
 // Carga: la estrella gira hasta que la página está lista (imágenes y fuentes),
 // con un mínimo para que se vea girar y un máximo por si algo tarda de más.
 const pageLoaded = new Promise((resolve) => {
@@ -17,11 +46,11 @@ const pageLoaded = new Promise((resolve) => {
   else window.addEventListener('load', resolve, { once: true });
 });
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-Promise.race([Promise.all([pageLoaded, document.fonts.ready, wait(reduceMotion ? 0 : 1300)]), wait(5000)])
-  .then(() => {
-    document.body.classList.remove('is-loading');
-    document.body.classList.add('is-ready');
-  });
+const loaded = Promise.race([Promise.all([pageLoaded, document.fonts.ready, wait(reduceMotion ? 0 : 1300)]), wait(5000)]);
+loaded.then(() => {
+  document.body.classList.remove('is-loading');
+  document.body.classList.add('is-ready');
+});
 
 /* ---------- Idioma (ES / EN) ----------
    El español está escrito en el HTML; acá va solo el inglés.
@@ -29,7 +58,8 @@ Promise.race([Promise.all([pageLoaded, document.fonts.ready, wait(reduceMotion ?
 const EN = {
   'aria.home': 'GO! Vive a tu manera, home', 'aria.sections': 'Sections', 'aria.lang': 'Language',
   'aria.soldout': 'Saturday 12, 8 pm show sold out', 'aria.bands': 'Tickets available',
-  'nav.shows': 'Shows', 'nav.cast': 'Cast', 'nav.talent': 'Talent', 'nav.venue': 'Getting there', 'nav.tickets': 'Tickets',
+  'aria.close': 'Close',
+  'nav.shows': 'Shows', 'nav.songs': 'Songs', 'nav.merch': 'Shop', 'nav.cast': 'Cast', 'nav.venue': 'Getting there', 'nav.tickets': 'Tickets',
   'hero.claim': 'What if we go back?', 'hero.date': 'Sat Dec 12', 'venue.name': 'Gran Rex Theatre',
   'cta.main': 'Get my ticket',
   'shows.title': 'Shows',
@@ -44,6 +74,15 @@ const EN = {
   'bio.alvaro': 'Lupe’s brother. Loyal and protective, he always stands by Mía when it really matters.', 'talent.title': '…and they’re not alone',
   'venue.title': 'Gran Rex<br>Theatre', 'venue.addr': 'Av. Corrientes 857, Buenos Aires, Argentina',
   'cta.buy': 'Get tickets', 'venue.map': 'get directions →',
+  'songs.kicker': 'new music!', 'songs.title': '4 new<br>songs', 'songs.date': '11 · 13',
+  'songs.soon': 'Out on every platform', 'songs.out': 'Out now on every platform!',
+  'songs.cta': 'Pre-save', 'songs.listen': 'Listen now',
+  'merch.title': 'Merch', 'merch.sub': 'take GO! home', 'merch.go': 'Buy →',
+  'popup.t.kicker': 'Gran Rex Theatre', 'popup.t.title': 'Sat Dec 12 · 4 pm',
+  'popup.t.text': 'The 8 pm show is already sold out. Don’t miss out!',
+  'popup.p.title': '4 new songs', 'popup.p.text': 'Out on November 13. <span class="nw">Pre-save</span> them and listen as soon as they drop.',
+  'popup.p.out': 'Out now on every platform. Hit play!',
+  'popup.m.kicker': 'Official merch', 'popup.m.text': 'T-shirts, hoodies and more from the show.', 'popup.m.cta': 'See the shop',
   'footer.legal': 'GO! Vive a tu manera is a Netflix original series. © 2026 Onceloops Media.',
 };
 const BANDS = {
@@ -147,7 +186,10 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.tickets, .polaroids').forEach((group) => {
   group.querySelectorAll('.toss, .pin').forEach((el, i) => el.style.setProperty('--d', `${i * 140}ms`));
 });
-document.querySelectorAll('.toss, .pin, .mega, .doodle--chalk').forEach((el) => io.observe(el));
+document.querySelectorAll('.toss, .pin, .mega, .doodle--chalk, .canciones .record').forEach((el) => io.observe(el));
+document.querySelectorAll('.products').forEach((group) => {
+  group.querySelectorAll('.pin').forEach((el, i) => el.style.setProperty('--d', `${i * 120}ms`));
+});
 document.querySelectorAll('.chalk-title').forEach((el) => {
   revealTarget.set(el.parentElement, el);
   io.observe(el.parentElement);
@@ -293,4 +335,53 @@ if (wave) {
     paused = false;
     show(null);
   });
+}
+
+// Popup rotativo: una vez por visita, a los 5 s de terminar la carga
+const popup = document.querySelector('.popup');
+if (popup && typeof popup.showModal === 'function') {
+  const params = new URLSearchParams(location.search);
+  const forced = params.get('popup');
+  const store = (kind, key, value) => {
+    try {
+      const st = kind === 'local' ? localStorage : sessionStorage;
+      if (value === undefined) return st.getItem(key);
+      st.setItem(key, value);
+    } catch {}
+    return null;
+  };
+  // después de la función ya no se ofrecen entradas
+  const options = Object.keys(POPUPS).filter((k) => POPUPS[k] > 0 && !(k === 'tickets' && new Date() > showDate));
+  function pick() {
+    if (forced in POPUPS) return forced;
+    if (!options.length) return null;
+    const last = store('local', 'go-popup-last');
+    if (options.includes(last)) return options[(options.indexOf(last) + 1) % options.length];
+    let r = Math.random() * options.reduce((sum, k) => sum + POPUPS[k], 0);
+    return options.find((k) => (r -= POPUPS[k]) < 0) || options[0];
+  }
+  const variant = (forced !== '0' && (forced || !store('session', 'go-popup-shown'))) ? pick() : null;
+
+  if (variant) {
+    popup.querySelectorAll('[data-variant]').forEach((card) => {
+      const on = card.dataset.variant === variant;
+      card.hidden = !on;
+      if (on) card.querySelector('.popup__title').id = 'popup-title';
+    });
+    const close = () => popup.close();
+    popup.querySelector('.popup__close').addEventListener('click', close);
+    popup.querySelectorAll('[data-popup-close], a').forEach((a) => a.addEventListener('click', close));
+    popup.addEventListener('click', (e) => { if (e.target === popup) close(); }); // tocar afuera
+    // si la persona ya está comprando o abrió otra cosa, no la interrumpimos
+    let busy = false;
+    document.querySelectorAll('[data-tickets], [data-presave], .product').forEach((a) => {
+      if (!popup.contains(a)) a.addEventListener('click', () => { busy = true; });
+    });
+    loaded.then(() => setTimeout(() => {
+      if (busy || popup.open) return;
+      popup.showModal();
+      store('session', 'go-popup-shown', '1');
+      store('local', 'go-popup-last', variant);
+    }, forced ? 1200 : POPUP_DELAY));
+  }
 }

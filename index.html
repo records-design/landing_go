@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=48">
+  <link rel="stylesheet" href="style.css?v=49">
 </head>
 <body class="is-loading">
 
@@ -36,8 +36,9 @@
     <a class="nav__logo" href="#top" aria-label="GO! Vive a tu manera, inicio" data-i18n-aria="aria.home"><img src="img/logo-go.png" alt="GO! Vive a tu manera"></a>
     <nav class="nav__links" aria-label="Secciones" data-i18n-aria="aria.sections">
       <a href="#funciones" data-i18n="nav.shows">Funciones</a>
+      <a href="#canciones" data-i18n="nav.songs">Canciones</a>
       <a href="#elenco" data-i18n="nav.cast">Elenco</a>
-      <a href="#todos" data-i18n="nav.talent">Talentos</a>
+      <a href="#merch" data-i18n="nav.merch">Tienda</a>
       <a href="#lugar" data-i18n="nav.venue">Cómo llegar</a>
     </nav>
     <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="aria.lang">
@@ -112,6 +113,31 @@
             </div>
           </a>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- CANCIONES NUEVAS: pre-save (después del 13/11 pasa solo a "Escuchalas ya") -->
+    <section class="canciones torn" id="canciones" data-release="2026-11-13T00:00:00-03:00">
+      <div class="wrap canciones__grid">
+        <!-- disco que sale de la funda -->
+        <div class="record" aria-hidden="true">
+          <div class="record__disc"><img src="img/logo-go.png" alt=""></div>
+          <div class="record__sleeve"><span></span><span></span><span></span><span></span><b>GO!</b></div>
+        </div>
+
+        <div class="canciones__info">
+          <p class="canciones__kicker hand" data-i18n="songs.kicker">¡música nueva!</p>
+          <h2 class="mega mega--light" data-i18n="songs.title">4 canciones<br>nuevas</h2>
+          <p class="canciones__date"><b data-i18n="songs.date">13 · 11</b><span data-songs-status data-i18n="songs.soon">Salen en todas las plataformas</span></p>
+          <!-- nombres de las canciones: reemplazar cuando estén confirmados -->
+          <ol class="tracks">
+            <li><span class="tracks__n">01</span><span class="tracks__name">Canción 1</span></li>
+            <li><span class="tracks__n">02</span><span class="tracks__name">Canción 2</span></li>
+            <li><span class="tracks__n">03</span><span class="tracks__name">Canción 3</span></li>
+            <li><span class="tracks__n">04</span><span class="tracks__name">Canción 4</span></li>
+          </ol>
+          <a class="ticket-btn ticket-btn--lg" data-presave href="#canciones"><span data-presave-label data-i18n="songs.cta">Hacer pre-save</span></a>
         </div>
       </div>
     </section>
@@ -203,6 +229,43 @@
       </div>
     </section>
 
+    <!-- MERCH: cada producto lleva a la página del vendedor.
+         Para sumar uno: copiar un <li>, cambiar la foto (img/merch/), el nombre y el link (href). -->
+    <section class="merch torn" id="merch">
+      <div class="wrap">
+        <header class="merch__head">
+          <h2 class="mega" data-i18n="merch.title">Merch</h2>
+          <p class="merch__sub hand" data-i18n="merch.sub">llevate GO! a casa</p>
+        </header>
+        <ul class="products">
+          <li><a class="product pin c-mia" style="--r:-2deg; --y:0px" href="#merch">
+            <span class="tape" aria-hidden="true"></span>
+            <img src="img/merch/remera.svg" alt="" loading="lazy">
+            <b class="product__name">Remera GO!</b>
+            <span class="product__go" data-i18n="merch.go">Comprar →</span>
+          </a></li>
+          <li><a class="product pin c-lupe" style="--r:2deg; --y:18px" href="#merch">
+            <span class="tape" aria-hidden="true"></span>
+            <img src="img/merch/buzo.svg" alt="" loading="lazy">
+            <b class="product__name">Buzo Saint Mary</b>
+            <span class="product__go" data-i18n="merch.go">Comprar →</span>
+          </a></li>
+          <li><a class="product pin c-alvaro" style="--r:-1deg; --y:-6px" href="#merch">
+            <span class="tape" aria-hidden="true"></span>
+            <img src="img/merch/gorra.svg" alt="" loading="lazy">
+            <b class="product__name">Gorra GO!</b>
+            <span class="product__go" data-i18n="merch.go">Comprar →</span>
+          </a></li>
+          <li><a class="product pin c-juanma" style="--r:3deg; --y:12px" href="#merch">
+            <span class="tape" aria-hidden="true"></span>
+            <img src="img/merch/tote.svg" alt="" loading="lazy">
+            <b class="product__name">Tote bag</b>
+            <span class="product__go" data-i18n="merch.go">Comprar →</span>
+          </a></li>
+        </ul>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer torn">
@@ -214,6 +277,41 @@
   <!-- CTA fija en mobile -->
   <a class="sticky-cta ticket-btn" data-tickets href="#"><span data-i18n="cta.main">Quiero mi entrada</span></a>
 
-  <script src="script.js?v=30"></script>
+  <!-- POPUP: aparece a los 5 s y va rotando entre entradas, canciones y merch -->
+  <dialog class="popup" aria-labelledby="popup-title">
+    <button class="popup__close" type="button" aria-label="Cerrar" data-i18n-aria="aria.close">×</button>
+    <div class="popup__card c-lupe" data-variant="tickets">
+      <span class="tape" aria-hidden="true"></span>
+      <span class="ticket__flag" data-i18n="ticket.lastFlag">¡Últimas entradas!</span>
+      <img class="popup__img" src="img/key-visual.jpg" alt="" loading="lazy">
+      <p class="popup__kicker" data-i18n="popup.t.kicker">Teatro Gran Rex</p>
+      <h2 class="popup__title" data-i18n="popup.t.title">Sáb 12 Dic · 16 hs</h2>
+      <p class="popup__text" data-i18n="popup.t.text">La función de las 20 hs ya está agotada. ¡No te quedes afuera!</p>
+      <a class="ticket-btn" data-tickets href="#"><span data-i18n="cta.main">Quiero mi entrada</span></a>
+    </div>
+    <div class="popup__card c-alvaro" data-variant="presave">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="record record--mini" aria-hidden="true">
+        <div class="record__disc"><img src="img/logo-go.png" alt=""></div>
+        <div class="record__sleeve"><span></span><span></span><span></span><span></span><b>GO!</b></div>
+      </div>
+      <p class="popup__kicker" data-i18n="songs.kicker">¡música nueva!</p>
+      <h2 class="popup__title" data-i18n="popup.p.title">4 canciones nuevas</h2>
+      <p class="popup__text" data-songs-status data-i18n="popup.p.text">Salen el 13/11. Hacé el <span class="nw">pre-save</span> y escuchalas apenas salgan.</p>
+      <a class="ticket-btn" data-presave href="#canciones"><span data-presave-label data-i18n="songs.cta">Hacer pre-save</span></a>
+    </div>
+    <div class="popup__card c-mia" data-variant="merch">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="popup__merch" aria-hidden="true">
+        <img src="img/merch/remera.svg" alt=""><img src="img/merch/buzo.svg" alt=""><img src="img/merch/gorra.svg" alt="">
+      </div>
+      <p class="popup__kicker" data-i18n="popup.m.kicker">Merch oficial</p>
+      <h2 class="popup__title" data-i18n="merch.sub">llevate GO! a casa</h2>
+      <p class="popup__text" data-i18n="popup.m.text">Remeras, buzos y más de la serie.</p>
+      <a class="ticket-btn" href="#merch" data-popup-close><span data-i18n="popup.m.cta">Ver la tienda</span></a>
+    </div>
+  </dialog>
+
+  <script src="script.js?v=31"></script>
 </body>
 </html>
