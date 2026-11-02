@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=55">
+  <link rel="stylesheet" href="style.css?v=56">
 </head>
 <body class="is-loading">
 
@@ -34,7 +34,7 @@
   <!-- NAV -->
   <header class="nav">
     <a class="nav__logo" href="#top" aria-label="GO! Vive a tu manera, inicio" data-i18n-aria="aria.home"><img src="img/logo-go.png" alt="GO! Vive a tu manera"></a>
-    <nav class="nav__links" aria-label="Secciones" data-i18n-aria="aria.sections">
+    <nav class="nav__links" id="menu" aria-label="Secciones" data-i18n-aria="aria.sections">
       <a href="#funciones" data-i18n="nav.shows">Funciones</a>
       <a href="#elenco" data-i18n="nav.cast">Elenco</a>
       <a class="nav__shop" href="merch.html" data-i18n="nav.merch">Merch</a>
@@ -44,6 +44,7 @@
       <button type="button" data-lang="en" lang="en">EN</button>
     </div>
     <a class="ticket-btn ticket-btn--sm" data-tickets href="#"><span data-i18n="nav.tickets">Entradas</span></a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menú" data-i18n-aria="aria.menu"><span></span><span></span><span></span></button>
   </header>
 
   <main id="top">
@@ -249,6 +250,6 @@
     </div>
   </dialog>
 
-  <script src="script.js?v=35"></script>
+  <script src="script.js?v=36"></script>
 </body>
 </html>

@@ -58,7 +58,7 @@ loaded.then(() => {
 const EN = {
   'aria.home': 'GO! Vive a tu manera, home', 'aria.sections': 'Sections', 'aria.lang': 'Language',
   'aria.soldout': 'Saturday 12, 8 pm show sold out', 'aria.bands': 'Tickets available',
-  'aria.close': 'Close',
+  'aria.close': 'Close', 'aria.menu': 'Menu',
   'nav.shows': 'Shows', 'nav.merch': 'Merch', 'nav.cast': 'Cast', 'nav.venue': 'Getting there', 'nav.tickets': 'Tickets',
   'hero.claim': 'What if we go back?', 'hero.date': 'Sat Dec 12', 'venue.name': 'Gran Rex Theatre',
   'cta.main': 'Get my ticket',
@@ -169,6 +169,19 @@ if (hero) { // en la página de merch no hay portada: la nav ya viene sólida
     nav.classList.toggle('is-solid', !entry.isIntersecting);
     sticky.classList.toggle('is-visible', !entry.isIntersecting);
   }, { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
+}
+
+// Menú hamburguesa (mobile): abre/cierra el panel; se cierra al elegir, con Esc o tocando afuera
+const toggle = document.querySelector('.nav__toggle');
+if (toggle) {
+  const setOpen = (open) => {
+    nav.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  };
+  toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-open')));
+  nav.querySelectorAll('.nav__links a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  document.addEventListener('click', (e) => { if (!nav.contains(e.target)) setOpen(false); });
 }
 
 // Aparición al hacer scroll: entradas que caen, fotos que se pegan,
