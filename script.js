@@ -1,5 +1,7 @@
 // Link de compra de entradas: cambiarlo acá y se actualiza en todos los botones.
 const TICKETS_URL = 'https://www.tuentrada.com/go-vive-a-tu-manera-tgr';
+// Instagram oficial de GO! (pegar acá el link del perfil).
+const INSTAGRAM_URL = 'https://www.instagram.com/';
 // Link del pre-save de las canciones nuevas (cuando lo tengamos, pegarlo acá).
 // Mientras esté vacío, el botón del popup lleva a la página de Lanzamientos.
 const PRESAVE_URL = '';
@@ -15,6 +17,11 @@ const POPUPS = { tickets: 50, presave: 30, merch: 20 };
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const STAR = '<svg aria-hidden="true"><use href="#star"/></svg>';
 
+document.querySelectorAll('[data-instagram]').forEach((a) => {
+  a.href = INSTAGRAM_URL;
+  a.target = '_blank';
+  a.rel = 'noopener';
+});
 document.querySelectorAll('[data-tickets]').forEach((a) => {
   a.href = TICKETS_URL;
   a.target = '_blank';
@@ -64,7 +71,7 @@ const EN = {
   'hero.claim': 'What if we go back?', 'hero.date': 'Sat Dec 12', 'venue.name': 'Gran Rex Theatre',
   'cta.main': 'Get my ticket',
   'shows.title': 'Shows',
-  'ticket.show': 'GO! · What if we go back?', 'ticket.day': 'Sat', 'ticket.month': 'Dec',
+  'ticket.title': 'What if we go back?', 'ticket.day': 'Sat', 'ticket.month': 'Dec',
   'ticket.t16': '4 pm', 'ticket.t20': '8 pm', 'ticket.place': 'Gran Rex Theatre · Av. Corrientes 857',
   'ticket.s16': '4 pm show', 'ticket.s20': '8 pm show', 'ticket.buy': 'Buy', 'ticket.stamp': 'Sold out',
   'ticket.lastFlag': 'Last tickets!',
@@ -90,6 +97,7 @@ const EN = {
   'popup.p.text': 'Out on NOV 13. <span class="nw">Pre-save</span> them and listen as soon as they drop.',
   'popup.p.out': 'Out now on every platform. Hit play!',
   'popup.m.kicker': 'Official merch', 'popup.m.text': 'T-shirts, hoodies and more from the show.', 'popup.m.cta': 'See the shop',
+  'footer.ig': 'Follow us on Instagram',
   'footer.legal': 'GO! Vive a tu manera is a Netflix original series. © 2026 Onceloops Media.',
 };
 const BANDS = {
