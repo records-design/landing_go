@@ -601,7 +601,11 @@ a.ticket:hover .ticket__buy { background: var(--white); }
    LUGAR · cartel de calle + afiche pegado
    ========================================================= */
 .lugar { background: var(--lupe); padding: 90px 0 130px; }
-.lugar__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: center; }
+.lugar__head { max-width: 760px; margin-bottom: 40px; }
+.lugar__lead { font-family: var(--hand); font-size: clamp(26px, 2.6vw, 38px); color: var(--juanma); transform: rotate(-2deg); margin-top: 6px; }
+.lugar__intro { font-size: 20px; line-height: 1.5; margin-top: 18px; opacity: .92; }
+.lugar__grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 28px; align-items: stretch; }
+.lugar__col { display: flex; flex-direction: column; gap: 22px; }
 .street-sign {
   display: inline-flex; align-items: center;
   padding: 10px 20px 8px; margin-bottom: 26px;
@@ -614,13 +618,42 @@ a.ticket:hover .ticket__buy { background: var(--white); }
 .street-sign__num { font-size: 18px; margin-left: 16px; padding-left: 14px; border-left: 2px solid #fff; }
 @keyframes swing { 0%, 100% { transform: rotate(-2deg); } 25% { transform: rotate(4deg); } 50% { transform: rotate(-5deg); } 75% { transform: rotate(1deg); } }
 .mega--light { color: var(--white); font-size: clamp(90px, 10.5vw, 170px); }
-.lugar__addr { font-size: 22px; margin: 18px 0 30px; opacity: .9; }
-.lugar__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 26px; margin-bottom: 44px; }
-.lugar__logos { width: 290px; opacity: .9; }
-.poster { position: relative; }
-.poster img { box-shadow: 0 30px 60px rgba(0,0,0,.4); }
-.poster .tape--tl { top: -10px; left: -24px; margin: 0; transform: rotate(-38deg); }
-.poster .tape--br { top: auto; bottom: -10px; left: auto; right: -24px; margin: 0; transform: rotate(-38deg); }
+/* dirección: chip con pin, lleva a Google Maps */
+.addr-chip {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 20px 11px 16px; border-radius: 10px;
+  background: var(--juanma); color: var(--ink); text-decoration: none;
+  font-size: 20px; font-weight: 600; box-shadow: 0 8px 18px rgba(0,0,0,.2);
+  transition: transform .2s ease;
+}
+.addr-chip:hover { transform: translateY(-2px); }
+.addr-chip svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.2; }
+/* tarjetas */
+.card { border-radius: 16px; padding: 26px 28px; background: rgba(15, 20, 18, .28); }
+.card__title { font-family: var(--display); font-weight: 400; font-size: 34px; line-height: 1; letter-spacing: .03em; color: var(--juanma); margin-bottom: 18px; }
+.transport { display: grid; gap: 16px; }
+.transport li { display: flex; align-items: flex-start; gap: 14px; }
+.transport b { display: block; font-size: 18px; letter-spacing: .04em; }
+.transport span:not(.subte-badge) { display: block; font-size: 16px; opacity: .8; line-height: 1.4; }
+.subte-badge {
+  flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+  background: var(--line); color: #fff; font-family: var(--display); font-size: 22px; line-height: 1; padding-top: 2px;
+}
+.subte-badge--bus { background: var(--white); color: var(--lupe); padding: 0; }
+.subte-badge--bus svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.map-card { border-radius: 16px; overflow: hidden; min-height: 380px; background: rgba(15,20,18,.28); box-shadow: 0 18px 36px rgba(0,0,0,.25); }
+.map-card iframe { display: block; width: 100%; height: 100%; min-height: 380px; border: 0; }
+.card--car { display: flex; align-items: center; gap: 26px; margin-top: 28px; background: var(--alvaro); }
+.card--car .card__title { margin-bottom: 6px; }
+.card--car p { font-size: 18px; opacity: .9; }
+.card--car__icon { flex: none; width: 72px; fill: none; stroke: var(--juanma); stroke-width: 2.4; stroke-linejoin: round; }
+.card__btn {
+  margin-left: auto; flex: none; padding: 11px 26px 10px; border: 2px solid var(--white); border-radius: 999px;
+  color: var(--white); text-decoration: none; font-size: 16px; letter-spacing: .12em; text-transform: uppercase;
+  transition: background .2s ease, color .2s ease;
+}
+.card__btn:hover { background: var(--white); color: var(--alvaro); }
+.lugar__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 26px; margin-top: 44px; }
 
 /* =========================================================
    MERCH · galería de productos (cada uno lleva a la tienda)
@@ -751,7 +784,7 @@ a.ticket:hover .ticket__buy { background: var(--white); }
   .polaroids { grid-template-columns: repeat(2, 1fr); max-width: 620px; margin: 0 auto; gap: 40px 34px; }
   .wave { --face: 96px; height: 290px; }
   
-  .lugar__grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .lugar__grid { grid-template-columns: 1fr; }
   .street-sign { font-size: 24px; }
 
   .canciones__grid { grid-template-columns: 1fr; justify-items: center; gap: 50px; }
@@ -870,13 +903,19 @@ a.ticket:hover .ticket__buy { background: var(--white); }
   .band--b { margin-top: -22px; }
 
   .lugar { padding: 64px 0 90px; }
-  .lugar__grid { grid-template-columns: 1fr; gap: 50px; }
+  .lugar__grid { grid-template-columns: 1fr; gap: 22px; }
   .street-sign { font-size: 20px; padding: 8px 14px 6px; }
   .street-sign__num { font-size: 14px; }
-  .mega--light { font-size: clamp(76px, 22vw, 110px); }
-  .lugar__addr { font-size: 18px; }
-  .lugar__logos { width: 230px; }
-  .poster { margin: 0 10px; }
+  .mega--light { font-size: clamp(64px, 19vw, 100px); }
+  .lugar__intro { font-size: 17px; }
+  .addr-chip { font-size: 17px; }
+  .card { padding: 22px 18px; }
+  .card__title { font-size: 28px; }
+  .map-card, .map-card iframe { min-height: 280px; }
+  .card--car { flex-wrap: wrap; gap: 14px 18px; }
+  .card--car__icon { width: 56px; }
+  .card__btn { margin-left: 0; }
+  .lugar__actions .ticket-btn { width: 100%; }
 
   .canciones { padding: 100px 0 80px; }
   .canciones__grid { grid-template-columns: 1fr; gap: 40px; }
