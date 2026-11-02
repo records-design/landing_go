@@ -341,7 +341,15 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   background: repeating-linear-gradient(to bottom, var(--paper) 0 6px, transparent 6px 12px);
 }
 .ticket__stub-label { font-family: var(--display); font-size: 24px; letter-spacing: .06em; writing-mode: vertical-rl; transform: rotate(180deg); }
-.ticket__buy { white-space: nowrap; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; border-bottom: 2px solid currentColor; }
+/* botón "Comprar" del talón: pastilla amarilla en Bebas, bien de botón */
+.ticket__buy {
+  white-space: nowrap; padding: 6px 8px 3px; border-radius: 4px;
+  font-family: var(--display); font-size: 18px; line-height: 1; letter-spacing: .04em; text-transform: uppercase;
+  background: var(--juanma); color: var(--ink);
+  box-shadow: 0 3px 0 rgba(0,0,0,.3);
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2px); box-shadow: 0 5px 0 rgba(0,0,0,.3); }
 .barcode { width: 64px; height: 30px; background: repeating-linear-gradient(90deg, currentColor 0 2px, transparent 2px 4px, currentColor 4px 5px, transparent 5px 8px, currentColor 8px 11px, transparent 11px 13px); opacity: .85; }
 .ticket.c-juanma .ticket__stub { color: var(--ink); }
 
@@ -747,7 +755,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   .ticket__time { font-size: 30px; }
   .ticket__place { font-size: 13px; }
   .ticket__stub { width: 82px; }
-  .ticket__buy { font-size: 11px; letter-spacing: .06em; }
+  .ticket__buy { font-size: 16px; padding: 5px 7px 2px; letter-spacing: .03em; }
   .stamp { font-size: 42px; padding: 6px 34px 3px; clip-path: polygon(16px 0, 100% 0, calc(100% - 16px) 100%, 0 100%); }
   .ticket__flag { font-size: 19px; right: 90px; top: -16px; padding: 6px 12px 3px; }
   .ticket--last.is-in .ticket__flag, .ticket__flag { animation: none; }
