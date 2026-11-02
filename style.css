@@ -352,7 +352,15 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
   box-shadow: 0 3px 0 rgba(0,0,0,.3);
   transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
 }
-a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2px); box-shadow: 0 5px 0 rgba(0,0,0,.3); }
+a.ticket:hover .ticket__buy { background: var(--white); }
+/* en la entrada a la venta, "Comprar" va donde estaba el código de barras y late para invitar a tocarlo */
+.ticket--last .barcode { display: none; }
+.ticket--last .ticket__buy { transform-origin: center; animation: heartbeat 1.5s ease-in-out infinite; }
+@keyframes heartbeat {
+  0%, 40%, 100% { transform: scale(1); }
+  10%, 30% { transform: scale(1.12); }
+  20% { transform: scale(1.02); }
+}
 .barcode { width: 64px; height: 30px; background: repeating-linear-gradient(90deg, currentColor 0 2px, transparent 2px 4px, currentColor 4px 5px, transparent 5px 8px, currentColor 8px 11px, transparent 11px 13px); opacity: .85; }
 .ticket.c-juanma .ticket__stub { color: var(--ink); }
 
