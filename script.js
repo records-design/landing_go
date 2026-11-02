@@ -106,7 +106,7 @@ const BANDS = {
 };
 const TITLES = {
   es: document.title,
-  en: { 'page-merch': 'Merch · GO! Live Your Way', 'page-lanzamientos': 'New releases · GO! Live Your Way' }[document.body.classList[1]] || 'GO! Live Your Way · What if we go back? · Gran Rex Theatre',
+  en: { 'page-merch': 'Merch · GO! Live Your Way', 'page-lanzamientos': 'Music · GO! Live Your Way', 'page-como-llegar': 'Getting there · GO! Live Your Way' }[document.body.classList[1]] || 'GO! Live Your Way · What if we go back? · Gran Rex Theatre',
 };
 
 // Guardamos el español original de cada elemento antes de tocar nada

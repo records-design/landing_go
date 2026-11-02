@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=74">
+  <link rel="stylesheet" href="style.css?v=75">
 </head>
 <body class="is-loading">
 
@@ -183,71 +183,27 @@
       <div class="band band--b"><div class="band__track" aria-hidden="true"></div></div>
     </section>
 
-    <!-- CÓMO LLEGAR (estructura tipo "cómo llegar" de Movistar Arena: intro, dirección, mapa, transporte y auto) -->
+    <!-- LUGAR -->
     <section class="lugar" id="lugar">
-      <div class="wrap">
-        <header class="lugar__head">
+      <div class="wrap lugar__grid">
+        <div class="lugar__info">
           <div class="street-sign" aria-label="Avenida Corrientes 800">
             <span class="street-sign__name">Av. Corrientes</span>
             <span class="street-sign__num">800</span>
           </div>
-          <h2 class="mega mega--light" data-i18n="venue.how">Cómo llegar</h2>
-          <p class="lugar__lead" data-i18n="venue.lead">al Teatro Gran Rex</p>
-          <p class="lugar__intro" data-i18n="venue.intro">¡La experiencia empieza antes de llegar! El Gran Rex está en pleno centro porteño, sobre Av. Corrientes y a metros del Obelisco. ¡Te esperamos!</p>
-        </header>
-
-        <div class="lugar__grid">
-          <div class="lugar__col">
-            <!-- dirección -->
-            <a class="addr-chip" href="https://www.google.com/maps/search/?api=1&amp;query=Teatro+Gran+Rex+Av.+Corrientes+857+Buenos+Aires" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
-              <span data-i18n="venue.addr">Av. Corrientes 857, CABA</span>
-            </a>
-
-            <!-- medios de transporte -->
-            <div class="card card--transport">
-              <h3 class="card__title" data-i18n="venue.transport">Medios de transporte</h3>
-              <ul class="transport">
-                <li>
-                  <span class="subte-badge" style="--line:#ee3d3b">B</span>
-                  <div><b data-i18n="venue.subteB">Subte · Línea B</b><span data-i18n="venue.stB">Estación Carlos Pellegrini</span></div>
-                </li>
-                <li>
-                  <span class="subte-badge" style="--line:#0a6fbd">C</span>
-                  <div><b data-i18n="venue.subteC">Subte · Línea C</b><span data-i18n="venue.stC">Estación Diagonal Norte</span></div>
-                </li>
-                <li>
-                  <span class="subte-badge" style="--line:#00a650">D</span>
-                  <div><b data-i18n="venue.subteD">Subte · Línea D</b><span data-i18n="venue.stD">Estación 9 de Julio</span></div>
-                </li>
-                <li>
-                  <span class="subte-badge subte-badge--bus" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 11h16M8 21v-3M16 21v-3"/><circle cx="8" cy="14.5" r="1"/><circle cx="16" cy="14.5" r="1"/></svg></span>
-                  <div><b data-i18n="venue.bus">Colectivos</b><span>6, 7, 9, 10, 17, 23, 24, 26, 29, 45, 50, 59, 70, 99, 100, 109, 111, 142, 146, 155</span></div>
-                </li>
-              </ul>
-            </div>
+          <h2 class="mega mega--light" data-i18n="venue.title">Teatro<br>Gran Rex</h2>
+          <p class="lugar__addr" data-i18n="venue.addr">Av. Corrientes 857, CABA</p>
+          <div class="lugar__actions">
+            <a class="ticket-btn" data-tickets href="#"><span data-i18n="cta.buy">Comprar entradas</span></a>
+            <a class="hand-link" href="como-llegar.html" data-i18n="venue.map">cómo llegar →</a>
           </div>
-
-          <!-- mapa -->
-          <div class="map-card">
-            <iframe title="Mapa del Teatro Gran Rex" src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m3!2m1!1sTeatro+Gran+Rex,+Av.+Corrientes+857,+Buenos+Aires!6i16" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
+          <img class="lugar__logos" src="img/ticketeras.png" alt="TuEntrada.com · Teatro Gran Rex, 89 años" loading="lazy">
         </div>
-
-        <!-- en auto -->
-        <div class="card card--car">
-          <svg class="card--car__icon" viewBox="0 0 64 48" aria-hidden="true"><path d="M8 32l5-14a5 5 0 0 1 4.7-3.3h28.6A5 5 0 0 1 51 18l5 14v9a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-3H16v3a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2z"/><path d="M12 31h40"/><circle cx="18" cy="35" r="2.4"/><circle cx="46" cy="35" r="2.4"/></svg>
-          <div>
-            <h3 class="card__title" data-i18n="venue.parking">Estacionamiento</h3>
-            <p data-i18n="venue.parkingText">Encontrá estacionamientos cerca del teatro</p>
-          </div>
-          <a class="card__btn" href="https://www.google.com/maps/search/?api=1&amp;query=estacionamiento+cerca+de+Av.+Corrientes+857+Buenos+Aires" target="_blank" rel="noopener" data-i18n="venue.parkingCta">Buscar</a>
-        </div>
-
-        <div class="lugar__actions">
-          <a class="ticket-btn ticket-btn--lg" data-tickets href="#"><span data-i18n="cta.buy">Comprar entradas</span></a>
-          <a class="hand-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Teatro+Gran+Rex+Av.+Corrientes+857+Buenos+Aires" target="_blank" rel="noopener" data-i18n="venue.route">armá tu recorrido →</a>
-        </div>
+        <figure class="poster pin" style="--r:3deg; --y:0px">
+          <span class="tape tape--tl" aria-hidden="true"></span>
+          <span class="tape tape--br" aria-hidden="true"></span>
+          <img src="img/key-visual.jpg" alt="Afiche de GO! Vive a tu manera, ¿Y si volvemos?, con Mia, Lupe, Juanma y Alvaro" loading="lazy">
+        </figure>
       </div>
     </section>
 
@@ -308,6 +264,6 @@
     </div>
   </dialog>
 
-  <script src="script.js?v=48"></script>
+  <script src="script.js?v=49"></script>
 </body>
 </html>
