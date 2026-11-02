@@ -431,7 +431,17 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
 .record__disc img { position: relative; z-index: 1; width: 30%; animation: spin 6s linear infinite; }
 .record.is-in .record__disc { transform: translateX(34%); }
 
-.canciones__title { font-family: var(--hand); font-weight: 400; font-size: clamp(56px, 6.4vw, 100px); line-height: 1; color: var(--juanma); transform: rotate(-3deg); }
+/* "¡nueva música!": en una línea (en mobile, en dos) y se escribe letra por letra */
+.canciones__title {
+  font-family: var(--hand); font-weight: 400; font-size: clamp(40px, 4.2vw, 62px); line-height: 1.05;
+  color: var(--juanma); transform: rotate(-3deg); white-space: nowrap; min-height: 1.05em;
+}
+.canciones__title .br-m { display: none; }
+.canciones__title[data-type]::after { /* cursor */
+  content: ""; display: inline-block; width: .07em; height: .85em; margin-left: .08em; vertical-align: -.04em;
+  background: currentColor; animation: blink .8s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
 .canciones__date { display: flex; align-items: center; gap: 16px; margin: 22px 0 26px; }
 .canciones__date b {
   font-family: var(--display); font-weight: 400; font-size: 46px; line-height: 1; letter-spacing: .03em;
@@ -862,7 +872,8 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
   .canciones { padding: 100px 0 80px; }
   .canciones__grid { grid-template-columns: 1fr; gap: 40px; }
   .canciones .record { --s: min(220px, 56vw); margin: 0 auto; translate: -13% 0; }
-  .canciones__title { font-size: clamp(44px, 13vw, 64px); }
+  .canciones__title { font-size: clamp(48px, 15vw, 72px); min-height: 2.1em; }
+  .canciones__title .br-m { display: inline; }
   .canciones__date { gap: 12px; margin: 18px 0 20px; }
   .canciones__date b { font-size: 36px; }
   .canciones__date span { font-size: 14px; letter-spacing: .06em; }

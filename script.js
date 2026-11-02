@@ -401,3 +401,29 @@ if (popup && typeof popup.showModal === 'function') {
     }, forced ? 1200 : POPUP_DELAY));
   }
 }
+
+// Títulos que se escriben letra por letra (con cursor). En el espacio va un salto
+// de línea que solo se ve en mobile (.br-m). Se vuelve a escribir al cambiar de idioma.
+function typeIn(el) {
+  clearTimeout(el._typing);
+  const text = el.textContent.trim();
+  el.setAttribute('aria-label', text);
+  const out = document.createElement('span');
+  out.setAttribute('aria-hidden', 'true');
+  el.replaceChildren(out);
+  const put = (ch) => {
+    out.append(ch);
+    if (ch === ' ') { const br = document.createElement('br'); br.className = 'br-m'; out.append(br); }
+  };
+  if (reduceMotion) { [...text].forEach(put); return; }
+  let i = 0;
+  const step = () => {
+    if (i >= text.length) return;
+    const ch = text[i++];
+    put(ch);
+    el._typing = setTimeout(step, ch === ' ' ? 180 : 95);
+  };
+  el._typing = setTimeout(step, 500);
+}
+document.querySelectorAll('[data-type]').forEach(typeIn);
+document.addEventListener('langchange', () => document.querySelectorAll('[data-type]').forEach(typeIn));
