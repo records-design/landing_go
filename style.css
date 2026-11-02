@@ -649,11 +649,10 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
 .footer { --bg: var(--ink); padding: 70px var(--gutter) 48px; display: flex; flex-direction: column; align-items: center; gap: 36px; text-align: center; }
 .footer__logo { width: 160px; transition: transform .5s var(--bounce); }
 .footer__logo:hover { transform: rotate(-6deg) scale(1.08); }
-/* productoras + venta oficial + sala, todos en una línea (en pantallas angostas pasan abajo) */
-.footer__partners { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 28px 44px; width: min(1240px, 100%); opacity: .85; }
-.footer__sponsors { flex: 1 1 560px; max-width: 860px; min-width: 0; }
-.footer__tuentrada { height: 36px; width: auto; }
-.footer__granrex { height: 66px; width: auto; }
+/* productoras + venta oficial + sala, todos en una línea (si no entran, siguen en la de abajo).
+   --h es el alto de cada logo en su archivo; --k lo escala parejo para todos */
+.footer__partners { --k: .44; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px 30px; width: min(1240px, 100%); opacity: .85; }
+.footer__partners img { height: calc(var(--h) * var(--k) * 1px); width: auto; max-width: 100%; object-fit: contain; }
 .footer__legal { font-size: 14px; color: rgba(255,255,255,.5); }
 
 .sticky-cta { display: none; }
@@ -831,9 +830,7 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
 
   .footer { padding: 56px var(--gutter) 32px; gap: 28px; }
   .footer__logo { width: 120px; }
-  .footer__partners { gap: 36px; }
-  .footer__tuentrada { height: 34px; }
-  .footer__granrex { height: 58px; }
+  .footer__partners { --k: .28; display: grid; grid-template-columns: repeat(4, 1fr); justify-items: center; gap: 24px 14px; } /* 2 filas de 4 */
 
   .sticky-cta {
     display: flex; position: fixed; z-index: 60; left: 50%; bottom: 14px;
