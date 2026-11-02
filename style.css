@@ -149,6 +149,7 @@ body::after {
   transition: background .3s ease, padding .3s ease;
 }
 .nav.is-solid { background: rgba(15, 20, 18, .88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding-block: 10px; }
+.nav__logo { flex: none; } /* que los links nunca lo aplasten */
 .nav__logo img { height: 44px; width: auto; opacity: 0; transform: translateY(-6px) rotate(-8deg); transition: opacity .3s, transform .4s var(--bounce); }
 .nav.is-solid .nav__logo img { opacity: 1; transform: none; }
 .nav__links { display: flex; gap: 30px; margin-left: auto; }
@@ -715,8 +716,10 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
    ========================================================= */
 @media (min-width: 701px) and (max-width: 1199px) {
   :root { --gutter: 32px; }
-  .nav__links { gap: 18px; }
-  .nav__links a { font-size: 14px; letter-spacing: .1em; }
+  .nav { gap: 12px; padding-inline: 20px; }
+  .nav .ticket-btn--sm { font-size: 18px; padding: 7px 14px 5px; }
+  .nav__links { gap: 13px; }
+  .nav__links a { font-size: 13px; letter-spacing: .08em; }
   .lang { font-size: 12px; }
   .hero__logo img { width: clamp(240px, 32vw, 320px); }
   .stripe__name { font-size: 22px; bottom: 8%; }
