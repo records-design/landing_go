@@ -630,7 +630,7 @@ a.ticket.is-in:hover { transform: rotate(0) translateY(-8px) scale(1.03); transi
 }
 .popup__card[hidden] { display: none; }
 .popup__card .ticket__flag { top: -20px; left: -14px; right: auto; transform: rotate(-4deg); animation: none; }
-.popup__img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center 20%; margin-bottom: 18px; }
+.popup__img { width: 100%; aspect-ratio: 1000 / 870; object-fit: cover; object-position: center top; margin-bottom: 18px; } /* del afiche: logo + las 4 caras completas */
 .popup__kicker { font-size: 14px; letter-spacing: .16em; text-transform: uppercase; opacity: .7; }
 .popup__title { font-family: var(--display); font-weight: 400; font-size: 48px; line-height: .95; color: var(--c); margin: 6px 0 10px; }
 .nw { white-space: nowrap; }
