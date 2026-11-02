@@ -854,7 +854,7 @@ a.ticket:hover .ticket__buy { background: var(--white); }
   .nav__links a:last-child { border-bottom: 0; }
   .nav__ig { display: none; }
   .nav__links .nav__ig-link { display: flex; align-items: center; gap: 12px; }
-  .nav__links .nav__ig-link svg { width: 26px; height: 26px; }
+  .nav__links .nav__ig-link svg { width: 32px; height: 32px; } /* solo el ícono, sin texto */
   .nav__links a[aria-current="page"] { color: var(--juanma); text-decoration: none; }
   .lang { font-size: 12px; letter-spacing: .1em; }
   .lang button { padding: 6px; }
