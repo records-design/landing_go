@@ -1,7 +1,7 @@
 // Link de compra de entradas: cambiarlo acá y se actualiza en todos los botones.
 const TICKETS_URL = 'https://www.tuentrada.com/go-vive-a-tu-manera-tgr';
-// Instagram oficial de GO! (pegar acá el link del perfil).
-const INSTAGRAM_URL = 'https://www.instagram.com/';
+// Instagram oficial de GO!
+const INSTAGRAM_URL = 'https://www.instagram.com/goviveatumanera.ok/';
 // Link del pre-save de las canciones nuevas (cuando lo tengamos, pegarlo acá).
 // Mientras esté vacío, el botón del popup lleva a la página de Lanzamientos.
 const PRESAVE_URL = '';
