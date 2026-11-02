@@ -31,7 +31,6 @@ document.querySelectorAll('[data-presave], .product').forEach((a) => {
 if (released) {
   document.documentElement.classList.add('is-released'); // el botón ya no lleva el +
   const ES_OUT = {
-    'songs.soon': ['songs.out', '¡Ya están en todas las plataformas!'],
     'popup.p.text': ['popup.p.out', 'Ya están en todas las plataformas. ¡Dale play!'],
     'songs.cta': ['songs.listen', 'Escuchalas ya'],
   };
@@ -77,7 +76,7 @@ const EN = {
   'venue.title': 'Gran Rex<br>Theatre', 'venue.addr': 'Av. Corrientes 857, Buenos Aires, Argentina',
   'cta.buy': 'Get tickets', 'venue.map': 'get directions →',
   'songs.kicker': 'new music!', 'songs.title': 'new music!', 'songs.date': '11 · 13',
-  'songs.soon': 'Out on every platform', 'songs.out': 'Out now on every platform!',
+  'songs.where': 'Listen on every platform',
   'songs.cta': 'Pre save', 'songs.listen': 'Listen now',
   'merch.title': 'Merch', 'merch.sub': 'take GO! home', 'merch.go': 'Buy →',
   'popup.t.kicker': 'Gran Rex Theatre', 'popup.t.title': 'Sat Dec 12 · 4 pm',
