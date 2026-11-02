@@ -1,5 +1,5 @@
 // Link de compra de entradas: cambiarlo acá y se actualiza en todos los botones.
-const TICKETS_URL = 'https://www.tuentrada.com/';
+const TICKETS_URL = 'https://www.tuentrada.com/go-vive-a-tu-manera-tgr';
 // Link del pre-save de las canciones nuevas (cuando lo tengamos, pegarlo acá).
 const PRESAVE_URL = '';
 // Día en que salen las canciones: desde ahí el botón dice "Escuchalas ya".
