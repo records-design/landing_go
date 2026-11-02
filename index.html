@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=51">
+  <link rel="stylesheet" href="style.css?v=53">
 </head>
 <body class="is-loading">
 
@@ -36,15 +36,14 @@
     <a class="nav__logo" href="#top" aria-label="GO! Vive a tu manera, inicio" data-i18n-aria="aria.home"><img src="img/logo-go.png" alt="GO! Vive a tu manera"></a>
     <nav class="nav__links" aria-label="Secciones" data-i18n-aria="aria.sections">
       <a href="#funciones" data-i18n="nav.shows">Funciones</a>
-      <a href="#canciones" data-i18n="nav.songs">Canciones</a>
       <a href="#elenco" data-i18n="nav.cast">Elenco</a>
-      <a href="#merch" data-i18n="nav.merch">Tienda</a>
       <a href="#lugar" data-i18n="nav.venue">Cómo llegar</a>
     </nav>
     <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="aria.lang">
       <button type="button" data-lang="es" lang="es">ES</button>
       <button type="button" data-lang="en" lang="en">EN</button>
     </div>
+    <a class="nav__merch" href="#merch" data-i18n="nav.merch">Merch</a>
     <a class="ticket-btn ticket-btn--sm" data-tickets href="#"><span data-i18n="nav.tickets">Entradas</span></a>
   </header>
 
@@ -113,31 +112,6 @@
             </div>
           </a>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- CANCIONES NUEVAS: pre-save (después del 13/11 pasa solo a "Escuchalas ya") -->
-    <section class="canciones torn" id="canciones" data-release="2026-11-13T00:00:00-03:00">
-      <div class="wrap canciones__grid">
-        <!-- disco que sale de la funda -->
-        <div class="record" aria-hidden="true">
-          <div class="record__disc"><img src="img/logo-go.png" alt=""></div>
-          <div class="record__sleeve"><span></span><span></span><span></span><span></span><b>GO!</b></div>
-        </div>
-
-        <div class="canciones__info">
-          <p class="canciones__kicker hand" data-i18n="songs.kicker">¡música nueva!</p>
-          <h2 class="mega mega--light" data-i18n="songs.title">4 canciones<br>nuevas</h2>
-          <p class="canciones__date"><b data-i18n="songs.date">13 · 11</b><span data-songs-status data-i18n="songs.soon">Salen en todas las plataformas</span></p>
-          <!-- nombres de las canciones: reemplazar cuando estén confirmados -->
-          <ol class="tracks">
-            <li><span class="tracks__n">01</span><span class="tracks__name">Canción 1</span></li>
-            <li><span class="tracks__n">02</span><span class="tracks__name">Canción 2</span></li>
-            <li><span class="tracks__n">03</span><span class="tracks__name">Canción 3</span></li>
-            <li><span class="tracks__n">04</span><span class="tracks__name">Canción 4</span></li>
-          </ol>
-          <a class="ticket-btn ticket-btn--lg" data-presave href="#canciones"><span data-presave-label data-i18n="songs.cta">Hacer pre-save</span></a>
         </div>
       </div>
     </section>
@@ -298,7 +272,7 @@
       <p class="popup__kicker" data-i18n="songs.kicker">¡música nueva!</p>
       <h2 class="popup__title" data-i18n="popup.p.title">4 canciones nuevas</h2>
       <p class="popup__text" data-songs-status data-i18n="popup.p.text">Salen el 13/11. Hacé el <span class="nw">pre-save</span> y escuchalas apenas salgan.</p>
-      <a class="ticket-btn" data-presave href="#canciones"><span data-presave-label data-i18n="songs.cta">Hacer pre-save</span></a>
+      <a class="ticket-btn" data-presave href="#"><span data-presave-label data-i18n="songs.cta">Hacer pre-save</span></a>
     </div>
     <div class="popup__card c-mia" data-variant="merch">
       <span class="tape" aria-hidden="true"></span>
@@ -312,6 +286,6 @@
     </div>
   </dialog>
 
-  <script src="script.js?v=32"></script>
+  <script src="script.js?v=34"></script>
 </body>
 </html>

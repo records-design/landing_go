@@ -1,6 +1,7 @@
 // Link de compra de entradas: cambiarlo acá y se actualiza en todos los botones.
 const TICKETS_URL = 'https://www.tuentrada.com/go-vive-a-tu-manera-tgr';
 // Link del pre-save de las canciones nuevas (cuando lo tengamos, pegarlo acá).
+// Mientras esté vacío, el popup de pre-save no aparece.
 const PRESAVE_URL = '';
 // Día en que salen las canciones: desde ahí el botón dice "Escuchalas ya".
 const RELEASE_DATE = new Date('2026-11-13T00:00:00-03:00');
@@ -9,7 +10,7 @@ const RELEASE_DATE = new Date('2026-11-13T00:00:00-03:00');
 // se sortea (con estas proporciones), y si la persona vuelve le toca el siguiente.
 // Para sacar uno, ponerle 0. Para probar uno: ?popup=tickets | presave | merch
 const POPUP_DELAY = 5000;
-const POPUPS = { tickets: 50, presave: 30, merch: 20 };
+const POPUPS = { tickets: 50, presave: PRESAVE_URL ? 30 : 0, merch: 20 };
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const STAR = '<svg aria-hidden="true"><use href="#star"/></svg>';
@@ -29,7 +30,6 @@ document.querySelectorAll('[data-presave], .product').forEach((a) => {
 // Ya salieron las canciones: cambian los textos (antes de guardar el español original)
 if (released) {
   const ES_OUT = {
-    'songs.soon': ['songs.out', '¡Ya están en todas las plataformas!'],
     'popup.p.text': ['popup.p.out', 'Ya están en todas las plataformas. ¡Dale play!'],
     'songs.cta': ['songs.listen', 'Escuchalas ya'],
   };
@@ -59,7 +59,7 @@ const EN = {
   'aria.home': 'GO! Vive a tu manera, home', 'aria.sections': 'Sections', 'aria.lang': 'Language',
   'aria.soldout': 'Saturday 12, 8 pm show sold out', 'aria.bands': 'Tickets available',
   'aria.close': 'Close',
-  'nav.shows': 'Shows', 'nav.songs': 'Songs', 'nav.merch': 'Shop', 'nav.cast': 'Cast', 'nav.venue': 'Getting there', 'nav.tickets': 'Tickets',
+  'nav.shows': 'Shows', 'nav.merch': 'Merch', 'nav.cast': 'Cast', 'nav.venue': 'Getting there', 'nav.tickets': 'Tickets',
   'hero.claim': 'What if we go back?', 'hero.date': 'Sat Dec 12', 'venue.name': 'Gran Rex Theatre',
   'cta.main': 'Get my ticket',
   'shows.title': 'Shows',
@@ -74,8 +74,7 @@ const EN = {
   'bio.alvaro': 'Lupe’s brother. Loyal and protective, he always stands by Mía when it really matters.', 'talent.title': '…and they’re not alone',
   'venue.title': 'Gran Rex<br>Theatre', 'venue.addr': 'Av. Corrientes 857, Buenos Aires, Argentina',
   'cta.buy': 'Get tickets', 'venue.map': 'get directions →',
-  'songs.kicker': 'new music!', 'songs.title': '4 new<br>songs', 'songs.date': '11 · 13',
-  'songs.soon': 'Out on every platform', 'songs.out': 'Out now on every platform!',
+  'songs.kicker': 'new music!',
   'songs.cta': 'Pre-save', 'songs.listen': 'Listen now',
   'merch.title': 'Merch', 'merch.sub': 'take GO! home', 'merch.go': 'Buy →',
   'popup.t.kicker': 'Gran Rex Theatre', 'popup.t.title': 'Sat Dec 12 · 4 pm',
@@ -186,7 +185,7 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.tickets, .polaroids').forEach((group) => {
   group.querySelectorAll('.toss, .pin').forEach((el, i) => el.style.setProperty('--d', `${i * 140}ms`));
 });
-document.querySelectorAll('.toss, .pin, .mega, .doodle--chalk, .canciones .record').forEach((el) => io.observe(el));
+document.querySelectorAll('.toss, .pin, .mega, .doodle--chalk').forEach((el) => io.observe(el));
 document.querySelectorAll('.products').forEach((group) => {
   group.querySelectorAll('.pin').forEach((el, i) => el.style.setProperty('--d', `${i * 120}ms`));
 });
