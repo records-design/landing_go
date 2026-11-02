@@ -675,6 +675,7 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
 .presave-btn--lg { font-size: 20px; padding: 17px 28px 17px 38px; gap: 14px; }
 .presave-btn--lg .presave-btn__plus { width: 28px; height: 28px; }
 .nw { white-space: nowrap; }
+.popup__title--hand { font-family: var(--hand); font-size: 46px; line-height: 1.05; transform: rotate(-3deg); margin: 2px 0 14px; }
 .popup__text { font-size: 17px; line-height: 1.4; margin-bottom: 22px; text-wrap: balance; }
 .popup .ticket-btn { background: var(--c); color: var(--white); }
 .popup .ticket-btn span { border-color: rgba(255,255,255,.4); }
@@ -896,6 +897,7 @@ a.ticket:hover .ticket__buy { background: var(--white); transform: translateY(-2
 
   .popup__card { padding: 30px 20px 24px; }
   .popup__title { font-size: 40px; }
+  .popup__title--hand { font-size: 38px; }
   .popup__text { font-size: 15px; }
   .popup__close { top: -14px; right: -6px; }
   .popup__merch img { width: 80px; }
