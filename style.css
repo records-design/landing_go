@@ -425,6 +425,7 @@ a.ticket:hover .ticket__buy { background: var(--white); }
 .record__sleeve span:nth-child(2) { --c: var(--lupe);   --img: url("img/lupe.jpg"); }
 .record__sleeve span:nth-child(3) { --c: var(--juanma); --img: url("img/juanma.jpg"); }
 .record__sleeve span:nth-child(4) { --c: var(--alvaro); --img: url("img/alvaro.jpg"); }
+.record__cover { width: 100%; height: 100%; object-fit: cover; } /* arte de tapa oficial del disco */
 .record__logo {
   position: absolute; left: 50%; top: 6%; width: 56%; translate: -50% 0;
   filter: drop-shadow(0 4px 14px rgba(0,0,0,.3));
