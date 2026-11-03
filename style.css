@@ -160,7 +160,7 @@ body::after {
 .nav__toggle { display: none; }
 /* Inicio: en la barra va solo la casita; en el menú mobile, casita + texto */
 .nav__links .nav__home { display: inline-flex; align-items: center; }
-.nav__home svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.nav__home svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 .nav__home span { display: none; }
 .nav__links .nav__home:hover { text-decoration: none; color: var(--juanma); }
 /* Instagram: ícono chico junto a ES/EN (como en la mayoría de las webs); en mobile va dentro del menú */
