@@ -474,10 +474,12 @@ a.ticket:hover .ticket__buy { background: var(--white); }
 .platforms svg { display: block; width: 30px; height: 30px; fill: var(--white); opacity: .92; }
 .tracks { list-style: none; margin-bottom: 36px; max-width: 460px; }
 .tracks li {
-  display: flex; align-items: baseline; gap: 18px;
+  display: flex; align-items: center; gap: 18px;
   padding: 10px 0 8px; border-bottom: 2px dashed rgba(255,255,255,.25);
 }
-.tracks__n { font-family: var(--display); font-size: 28px; line-height: 1; color: var(--juanma); }
+/* cada canción lleva una nota musical en lugar de número */
+.tracks__icon { flex: none; width: 24px; height: 24px; fill: none; stroke: var(--juanma); stroke-width: 2; stroke-linejoin: round; align-self: center; }
+.tracks__icon circle { fill: var(--juanma); }
 .tracks__name { font-size: 20px; letter-spacing: .1em; text-transform: uppercase; }
 
 /* =========================================================
@@ -958,7 +960,7 @@ a.ticket:hover .ticket__buy { background: var(--white); }
   .canciones__date { gap: 12px; margin: 18px 0 20px; }
   .canciones__date b { font-size: 36px; }
   .canciones__date span { font-size: 14px; letter-spacing: .06em; }
-  .tracks__n { font-size: 24px; }
+  .tracks__icon { width: 20px; height: 20px; }
   .tracks__name { font-size: 16px; }
   .platforms__label { font-size: 13px; letter-spacing: .08em; margin-top: 26px; }
   .platforms { gap: 18px; }
