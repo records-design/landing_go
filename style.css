@@ -158,6 +158,11 @@ body::after {
 
 /* selector de idioma: chiquito, al lado de Entradas */
 .nav__toggle { display: none; }
+/* Inicio: en la barra va solo la casita; en el menú mobile, casita + texto */
+.nav__links .nav__home { display: inline-flex; align-items: center; }
+.nav__home svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.nav__home span { display: none; }
+.nav__links .nav__home:hover { text-decoration: none; color: var(--juanma); }
 /* Instagram: ícono chico junto a ES/EN (como en la mayoría de las webs); en mobile va dentro del menú */
 .nav__ig { display: grid; place-items: center; width: 32px; height: 32px; margin-right: -8px; opacity: .85; transition: opacity .2s, color .2s; }
 .nav__ig:hover { opacity: 1; color: var(--juanma); }
@@ -863,6 +868,9 @@ a.ticket:hover .ticket__buy { background: var(--white); }
   .nav__links a:last-child { border-bottom: 0; }
   .nav__ig { display: none; }
   .nav__links .nav__ig-link { display: flex; align-items: center; gap: 12px; }
+  .nav__links .nav__home { gap: 12px; }
+  .nav__home svg { width: 28px; height: 28px; }
+  .nav__home span { display: inline; }
   .nav__links .nav__ig-link svg { width: 32px; height: 32px; } /* solo el ícono, sin texto */
   .nav__links a[aria-current="page"] { color: var(--juanma); text-decoration: none; }
   .lang { font-size: 12px; letter-spacing: .1em; }
