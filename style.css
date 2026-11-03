@@ -740,6 +740,9 @@ a.ticket:hover .ticket__buy { background: var(--white); }
 .is-released .presave-btn { padding-right: 30px; }
 .presave-btn--lg { font-size: 20px; padding: 17px 28px 17px 38px; gap: 14px; }
 .presave-btn--lg .presave-btn__plus { width: 28px; height: 28px; }
+/* "Tienda" mientras está cerrada: un poco apagada */
+.nav__links a.is-soon { opacity: .6; }
+.nav__links a.is-soon:hover { opacity: .85; }
 .nw { white-space: nowrap; }
 .popup__title--hand { font-family: var(--hand); font-size: 46px; line-height: 1.05; transform: rotate(-3deg); margin: 2px 0 14px; }
 .popup__text { font-size: 17px; line-height: 1.4; margin-bottom: 22px; text-wrap: balance; }

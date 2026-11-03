@@ -12,7 +12,10 @@ const RELEASE_DATE = new Date('2026-11-13T00:00:00-03:00');
 // se sortea (con estas proporciones), y si la persona vuelve le toca el siguiente.
 // Para sacar uno, ponerle 0. Para probar uno: ?popup=tickets | presave | merch
 const POPUP_DELAY = 5000;
-const POPUPS = { tickets: 50, presave: 30, merch: 20 };
+// La tienda todavía no está abierta: "Tienda" muestra un aviso de "Próximamente".
+// Cuando abra, poner true y vuelve a funcionar el link (y el popup de merch).
+const SHOP_OPEN = false;
+const POPUPS = { tickets: 50, presave: 30, merch: SHOP_OPEN ? 20 : 0 };
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const STAR = '<svg aria-hidden="true"><use href="#star"/></svg>';
@@ -98,6 +101,7 @@ const EN = {
   'popup.p.out': 'Out now on every platform. Hit play!',
   'popup.m.kicker': 'Official merch', 'popup.m.text': 'T-shirts, hoodies and more from the show.', 'popup.m.cta': 'See the shop',
   'footer.ig': 'Follow us on Instagram',
+  'soon.kicker': 'Shop', 'soon.title': 'Coming soon!', 'soon.text': 'Very soon you’ll find all the official GO! Vive a tu manera merch here.', 'soon.ig': 'Follow us on Instagram',
   'footer.legal': 'GO! Vive a tu manera is a Netflix original series. © 2026 Onceloops Media.',
 };
 const BANDS = {
@@ -368,7 +372,7 @@ if (wave) {
 }
 
 // Popup rotativo: una vez por visita, a los 5 s de terminar la carga
-const popup = document.querySelector('.popup');
+const popup = document.querySelector('.popup:not(.soon)');
 if (popup && typeof popup.showModal === 'function') {
   const params = new URLSearchParams(location.search);
   const forced = params.get('popup');
@@ -441,3 +445,37 @@ function typeIn(el) {
 }
 document.querySelectorAll('[data-type]').forEach(typeIn);
 document.addEventListener('langchange', () => document.querySelectorAll('[data-type]').forEach(typeIn));
+
+// Tienda cerrada: en lugar de ir a merch.html, se abre un aviso de "Próximamente"
+if (!SHOP_OPEN) {
+  const soon = document.createElement('dialog');
+  soon.className = 'popup soon';
+  soon.setAttribute('aria-labelledby', 'soon-title');
+  soon.innerHTML = `
+    <button class="popup__close" type="button" aria-label="Cerrar" data-i18n-aria="aria.close">×</button>
+    <div class="popup__card c-lupe">
+      <span class="tape" aria-hidden="true"></span>
+      <p class="popup__kicker" data-i18n="soon.kicker">Tienda</p>
+      <h2 class="popup__title popup__title--hand" id="soon-title" data-i18n="soon.title">¡Próximamente!</h2>
+      <p class="popup__text" data-i18n="soon.text">Muy pronto vas a encontrar acá todo el merch oficial de GO! Vive a tu manera.</p>
+      <a class="ticket-btn" href="${INSTAGRAM_URL}" target="_blank" rel="noopener"><span data-i18n="soon.ig">Seguinos en Instagram</span></a>
+    </div>`;
+  document.body.append(soon);
+  if (!original.has('aria.close')) original.set('aria.close', 'Cerrar');
+  soon.querySelectorAll('[data-i18n]').forEach((el) => {
+    original.set(el, el.innerHTML);
+    if (lang === 'en') el.innerHTML = EN[el.dataset.i18n];
+  });
+  const closeSoon = () => soon.close();
+  soon.querySelector('.popup__close').addEventListener('click', closeSoon);
+  soon.addEventListener('click', (e) => { if (e.target === soon) closeSoon(); });
+  document.querySelectorAll('a[href="merch.html"]').forEach((a) => {
+    a.classList.add('is-soon');
+    a.setAttribute('aria-haspopup', 'dialog');
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      nav.classList.remove('is-open');
+      if (typeof soon.showModal === 'function') soon.showModal();
+    });
+  });
+}
