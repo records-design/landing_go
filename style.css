@@ -829,7 +829,8 @@ a.ticket:hover .ticket__buy { background: var(--white); }
 
   .nav { padding: 10px var(--gutter); }
   /* menú hamburguesa: el botón de 3 rayas abre un panel debajo de la barra */
-  .lang { margin-left: auto; }
+  .lang { display: none; } /* en mobile no va el selector ES/EN */
+  .nav > .ticket-btn { margin-left: auto; }
   .nav__toggle {
     display: grid; place-content: center; gap: 5px; flex: none;
     width: 40px; height: 40px; margin-left: -4px; padding: 0;
