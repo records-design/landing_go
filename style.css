@@ -164,6 +164,7 @@ body::after {
 .nav__ig svg, .nav__ig-link svg, .footer__ig svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; }
 .nav__ig svg .fill, .nav__ig-link svg .fill, .footer__ig svg .fill { fill: currentColor; stroke: none; }
 .nav__links .nav__ig-link { display: none; }
+.nav__links .lang--menu { display: none; } /* ES/EN dentro del menú: solo en mobile */
 .footer__ig { display: inline-flex; align-items: center; gap: 10px; color: var(--white); text-decoration: none; font-size: 16px; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
 .footer__ig:hover { opacity: 1; color: var(--juanma); }
 .footer__ig svg { width: 24px; height: 24px; }
@@ -829,7 +830,10 @@ a.ticket:hover .ticket__buy { background: var(--white); }
 
   .nav { padding: 10px var(--gutter); }
   /* menú hamburguesa: el botón de 3 rayas abre un panel debajo de la barra */
-  .lang { display: none; } /* en mobile no va el selector ES/EN */
+  .lang { display: none; } /* en la barra de mobile no va ES/EN: está dentro del menú */
+  .nav__links .lang--menu { display: flex; gap: 0; padding: 18px 0 4px; font-size: 16px; letter-spacing: .14em; }
+  .nav__links .lang--menu button { padding: 6px 14px; }
+  .nav__links .lang--menu button:first-child { padding-left: 0; }
   .nav > .ticket-btn { margin-left: auto; }
   .nav__toggle {
     display: grid; place-content: center; gap: 5px; flex: none;
