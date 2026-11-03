@@ -755,7 +755,7 @@ a.ticket:hover .ticket__buy { background: var(--white); }
   transition: transform .3s var(--bounce);
 }
 .popup__close:hover { transform: rotate(90deg); }
-.record--mini { --s: 150px; margin: 4px 0 20px; translate: -13% 0; }
+.record--mini { --s: 150px; margin: 4px 0 20px; translate: 3% 0; } /* tapa + disco centrados en la tarjeta */
 .record--mini .record__disc { transform: translateX(34%); }
 .popup__merch { display: flex; gap: 10px; margin-bottom: 18px; }
 .popup__merch img { width: 100px; aspect-ratio: 1; object-fit: cover; box-shadow: 0 6px 14px rgba(0,0,0,.15); }
