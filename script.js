@@ -97,7 +97,7 @@ const EN = {
   'merch.title': 'Merch', 'merch.sub': 'take GO! home', 'merch.go': 'Buy →',
   'popup.t.kicker': 'Gran Rex Theatre', 'popup.t.title': 'Sat Dec 12 · 4 pm',
   'popup.t.text': 'The 8 pm show is already sold out. Don’t miss out!',
-  'popup.p.text': 'Out on NOV 13. <span class="nw">Pre-save</span> them and listen as soon as they drop.',
+  'popup.p.text': 'Out on NOV 13.<br><span class="nw">Pre-save</span> them and listen as soon as they drop.',
   'popup.p.out': 'Out now on every platform. Hit play!',
   'popup.m.kicker': 'Official merch', 'popup.m.text': 'T-shirts, hoodies and more from the show.', 'popup.m.cta': 'See the shop',
   'footer.ig': 'Follow us on Instagram',
