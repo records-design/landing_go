@@ -1006,6 +1006,7 @@ a.ticket:hover .ticket__buy { background: var(--white); }
   .footer__partners { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px 18px; }
   .footer__partners { justify-items: center; }
   .footer__partners img { width: 100%; max-width: 84px; height: 46px; object-fit: contain; } /* los anchos no se comen a los cuadrados */
+  .footer__partners .is-kuarzo { height: 32px; } /* mismo alto que Yellow Kingdom */
 
   .sticky-cta {
     display: flex; position: fixed; z-index: 60; left: 50%; bottom: 14px;
