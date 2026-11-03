@@ -868,8 +868,7 @@ a.ticket:hover .ticket__buy { background: var(--white); }
   .nav__links a:last-child { border-bottom: 0; }
   .nav__ig { display: none; }
   .nav__links .nav__ig-link { display: flex; align-items: center; gap: 12px; }
-  .nav__links .nav__home { gap: 12px; }
-  .nav__home svg { width: 28px; height: 28px; }
+  .nav__home svg { display: none; } /* en el menú mobile sigue diciendo "Inicio", como el resto */
   .nav__home span { display: inline; }
   .nav__links .nav__ig-link svg { width: 32px; height: 32px; } /* solo el ícono, sin texto */
   .nav__links a[aria-current="page"] { color: var(--juanma); text-decoration: none; }
