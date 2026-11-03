@@ -148,7 +148,7 @@ body::after {
   padding: 14px var(--gutter);
   transition: background .3s ease, padding .3s ease;
 }
-.nav.is-solid { background: rgba(15, 20, 18, .88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding-block: 10px; }
+.nav.is-solid { background: var(--ink); padding-block: 10px; box-shadow: 0 6px 18px rgba(0,0,0,.25); } /* opaca: no se ve lo que pasa por detrás */
 .nav__logo { flex: none; } /* que los links nunca lo aplasten */
 .nav__logo img { height: 44px; width: auto; opacity: 0; transform: translateY(-6px) rotate(-8deg); transition: opacity .3s, transform .4s var(--bounce); }
 .nav.is-solid .nav__logo img { opacity: 1; transform: none; }
@@ -839,13 +839,13 @@ a.ticket:hover .ticket__buy { background: var(--white); }
   .nav.is-open .nav__toggle span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
   .nav.is-open .nav__toggle span:nth-child(2) { opacity: 0; }
   .nav.is-open .nav__toggle span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
-  .nav.is-open { background: rgba(15, 20, 18, .97); }
+  .nav.is-open { background: var(--ink); }
   .nav.is-open .nav__logo img { opacity: 1; transform: none; }
   .nav__links {
     position: absolute; top: 100%; left: 0; right: 0;
     display: flex; flex-direction: column; gap: 0; margin: 0;
     padding: 6px var(--gutter) 22px;
-    background: rgba(15, 20, 18, .97);
+    background: var(--ink);
     box-shadow: 0 18px 30px rgba(0,0,0,.35);
     clip-path: inset(0 0 100% 0); visibility: hidden;
     transition: clip-path .35s var(--ease), visibility 0s .35s;

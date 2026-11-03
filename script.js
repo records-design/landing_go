@@ -184,9 +184,12 @@ document.querySelectorAll('[data-lang]').forEach((btn) => {
 const nav = document.querySelector('.nav');
 const sticky = document.querySelector('.sticky-cta');
 const hero = document.querySelector('.hero');
-if (hero) { // en la página de merch no hay portada: la nav ya viene sólida
+if (hero) { // en las páginas sin portada la nav ya viene sólida
+  // la nav se vuelve sólida apenas se scrollea, así nada se ve pasar por detrás
+  const solidNav = () => nav.classList.toggle('is-solid', window.scrollY > 8);
+  solidNav();
+  window.addEventListener('scroll', solidNav, { passive: true });
   new IntersectionObserver(([entry]) => {
-    nav.classList.toggle('is-solid', !entry.isIntersecting);
     sticky.classList.toggle('is-visible', !entry.isIntersecting);
   }, { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
 }
