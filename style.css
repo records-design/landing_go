@@ -814,7 +814,7 @@ a.ticket:hover .ticket__buy { background: var(--white); }
   .street-sign { font-size: 24px; }
 
   .canciones__grid { grid-template-columns: 1fr; justify-items: center; gap: 50px; }
-  .canciones .record { --s: 300px; margin-left: -20%; }
+  .canciones .record { --s: 300px; }
   .canciones__info { width: 100%; max-width: 560px; }
 
   .products { grid-template-columns: repeat(2, 1fr); max-width: 620px; margin: 0 auto; }
@@ -954,7 +954,11 @@ a.ticket:hover .ticket__buy { background: var(--white); }
 
   .canciones { padding: 100px 0 80px; }
   .canciones__grid { grid-template-columns: 1fr; gap: 40px; }
-  .canciones .record { --s: min(220px, 56vw); margin: 0 auto; translate: -13% 0; }
+  .canciones .record { --s: min(230px, 58vw); margin: 0 auto; }
+  /* en mobile todo centrado */
+  .canciones__info { text-align: center; }
+  .canciones__date, .tracks li, .platforms { justify-content: center; }
+  .tracks { margin-inline: auto; }
   .canciones__title { font-size: clamp(48px, 15vw, 72px); min-height: 2.1em; }
   .canciones__title .br-m { display: inline; }
   .canciones__date { gap: 12px; margin: 18px 0 20px; }
