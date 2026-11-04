@@ -3,8 +3,8 @@ const TICKETS_URL = 'https://www.tuentrada.com/go-vive-a-tu-manera-tgr';
 // Instagram oficial de GO!
 const INSTAGRAM_URL = 'https://www.instagram.com/goviveatumanera.ok/';
 // Link del pre-save de las canciones nuevas (cuando lo tengamos, pegarlo acá).
-// Mientras esté vacío, el botón del popup lleva a la página de Lanzamientos.
-const PRESAVE_URL = '';
+// Mientras esté vacío, el botón del popup lleva a la página de Música.
+const PRESAVE_URL = 'https://ffm.to/goysivolvemos';
 // Día en que salen las canciones: desde ahí el botón dice "Escuchalas ya".
 const RELEASE_DATE = new Date('2026-11-13T00:00:00-03:00');
 
