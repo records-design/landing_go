@@ -15,8 +15,9 @@ const POPUP_DELAY = 5000;
 // La tienda todavía no está abierta: "Tienda" muestra un aviso de "Próximamente".
 // Cuando abra, poner true y vuelve a funcionar el link (y el popup de merch).
 const SHOP_OPEN = false;
-// Las dos funciones están agotadas: el popup de entradas queda apagado (tickets: 0).
-const POPUPS = { tickets: 0, presave: 30, merch: SHOP_OPEN ? 20 : 0 };
+// Entradas: anuncia la nueva función del Dom 13 (las del sábado están agotadas).
+// Merch: mientras la tienda está cerrada, "Ver la tienda" abre el aviso de Próximamente.
+const POPUPS = { tickets: 40, presave: 35, merch: 25 };
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const STAR = '<svg aria-hidden="true"><use href="#star"/></svg>';
@@ -97,8 +98,8 @@ const EN = {
   'songs.where': 'Listen on every platform',
   'songs.cta': 'Pre save', 'songs.listen': 'Listen now',
   'merch.title': 'Merch', 'merch.sub': 'take GO! home', 'merch.go': 'Buy →',
-  'popup.t.kicker': 'Gran Rex Theatre', 'popup.t.title': 'Sat Dec 12 · 4 pm',
-  'popup.t.text': 'The 8 pm show is already sold out. Don’t miss out!',
+  'popup.t.kicker': 'Gran Rex Theatre', 'popup.t.title': 'Sun Dec 13 · 8 pm',
+  'popup.t.text': 'Tickets go on sale very soon. Follow us to be the first to know!',
   'popup.p.text': 'Out on NOV 13.<br><span class="nw">Pre-save</span> them and listen as soon as they drop.',
   'popup.p.out': 'Out now on every platform. Hit play!',
   'popup.m.kicker': 'Official merch', 'popup.m.text': 'T-shirts, hoodies and more from the show.', 'popup.m.cta': 'See the shop',
@@ -390,7 +391,7 @@ if (popup && typeof popup.showModal === 'function') {
     return null;
   };
   // después de la función ya no se ofrecen entradas
-  const options = Object.keys(POPUPS).filter((k) => POPUPS[k] > 0 && !(k === 'tickets' && new Date() > showDate));
+  const options = Object.keys(POPUPS).filter((k) => POPUPS[k] > 0 && !(k === 'tickets' && new Date() > new Date('2026-12-13T20:00:00-03:00')));
   function pick() {
     if (forced in POPUPS) return forced;
     if (!options.length) return null;
