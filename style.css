@@ -130,8 +130,9 @@ body::after {
 .ticket-btn--lg { font-size: 34px; padding: 16px 40px 12px; }
 .ticket-btn--sm { font-size: 20px; padding: 8px 20px 6px; }
 .ticket-btn--sm span { padding: 1px 8px 0; }
-/* funciones agotadas: el botón queda como cartel rojo de "Sold out", sin link */
-.ticket-btn.is-soldout, .ticket-btn.is-soldout:hover { background: #e3141b; color: #fff; cursor: default; }
+/* funciones agotadas: el botón queda como cartel rojo de "Sold out" (sigue llevando a TuEntrada) */
+.ticket-btn.is-soldout { background: #e3141b; color: #fff; }
+.ticket-btn.is-soldout:hover { background: #b80f15; }
 .ticket-btn.is-soldout span { border-color: rgba(255,255,255,.45); }
 
 .hand-link { font-family: var(--hand); font-size: 24px; text-decoration: underline wavy; text-decoration-thickness: 2px; text-underline-offset: 6px; transition: color .2s; }

@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=96">
+  <link rel="stylesheet" href="style.css?v=97">
 </head>
 <body class="is-ready page-como-llegar">
 
@@ -60,7 +60,7 @@
       <button type="button" data-lang="es" lang="es">ES</button>
       <button type="button" data-lang="en" lang="en">EN</button>
     </div>
-    <span class="ticket-btn ticket-btn--sm is-soldout" aria-disabled="true"><span data-i18n="cta.soldout">Sold out</span></span>
+    <a class="ticket-btn ticket-btn--sm is-soldout" data-tickets href="#"><span data-i18n="cta.soldout">Sold out</span></a>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menú" data-i18n-aria="aria.menu"><span></span><span></span><span></span></button>
   </header>
 
@@ -128,7 +128,7 @@
         </div>
 
         <div class="llegar__actions">
-          <span class="ticket-btn ticket-btn--lg is-soldout" aria-disabled="true"><span data-i18n="cta.soldout">Sold out</span></span>
+          <a class="ticket-btn ticket-btn--lg is-soldout" data-tickets href="#"><span data-i18n="cta.soldout">Sold out</span></a>
           <a class="hand-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Teatro+Gran+Rex+Av.+Corrientes+857+Buenos+Aires" target="_blank" rel="noopener" data-i18n="venue.route">armá tu recorrido →</a>
         </div>
       </div>
