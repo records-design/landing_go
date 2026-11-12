@@ -130,6 +130,9 @@ body::after {
 .ticket-btn--lg { font-size: 34px; padding: 16px 40px 12px; }
 .ticket-btn--sm { font-size: 20px; padding: 8px 20px 6px; }
 .ticket-btn--sm span { padding: 1px 8px 0; }
+/* funciones agotadas: el botón queda como cartel rojo de "Sold out", sin link */
+.ticket-btn.is-soldout, .ticket-btn.is-soldout:hover { background: #e3141b; color: #fff; cursor: default; }
+.ticket-btn.is-soldout span { border-color: rgba(255,255,255,.45); }
 
 .hand-link { font-family: var(--hand); font-size: 24px; text-decoration: underline wavy; text-decoration-thickness: 2px; text-underline-offset: 6px; transition: color .2s; }
 .hand-link:hover { color: var(--juanma); }
@@ -379,6 +382,12 @@ a.ticket:hover .ticket__buy { background: var(--white); }
 }
 .barcode { width: 64px; height: 30px; background: repeating-linear-gradient(90deg, currentColor 0 2px, transparent 2px 4px, currentColor 4px 5px, transparent 5px 8px, currentColor 8px 11px, transparent 11px 13px); opacity: .85; }
 .ticket.c-juanma .ticket__stub { color: var(--ink); }
+/* nueva función, todavía sin venta: "Próximamente" donde va el código de barras (no es link) */
+.ticket__soon {
+  white-space: nowrap; padding: 6px 6px 3px; border-radius: 4px;
+  font-family: var(--display); font-size: 14px; line-height: 1; letter-spacing: .04em; text-transform: uppercase;
+  background: var(--paper); color: var(--ink);
+}
 
 .ticket--gone .ticket__main > * { opacity: .55; }
 

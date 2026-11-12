@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=94">
+  <link rel="stylesheet" href="style.css?v=96">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -129,6 +129,52 @@
           "url": "https://www.tuentrada.com/go-vive-a-tu-manera-tgr",
           "availability": "https://schema.org/SoldOut"
         }
+      },
+      {
+        "@type": "Event",
+        "name": "GO! Vive a tu manera · ¿Y si volvemos?",
+        "description": "Mia, Lupe, Juanma y Alvaro vuelven al escenario. GO! Vive a tu manera en vivo en el Teatro Gran Rex, nueva función del domingo 13 a las 20 hs.",
+        "startDate": "2026-12-13T20:00:00-03:00",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Teatro Gran Rex",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Corrientes 857",
+            "addressLocality": "Ciudad Autónoma de Buenos Aires",
+            "addressRegion": "CABA",
+            "addressCountry": "AR"
+          }
+        },
+        "image": [
+          "https://goviveatumanera.com/img/key-visual.jpg"
+        ],
+        "performer": [
+          {
+            "@type": "Person",
+            "name": "Pili Pascual"
+          },
+          {
+            "@type": "Person",
+            "name": "Renata Toscano"
+          },
+          {
+            "@type": "Person",
+            "name": "Santiago Saez"
+          },
+          {
+            "@type": "Person",
+            "name": "El Purre"
+          }
+        ],
+        "url": "https://goviveatumanera.com/",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://goviveatumanera.com/",
+          "availability": "https://schema.org/PreOrder"
+        }
       }
     ]
   }
@@ -169,7 +215,7 @@
       <button type="button" data-lang="es" lang="es">ES</button>
       <button type="button" data-lang="en" lang="en">EN</button>
     </div>
-    <a class="ticket-btn ticket-btn--sm" data-tickets href="#"><span data-i18n="nav.tickets">Entradas</span></a>
+    <span class="ticket-btn ticket-btn--sm is-soldout" aria-disabled="true"><span data-i18n="cta.soldout">Sold out</span></span>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menú" data-i18n-aria="aria.menu"><span></span><span></span><span></span></button>
   </header>
 
@@ -193,7 +239,7 @@
         <p class="hero__claim" data-split data-i18n="hero.claim">¿Y si volvemos?</p>
         <p class="hero__tag"><b data-i18n="hero.date">Sáb 12 Dic</b><span data-i18n="venue.name">Teatro Gran Rex</span></p>
         <div class="hero__cta">
-          <a class="ticket-btn ticket-btn--lg" data-tickets href="#"><span data-i18n="cta.main">Quiero mi entrada</span></a>
+          <span class="ticket-btn ticket-btn--lg is-soldout" aria-disabled="true"><span data-i18n="cta.soldout">Sold out</span></span>
           <p class="hand hero__hand" data-countdown="2026-12-12T16:00:00-03:00"><span data-days-left>¡corré que vuelan!</span>
             <svg class="doodle doodle--arrow" viewBox="0 0 120 70" aria-hidden="true"><path pathLength="1" d="M112 8 C 90 4, 70 20, 74 36 C 78 52, 58 62, 40 52 C 26 44, 20 40, 10 46 M 20 36 L 9 46 L 22 54"/></svg>
           </p>
@@ -235,6 +281,22 @@
               <i class="barcode" aria-hidden="true"></i>
             </div>
             <span class="stamp" aria-hidden="true" data-i18n="ticket.stamp">Sold out</span>
+          </div>
+
+          <div class="ticket ticket--last ticket--soon c-mia toss" style="--r:-1.5deg" aria-label="Nueva función: domingo 13 a las 20 hs, entradas a la venta próximamente" data-i18n-aria="aria.soon13">
+            <span class="tape" aria-hidden="true"></span>
+            <span class="ticket__flag" data-i18n="ticket.newFlag">¡Nueva función!</span>
+            <div class="ticket__main">
+              <p class="ticket__show"><span>GO! Vive a tu manera</span><b data-i18n="ticket.title">¿Y si volvemos?</b></p>
+              <div class="ticket__date"><span class="ticket__day" data-i18n="ticket.daySun">Dom</span><span class="ticket__num">13</span><span class="ticket__month" data-i18n="ticket.month">Dic</span></div>
+              <p class="ticket__time" data-i18n="ticket.t20">20 hs</p>
+              <p class="ticket__place" data-i18n="ticket.place">Teatro Gran Rex · Av. Corrientes 857</p>
+            </div>
+            <div class="ticket__stub">
+              <span class="ticket__stub-label" data-i18n="ticket.s20">Función 20 hs</span>
+              <span class="ticket__soon" data-i18n="ticket.soon">Próximamente</span>
+              <i class="barcode" aria-hidden="true"></i>
+            </div>
           </div>
 
         </div>
@@ -316,7 +378,7 @@
           <!-- dirección con "cómo llegar" al lado; abajo el botón y después los logos -->
           <p class="lugar__addr"><span data-i18n="venue.addr">Av. Corrientes 857, CABA</span><a class="hand-link" href="como-llegar.html" data-i18n="venue.map">cómo llegar →</a></p>
           <div class="lugar__actions">
-            <a class="ticket-btn" data-tickets href="#"><span data-i18n="cta.buy">Comprar entradas</span></a>
+            <span class="ticket-btn is-soldout" aria-disabled="true"><span data-i18n="cta.soldout">Sold out</span></span>
           </div>
           <img class="lugar__logos" src="img/ticketeras.png" alt="TuEntrada.com · Teatro Gran Rex, 89 años" loading="lazy">
         </div>
@@ -349,7 +411,7 @@
   </footer>
 
   <!-- CTA fija en mobile -->
-  <a class="sticky-cta ticket-btn" data-tickets href="#"><span data-i18n="cta.main">Quiero mi entrada</span></a>
+  <span class="sticky-cta ticket-btn is-soldout" aria-disabled="true"><span data-i18n="cta.soldout">Sold out</span></span>
 
   <!-- POPUP: aparece a los 5 s y va rotando entre entradas, canciones y merch -->
   <dialog class="popup" aria-labelledby="popup-title">
@@ -386,6 +448,6 @@
   </dialog>
 
   <script src="pixels.js?v=1"></script>
-  <script src="script.js?v=56"></script>
+  <script src="script.js?v=58"></script>
 </body>
 </html>
