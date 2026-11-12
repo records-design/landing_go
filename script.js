@@ -15,7 +15,8 @@ const POPUP_DELAY = 5000;
 // La tienda todavía no está abierta: "Tienda" muestra un aviso de "Próximamente".
 // Cuando abra, poner true y vuelve a funcionar el link (y el popup de merch).
 const SHOP_OPEN = false;
-const POPUPS = { tickets: 50, presave: 30, merch: SHOP_OPEN ? 20 : 0 };
+// Las dos funciones están agotadas: el popup de entradas queda apagado (tickets: 0).
+const POPUPS = { tickets: 0, presave: 30, merch: SHOP_OPEN ? 20 : 0 };
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const STAR = '<svg aria-hidden="true"><use href="#star"/></svg>';
@@ -68,7 +69,7 @@ loaded.then(() => {
    Cada texto traducible tiene data-i18n="clave" (o data-i18n-aria para aria-label). */
 const EN = {
   'aria.home': 'GO! Vive a tu manera, home', 'aria.sections': 'Sections', 'aria.lang': 'Language',
-  'aria.soldout': 'Saturday 12, 8 pm show sold out', 'aria.bands': 'Tickets available',
+  'aria.soldout': 'Saturday 12, 8 pm show sold out', 'aria.soldout16': 'Saturday 12, 4 pm show sold out', 'aria.bands': 'Tickets available',
   'aria.close': 'Close', 'aria.menu': 'Menu',
   'nav.home': 'Home', 'nav.shows': 'Shows', 'nav.releases': 'Music', 'nav.merch': 'Shop', 'nav.cast': 'Cast', 'nav.venue': 'Getting there', 'nav.tickets': 'Tickets',
   'hero.claim': 'What if we go back?', 'hero.date': 'Sat Dec 12', 'venue.name': 'Gran Rex Theatre',
