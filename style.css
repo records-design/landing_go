@@ -317,10 +317,11 @@ body:not(.is-ready) .nav { opacity: 0; }
 .mega.is-in { transform: none; opacity: 1; }
 .funciones .mega { color: var(--lupe); text-align: center; font-size: clamp(80px, 9vw, 140px); } /* fucsia de la marca, mediano: las protagonistas son las entradas */
 
-.tickets { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px 48px; margin-top: 56px; position: relative; }
+.tickets { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px 22px; margin-top: 56px; padding-top: 14px; position: relative; }
+@media (min-width: 1200px) and (max-width: 1299px) { .ticket { --tk: .9; } .tickets { gap: 40px 16px; } } /* escritorio angosto: siguen entrando las 3 */
 .ticket {
-  /* en escritorio cada entrada se agranda entera (todo lo de adentro escala parejo) */
-  zoom: var(--tk, 1.35);
+  /* en escritorio las 3 entradas van en una fila (todo lo de adentro escala parejo) */
+  zoom: var(--tk, .96);
   position: relative; display: flex; width: 370px; min-height: 214px;
   color: var(--ink); text-decoration: none;
   filter: drop-shadow(0 14px 18px rgba(0,0,0,.28));
