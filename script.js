@@ -72,7 +72,7 @@ const EN = {
   'aria.soldout': 'Saturday 12, 8 pm show sold out', 'aria.soldout16': 'Saturday 12, 4 pm show sold out', 'aria.bands': 'Tickets available',
   'aria.close': 'Close', 'aria.menu': 'Menu',
   'nav.home': 'Home', 'nav.shows': 'Shows', 'nav.releases': 'Music', 'nav.merch': 'Shop', 'nav.cast': 'Cast', 'nav.venue': 'Getting there', 'nav.tickets': 'Tickets',
-  'hero.claim': 'What if we go back?', 'hero.date': 'Sat Dec 12', 'venue.name': 'Gran Rex Theatre',
+  'hero.claim': 'What if we go back?', 'hero.date': 'Sat 12 & Sun 13 Dec', 'venue.name': 'Gran Rex Theatre',
   'cta.main': 'Get my ticket', 'cta.soldout': 'Sold out',
   'shows.title': 'Shows',
   'ticket.title': 'What if we go back?', 'ticket.day': 'Sat', 'ticket.month': 'Dec',

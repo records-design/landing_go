@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GO! Vive a tu manera · ¿Y si volvemos? · Teatro Gran Rex</title>
-  <meta name="description" content="Mia, Lupe, Juanma y Alvaro vuelven al escenario. GO! Vive a tu manera en vivo, 12 de diciembre en el Teatro Gran Rex. Entradas en TuEntrada.">
+  <meta name="description" content="Mia, Lupe, Juanma y Alvaro vuelven al escenario. GO! Vive a tu manera en vivo, 12 y 13 de diciembre en el Teatro Gran Rex. Entradas en TuEntrada.">
   <meta property="og:title" content="GO! Vive a tu manera · ¿Y si volvemos?">
-  <meta property="og:description" content="12 de diciembre · Teatro Gran Rex. ¡Entradas disponibles!">
+  <meta property="og:description" content="12 y 13 de diciembre · Teatro Gran Rex. ¡Nueva función el domingo 13!">
   <meta property="og:image" content="https://goviveatumanera.com/img/key-visual.jpg">
   <meta property="og:url" content="https://goviveatumanera.com/">
   <meta property="og:type" content="website">
@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="preload" href="fonts/gillsans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="style.css?v=97">
+  <link rel="stylesheet" href="style.css?v=98">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -215,7 +215,7 @@
       <button type="button" data-lang="es" lang="es">ES</button>
       <button type="button" data-lang="en" lang="en">EN</button>
     </div>
-    <a class="ticket-btn ticket-btn--sm is-soldout" data-tickets href="#"><span data-i18n="cta.soldout">Sold out</span></a>
+    <a class="ticket-btn ticket-btn--sm" data-tickets href="#"><span data-i18n="nav.tickets">Entradas</span></a>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menú" data-i18n-aria="aria.menu"><span></span><span></span><span></span></button>
   </header>
 
@@ -237,9 +237,9 @@
 
         <h1 class="hero__logo"><img src="img/logo-go.png" alt="GO! Vive a tu manera"></h1>
         <p class="hero__claim" data-split data-i18n="hero.claim">¿Y si volvemos?</p>
-        <p class="hero__tag"><b data-i18n="hero.date">Sáb 12 Dic</b><span data-i18n="venue.name">Teatro Gran Rex</span></p>
+        <p class="hero__tag"><b data-i18n="hero.date">Sáb 12 y Dom 13 Dic</b><span data-i18n="venue.name">Teatro Gran Rex</span></p>
         <div class="hero__cta">
-          <a class="ticket-btn ticket-btn--lg is-soldout" data-tickets href="#"><span data-i18n="cta.soldout">Sold out</span></a>
+          <a class="ticket-btn ticket-btn--lg" data-tickets href="#"><span data-i18n="cta.main">Quiero mi entrada</span></a>
           <p class="hand hero__hand" data-countdown="2026-12-12T16:00:00-03:00"><span data-days-left>¡corré que vuelan!</span>
             <svg class="doodle doodle--arrow" viewBox="0 0 120 70" aria-hidden="true"><path pathLength="1" d="M112 8 C 90 4, 70 20, 74 36 C 78 52, 58 62, 40 52 C 26 44, 20 40, 10 46 M 20 36 L 9 46 L 22 54"/></svg>
           </p>
@@ -378,7 +378,7 @@
           <!-- dirección con "cómo llegar" al lado; abajo el botón y después los logos -->
           <p class="lugar__addr"><span data-i18n="venue.addr">Av. Corrientes 857, CABA</span><a class="hand-link" href="como-llegar.html" data-i18n="venue.map">cómo llegar →</a></p>
           <div class="lugar__actions">
-            <a class="ticket-btn is-soldout" data-tickets href="#"><span data-i18n="cta.soldout">Sold out</span></a>
+            <a class="ticket-btn" data-tickets href="#"><span data-i18n="cta.buy">Comprar entradas</span></a>
           </div>
           <img class="lugar__logos" src="img/ticketeras.png" alt="TuEntrada.com · Teatro Gran Rex, 89 años" loading="lazy">
         </div>
@@ -411,7 +411,7 @@
   </footer>
 
   <!-- CTA fija en mobile -->
-  <a class="sticky-cta ticket-btn is-soldout" data-tickets href="#"><span data-i18n="cta.soldout">Sold out</span></a>
+  <a class="sticky-cta ticket-btn" data-tickets href="#"><span data-i18n="cta.main">Quiero mi entrada</span></a>
 
   <!-- POPUP: aparece a los 5 s y va rotando entre entradas, canciones y merch -->
   <dialog class="popup" aria-labelledby="popup-title">
@@ -448,6 +448,6 @@
   </dialog>
 
   <script src="pixels.js?v=1"></script>
-  <script src="script.js?v=58"></script>
+  <script src="script.js?v=59"></script>
 </body>
 </html>
